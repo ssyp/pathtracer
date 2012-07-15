@@ -1,7 +1,6 @@
 #include "MonteCarloImage.h"
 
-MonteCarloImage::MonteCarloImage(int x, int y)
-{
+MonteCarloImage::MonteCarloImage(int x, int y) {
 	pixels = new Vec3<float>*[y];
 	for(int i = 0; i < y; i++) {
 		pixels[i] = new Vec3<float>[x];

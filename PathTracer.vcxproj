@@ -11,7 +11,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="MonteCarloImage.cpp" />
+    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="source\PathTracer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="MonteCarloImage.h" />
+    <ClInclude Include="Renderer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4E40D4A3-8AC0-488D-826C-EA8074A05497}</ProjectGuid>

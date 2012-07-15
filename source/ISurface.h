@@ -1,8 +1,8 @@
 #ifndef __ISURFACE_H__
 #define __ISURFACE_H__
 
-#include "Ray.h"
 #include "Vec3.h"
+#include "Ray.h"
 
 class ISurface {
 	public:

@@ -7,6 +7,7 @@ class Vec3 {
 		T x;
 		T y;
 		T z;
+		
 	Vec3<T> operator + (const Vec3<T> &vec) const {
 		Vec3<T> result;
 		result.x=x+vec.x;
@@ -31,19 +32,18 @@ class Vec3 {
 		return result;
 	}
 
-	T la() {
+	T getLength() {
 		return static_cast<float>(sqrt(x*x+y*y+z*z));
 	}
 
 	void normalize() {
-		float l=1.0f/la();
+		float l=1.0f/getLength();
 		x*=l; y*=l; z*=l;
 	}
 
 	T dot(const Vec3<T> &Vec3) const {
 		return (x*Vec3.x+y*Vec3.y+z*Vec3.z);
 	}
-
 
 	Vec3<T> cross(const Vec3<T> &vec) const {
 		Vec3 result;

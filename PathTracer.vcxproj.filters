@@ -2,21 +2,23 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="source\PathTracer.cpp" />
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="MonteCarloImage.cpp" />
-    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="source\Plane.cpp" />
     <ClCompile Include="source\Sphere.cpp" />
     <ClCompile Include="source\Ray.cpp" />
+    <ClCompile Include="source\Scene.cpp" />
+    <ClCompile Include="source\Renderer.cpp" />
+    <ClCompile Include="source\MonteCarloImage.cpp" />
+    <ClCompile Include="source\Camera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="MonteCarloImage.h" />
-    <ClInclude Include="Renderer.h" />
     <ClInclude Include="source\Vec2.h" />
     <ClInclude Include="source\Vec3.h" />
     <ClInclude Include="source\ISurface.h" />
     <ClInclude Include="source\Ray.h" />
     <ClInclude Include="source\Sphere.h" />
+    <ClInclude Include="source\Scene.h" />
+    <ClInclude Include="source\Renderer.h" />
+    <ClInclude Include="source\MonteCarloImage.h" />
   </ItemGroup>
 </Project>

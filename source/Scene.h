@@ -4,6 +4,9 @@
 #include <vector>
 #include "ISurface.h"
 
+
+const float inf = 1E37;
+
 class Scene {
 	std::vector<ISurface*> nodes;
 	

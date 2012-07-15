@@ -20,5 +20,6 @@
     <ClInclude Include="source\Scene.h" />
     <ClInclude Include="source\Renderer.h" />
     <ClInclude Include="source\MonteCarloImage.h" />
+    <ClInclude Include="source\Plane.h" />
   </ItemGroup>
 </Project>

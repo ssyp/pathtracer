@@ -1,5 +1,5 @@
-#ifndef __VECTOR2_H__ 
-#define __VECTOR2_H__
+#ifndef __VEC2_H__ 
+#define __VEC2_H__
 
 template <class T>
 class Vec2 {

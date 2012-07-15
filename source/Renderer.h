@@ -9,7 +9,7 @@ class Renderer {
 		Renderer(int x, int y);
 		void setBackgroundColor(Vec3<float>& vec);
 		void setPathDepth(int n);
-		Vec3<float>& getBackgroundColor() const;
+		Vec3<float> getBackgroundColor() const;
 		int getPathDepth() const;
 		void render(Camera & camera, Scene & scene);
 		int getSamples() const;

@@ -8,16 +8,17 @@
 const float inf = 1E37;
 
 class Scene {
-	std::vector<ISurface*> nodes;
+	public:
+			std::vector<ISurface*> nodes;
 	
-	void addSurface(ISurface* surface);
-	void deleteSurface(const int index);
-	void deleteSurface(const ISurface* surface);
+			void addSurface(ISurface* surface);
+			void deleteSurface(const int index);
+			void deleteSurface(const ISurface* surface);
 	
-	int getNumSurfaces() const;	
-	ISurface* getSurface(const int index) const;
+			int getNumSurfaces() const;	
+			ISurface* getSurface(const int index) const;
 	
-	int getIntersection(const Ray & ray) const;
+			int getIntersection(const Ray & ray) const;
 };
 
 #endif

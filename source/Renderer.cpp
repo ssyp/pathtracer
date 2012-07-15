@@ -19,7 +19,7 @@ void Renderer::setPathDepth(int n)
 	pathDepth = n;
 }
 
-Vec3<float>& Renderer::getBackgroundColor() const
+Vec3<float> Renderer::getBackgroundColor() const
 {
 	return backgroundColor;
 }

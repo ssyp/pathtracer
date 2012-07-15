@@ -6,8 +6,8 @@
 class Camera {
 	public:
 		Camera(Vec3<float>& pos, Vec3<float>& d, int x, int y);
-		Vec3<float>& getPos() const;
-		Vec3<float>& getDir() const;
+		Vec3<float> getPos() const;
+		Vec3<float> getDir() const;
 		int getDpiX() const;
 		int getDpiY() const;
 	private:

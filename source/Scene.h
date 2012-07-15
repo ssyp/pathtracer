@@ -7,7 +7,7 @@
 class Scene {
 	std::vector<ISurface*> nodes;
 	
-	void addSurface(const ISurface* surface);
+	void addSurface(ISurface* surface);
 	void deleteSurface(const int index);
 	void deleteSurface(const ISurface* surface);
 	

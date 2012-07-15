@@ -3,7 +3,7 @@
 #include "Camera.h"
 #include "Scene.h"
 #include "vec3.h"
-
+#include "MonteCarloImage.h"
 class Renderer {
 	public:
 		Renderer();
@@ -16,8 +16,9 @@ class Renderer {
 		Vec3 pathTrace(Ray & ray, Scene & scene);
 	private:
 		int samples;
-		int pathDepth;
+		int pathDepth, curDepth, distance;
 		Vec3<float>& backgroundColor;
+		MonteCarloImage* mci;
 };
 
 #endif

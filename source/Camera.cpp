@@ -6,6 +6,9 @@ Camera::Camera(Vec3<float>& pos, Vec3<float>& d, int x, int y)
 	direct  = d;
 	dpiX = x;
 	dpiY = y;
+	screenSizeX = 1024 / dpiX;
+	screenSizeY = 600 / dpiY;
+	
 }
 
 Vec3<float>& getPos() const

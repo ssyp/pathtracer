@@ -1,4 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+=======
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="source\PathTracer.cpp" />
@@ -23,3 +26,4 @@
     <ClInclude Include="source\Plane.h" />
   </ItemGroup>
 </Project>
+>>>>>>> 7f279ce50ae51f0f987642c29332a87249cdbb85

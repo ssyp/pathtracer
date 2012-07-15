@@ -15,6 +15,7 @@ class Camera {
 		Vec3<float> direct;
 		int dpiX;
 		int dpiY;
+		int screenSizeX, screenSizeY;
 };
 
 #endif

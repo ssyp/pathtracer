@@ -1,6 +1,5 @@
 #ifndef _MONTE_CARLO_
 #define _MONTE_CARLO_
-#include <list>
 #include "vec3.h"
 
 class MonteCarloImage {

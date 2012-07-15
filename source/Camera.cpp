@@ -1,12 +1,13 @@
 #include "Camera.h"
 
-Camera::Camera(Vec3<float> & pos, Vec3<float> & d, int x, int y) {
+Camera::Camera(Vec3<float> & pos, Vec3<float> & d, float angel, int x, int y) {
 	position = pos;
 	direct  = d;
 	dpiX = x;
 	dpiY = y;
 	screenSizeX = 1024 / dpiX;
 	screenSizeY = 600 / dpiY;
+	this->angel = angel;
 }
 
 Vec3<float> Camera::getPos() const {

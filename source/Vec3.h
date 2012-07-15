@@ -1,5 +1,5 @@
-#ifndef __VECTOR3_H__ 
-#define __VECTOR3_H__
+#ifndef __vec3<T>3_H__ 
+#define __vec3<T>3_H__
 
 template <class T>
 class Vec3 {

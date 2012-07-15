@@ -1,11 +1,12 @@
 #include "Plane.h"
 
-Vec3<float> Plane::getNormal(const Vec3<float> & ip) {
+Vec3<float> Plane::getNormal(const Vec3<float> & ip) const{
 	Vec3<float> normal = abc;
-	return 	normal.normalize();
+	normal.normalize();
+	return normal;
 }
 
-bool Plane::getIntersection(const Ray & r, Vec3<float> & ip) {
+bool Plane::getIntersection(const Ray & ray, Vec3<float> & ip) const{
 	Vec3<float> normal = getNormal(abc);
 	float t = 0;
 	

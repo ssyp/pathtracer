@@ -3,6 +3,7 @@
 
 #include "ISurface.h"
 #include <cmath>
+#include <algorithm>
 
 class Sphere : ISurface {
 	public:

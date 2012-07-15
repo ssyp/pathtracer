@@ -37,7 +37,7 @@ class Vec3 {
 	}
 
 	void normalize() {
-		float l=1.0f/la();
+		float l=1.0f/getLength();
 		x*=l; y*=l; z*=l;
 	}
 

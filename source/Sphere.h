@@ -5,12 +5,12 @@
 
 class Sphere : ISurface {
 	public:
-		Vec3<float> pos;
+		Vec3<float> position;
 		float radious;
 		
-		Vec3<float> getNormal(Vec3<float> ip);
+		Vec3<float> getNormal(const Vec3<float> & ip) const;
 		
-		bool getIntersection(Ray r, Vec3<float> &ip);
+		bool getIntersection(const Ray & r, Vec3<float> & ip) const ;
 };
 
 #endif

@@ -1,4 +1,4 @@
-#ifn def __VECTOR3_H__ 
+#ifndef __VECTOR3_H__ 
 #define __VECTOR3_H__
 
 template <class T>

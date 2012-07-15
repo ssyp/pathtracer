@@ -1,18 +1,18 @@
 #ifndef _CAMERA_H_
 #define _CAMERA_H_
 
-#include "vector.h";
+#include "vec3.h"
 
 class Camera {
 	public:
-		Camera(Vector& pos, Vector& d, int x, int y);
-		Vector& getPos() const;
-		Vector& getDir() const;
+		Camera(Vec3<float>& pos, Vec3<float>& d, int x, int y);
+		Vec3<float>& getPos() const;
+		Vec3<float>& getDir() const;
 		int getDpiX() const;
 		int getDpiY() const;
 	private:
-		Vector position;
-		Vector direct;
+		Vec3<float> position;
+		Vec3<float> direct;
 		int dpiX;
 		int dpiY;
 };

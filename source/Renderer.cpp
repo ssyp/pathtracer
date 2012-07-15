@@ -1,6 +1,11 @@
 #include "Renderer.h"
 
-void Renderer::setBackgroundColor(Vector& vec)
+Renderer::Renderer()
+{
+	samples = 0;
+}
+
+void Renderer::setBackgroundColor(Vec3<float>& vec)
 {
 	backgroundColor = vec;
 }
@@ -10,7 +15,7 @@ void Renderer::setPathDepth(int n)
 	pathDepth = n;
 }
 
-Vector& Renderer::getBackgroundColor()
+Vec3<float>& Renderer::getBackgroundColor()
 {
 	return backgroundColor;
 }
@@ -25,6 +30,26 @@ void Renderer::render(Camera & camera, Scene & scene)
 	for(int y = 0; y < camera.getDpiY(); y++)
 		for(int x = 0; x < camera.getDpiX(); x++)
 		{
-			Vector vec(
+			Ray<float> ray(camera.getPos(), camera.getDir().normalize());
+			scene.push(ray);
+			samples++;
 		}
+}
+
+int Renderer::getSamples()
+{
+	return samples;
+}
+
+Vec3<float> pathTrace(Ray & ray, Scene & scene)
+{
+	Vec3<float> point;
+	if(scene.getIntersection(ray, &point))
+	{
+		
+	}
+	else {
+		return Vec3<float>(0,0,0);
+	}
+	
 }

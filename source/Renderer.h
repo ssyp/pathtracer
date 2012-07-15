@@ -2,16 +2,22 @@
 #define _RENDERER_H_
 #include "Camera.h"
 #include "Scene.h"
+#include "vec3.h"
+
 class Renderer {
 	public:
-		void setBackgroundColor(Vector& vec);
+		Renderer();
+		void setBackgroundColor(Vec3<float>& vec);
 		void setPathDepth(int n);
-		Vector& getBackgroundColor();
+		Vec3<float>& getBackgroundColor();
 		int getPathDepth();
 		void render(Camera & camera, Scene & scene);
+		int getSamples();
+		Vec3 pathTrace(Ray & ray, Scene & scene);
 	private:
+		int samples;
 		int pathDepth;
-		Vector& backgroundColor;
+		Vec3<float>& backgroundColor;
 };
 
 #endif

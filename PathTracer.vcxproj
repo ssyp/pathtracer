@@ -15,11 +15,19 @@
     <ClCompile Include="MonteCarloImage.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="source\PathTracer.cpp" />
+    <ClCompile Include="source\Plane.cpp" />
+    <ClCompile Include="source\Ray.cpp" />
+    <ClCompile Include="source\Sphere.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="MonteCarloImage.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="source\ISurface.h" />
+    <ClInclude Include="source\Ray.h" />
+    <ClInclude Include="source\Sphere.h" />
+    <ClInclude Include="source\Vec2.h" />
+    <ClInclude Include="source\Vec3.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4E40D4A3-8AC0-488D-826C-EA8074A05497}</ProjectGuid>

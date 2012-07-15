@@ -6,6 +6,6 @@ class Ray {
 	public:
 		Vec3<float> position;
 		Vec3<float> direction;
-		Vec3<float> eval(float t);
+		Vec3<float> eval(const float & t) const;
 };
 #endif

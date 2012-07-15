@@ -145,9 +145,6 @@ class Parser {
 					block.map[pos] = vPos;
 					block.map[radius] = vRadius;
 					blocks.push_back(block);
-
-					std::cout << surfaceN << "|" << pos << "|" << posX << "|" << posY << "|" << posZ << "|";
-					std::cout << radius << "|" << fRadius << std::endl;
 				}
 				else if (surfaceN == 2) {
 					if(plane == true) {
@@ -165,9 +162,6 @@ class Parser {
 						block.map[pos] = vPos;
 						block.map[normal] = vNormal;
 						blocks.push_back(block);
-
-						std::cout << surfaceN << "|" << pos << "|" << posX << "|" << posY << "|" << posZ << "|";
-						std::cout << normal << "|" << otherX << "|" << otherY << "|" << otherZ << std::endl;
 					}
 					else {
 						Variable point1C;
@@ -190,10 +184,6 @@ class Parser {
 						block.map[point1] = point1C;
 						block.map[point2] = point2C;
 						block.map[point3] = point3C;
-
-						std::cout << surfaceN << "|" << point1 << "|" << posX1 << "|" << posY1 << "|" << posZ1 << "|";
-						std::cout << point2 << "|" << posX2 << "|" << posY2 << "|" << posZ2 << "|";
-						std::cout << point3 << "|" << posX3 << "|" << posY3 << "|" << posZ3 << std::endl;
 					}
 				}
 				else if (surfaceN == 3) {
@@ -211,9 +201,6 @@ class Parser {
 					block.map[pos] = vPos;
 					block.map[size] = vSize;
 					blocks.push_back(block);
-
-					std::cout << surfaceN << "|" << pos << "|" << posX << "|" << posY << "|" << posZ << "|";
-					std::cout << size << "|" << otherX << "|" << otherY << "|" << otherZ << std::endl;
 				}
 				else if (surfaceN == 4) {
 					Variable fileName;
@@ -222,8 +209,6 @@ class Parser {
 					Block block;
 					block.surface = surfaceN;
 					block.map[fileNm] = fileName;
-
-					std::cout << surfaceN << "|" << meshFile << std::endl;
 				}
 				nSurface++;
 			}

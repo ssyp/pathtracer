@@ -1,6 +1,7 @@
 #ifndef __SPHERE_H__
 #define __SPHERE_H__
 
+#include "ISurface.h"
 #include <cmath>
 
 class Sphere : ISurface {

@@ -1,7 +1,9 @@
 #include "Sphere.h"
 
 Vec3<float> Sphere::getNormal(Vec3<float> ip) {
-	
+	Vec3<float> v;
+	v.normalize(ip-position);
+	return v;
 }
 
 bool Sphere::getIntersection(const Ray & ray, Vec3<float> &ip) {

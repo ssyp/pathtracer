@@ -5,7 +5,7 @@
 
 class Sphere : ISurface {
 	public:
-		Vec3<float> pos;
+		Vec3<float> position;
 		float radious;
 		
 		Vec3<float> getNormal(Vec3<float> ip);

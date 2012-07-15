@@ -1,10 +1,10 @@
 #ifndef __RAY_H__ 
 #define __RAY_H__
-#include "Vec.3"
+#include "Vec3.h"
 
 class Ray {
 	Vec3<float> position;
 	Vec3<float> direction;
-	Vec3<float> eval(float t);
+	Vec3<float> eval(const float & t) const;
 };
 #endif

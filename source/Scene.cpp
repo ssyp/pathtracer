@@ -1,7 +1,7 @@
 #include "Scene.h"
 #include "Vec3.h"
 
-void Scene::addSurface(const ISurface* surface) {
+void Scene::addSurface(ISurface* surface) {
 	for(int i = 0; i < nodes.size(); i++) {
 		if(nodes[i] == surface) {
 			return;
@@ -15,7 +15,7 @@ void Scene::deleteSurface(const int index) {
 }
 
 void Scene::deleteSurface(const ISurface* surface) {
-	for(std::vector<float>::iterator it = nodes.begin(); it < nodes.end(); it++) {
+	for(std::vector<ISurface*>::iterator it = nodes.begin(); it < nodes.end(); it++) {
 		if(*it == surface) {
 			nodes.erase(it);
 			break;
@@ -32,7 +32,7 @@ ISurface* Scene::getSurface(const int index) const {
 }
 	
 int Scene::getIntersection(const Ray & ray) const {
-	float t1, t = MAX_FLOAT;
+	float t1, t = FLOAT_MAX;
 	int index;
 	for(int i = 0; i < nodes.size(); i++) {
 		if(nodes[i]->getIntersection(ray, t1)) {

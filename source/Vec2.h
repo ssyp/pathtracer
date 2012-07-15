@@ -41,7 +41,7 @@ class Vec2 {
 		return result;
 	}
 
-	T getLength() {
+	float getLength() const {
 		return static_cast<float> (sqrt (x * x + y * y));
 	}
 

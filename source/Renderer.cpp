@@ -6,6 +6,7 @@ Renderer::Renderer(int x, int y)
 	curDepth = 0;
 	distance = 1;
 	mci = new MonteCarloImage(x,y);
+	//backgroundColor = NULL;
 }
 
 void Renderer::setBackgroundColor(Vec3<float>& vec)
@@ -18,12 +19,12 @@ void Renderer::setPathDepth(int n)
 	pathDepth = n;
 }
 
-Vec3<float>& Renderer::getBackgroundColor()
+Vec3<float>& Renderer::getBackgroundColor() const
 {
 	return backgroundColor;
 }
 
-int Renderer::getPathDepth()
+int Renderer::getPathDepth() const
 {
 	return pathDepth;
 }
@@ -41,7 +42,7 @@ void Renderer::render(Camera & camera, Scene & scene)
 		}
 }
 
-int Renderer::getSamples()
+int Renderer::getSamples() const
 {
 	return samples;
 }
@@ -59,11 +60,12 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene)
 	
 	if(surf->getIntersection(ray, pointRay))
 	{
+		Vec3<float> point = ray.eval(pointRay);
 		Vec3<float> normal = surf->getNormal(point);
 		float x = (rand()%static_cast<int>(normal.x))/100, y = (rand()%static_cast<int>(normal.y))/100, z = sqrt(1 - x*x - y*y);
 		Vec3<float> randVec(x, y, z);
 		
-		Vec3<float> ray.eval(pointRay);
+		
 		Ray randRay(point,randVec);
 		pathTrace(randRay,scene);
 		curDepth++;

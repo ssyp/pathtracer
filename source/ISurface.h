@@ -6,7 +6,7 @@
 
 class ISurface {
 	public:
-		virtual Vec3<float> getNormal(Vec3<float> ip) const = 0;
+		virtual Vec3<float> getNormal(const Vec3<float> & ip) const = 0;
 		virtual bool getIntersection(const Ray & ray, float & t) const = 0;
 };
 

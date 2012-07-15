@@ -4,7 +4,7 @@
 #include "ISurface.h"
 #include <cmath>
 
-class Plane : ISurface {
+class Plane : public ISurface {
 	public:
 		Vec3<float> abc;
 		float d;

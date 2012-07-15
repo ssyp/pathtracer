@@ -17,7 +17,11 @@ class Vec2 {
 		y = newY;
 	}
 
-	Vec2(const Vec2<T> & newV) {
+	Vec2<T> operator = (const Vec2<T> & vec) const {
+	Vec2<T> result;
+	result.x = vec.x;
+	result.y = vec.y;
+	return result;
 	}
 
 	Vec2<T> operator + (const Vec2<T> & vec2) const {

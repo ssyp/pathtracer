@@ -1,5 +1,5 @@
-#ifndef __vec3<T>3_H__ 
-#define __vec3<T>3_H__
+#ifndef __VEC3_H__ 
+#define __VEC3_H__
 
 template <class T>
 class Vec3 {
@@ -8,6 +8,21 @@ class Vec3 {
 		T y;
 		T z;
 		
+	Vec3() {
+		x = 0;
+		y = 0;
+		z = 0;
+	}
+
+	Vec3(T newX, T newY, T newZ) {
+		x = newX;
+		y = newY;
+		z = newZ;
+	}
+
+	Vec3(const Vec3<T> & newV) {
+	}
+
 	Vec3<T> operator + (const Vec3<T> & vec) const {
 		Vec3<T> result;
 		result.x = x + vec.x;
@@ -32,7 +47,7 @@ class Vec3 {
 		return result;
 	}
 
-	T getLength() {
+	float getLength() const {
 		return static_cast<float>(sqrt (x * x + y * y + z * z));
 	}
 

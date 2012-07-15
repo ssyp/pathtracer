@@ -1,11 +1,25 @@
-#ifndef __VECTOR2_H__ 
-#define __VECTOR2_H__
+#ifndef __VEC2_H__ 
+#define __VEC2_H__
 
 template <class T>
 class Vec2 {
 	public:
 		T x;
 		T y;
+
+	Vec2() {
+		x = 0;
+		y = 0;
+	}
+
+	Vec2(T newX, T newY, T newZ) {
+		x = newX;
+		y = newY;
+	}
+
+	Vec2(const Vec2<T> & newV) {
+	}
+
 	Vec2<T> operator + (const Vec2<T> & vec2) const {
 		Vec2<T> result;
 		result.x = x + vec2.x;
@@ -27,7 +41,7 @@ class Vec2 {
 		return result;
 	}
 
-	T getLength() {
+	float getLength() const {
 		return static_cast<float> (sqrt (x * x + y * y));
 	}
 

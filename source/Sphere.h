@@ -12,7 +12,7 @@ class Sphere : ISurface {
 		
 		Vec3<float> getNormal(const Vec3<float> & ip) const;
 		
-		bool getIntersection(const Ray & r, Vec3<float> & ip) const ;
+		bool getIntersection(const Ray & r, float & t) const ;
 };
 
 #endif

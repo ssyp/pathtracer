@@ -1,6 +1,7 @@
 #ifndef __PLANE_H__
 #define __PLANE_H__
 
+#include "ISurface.h"
 #include <cmath>
 
 class Plane : ISurface {

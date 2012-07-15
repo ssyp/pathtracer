@@ -11,19 +11,19 @@ Camera::Camera(Vec3<float>& pos, Vec3<float>& d, int x, int y)
 	
 }
 
-Vec3<float>& getPos() const
+Vec3<float>& Camera::getPos() const
 {
 	return position;
 }
-Vec3<float>& getDir() const
+Vec3<float>& Camera::getDir() const
 {
 	return direct;
 }
-int getDpiX() const
+int Camera::getDpiX() const
 {
 	return dpiX;
 }
-int getDpiY() const
+int Camera::getDpiY() const
 {
 	return dpiY;
 }

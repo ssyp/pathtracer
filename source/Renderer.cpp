@@ -42,7 +42,7 @@ int Renderer::getSamples() const {
 Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene) {
 	if(curDepth > pathDepth) {
 		curDepth = 0;
-		return Vec3<float>(0,0,0);
+		return Vec3<float>(0, 0, 0);
 	}
 	float pointRay;
 	int ind = scene.getIntersection(ray);
@@ -51,7 +51,7 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene) {
 	if(surf->getIntersection(ray, pointRay)) {
 		Vec3<float> point = ray.eval(pointRay);
 		Vec3<float> normal = surf->getNormal(point);
-		float x = (rand()%static_cast<int>(normal.x))/100, y = (rand()%static_cast<int>(normal.y))/100, z = sqrt(1 - x*x - y*y);
+		float x = (rand() % static_cast<int>(normal.x)) / 100, y = (rand() % static_cast<int>(normal.y)) / 100, z = sqrt(1 - x * x - y * y);
 		Vec3<float> randVec(x, y, z);
 		
 		
@@ -61,7 +61,7 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene) {
 	}
 	else {
 		curDepth = 0;
-		return Vec3<float>(0,0,0);
+		return Vec3<float>(0, 0, 0);
 	}
 	
 }

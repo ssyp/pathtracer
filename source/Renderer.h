@@ -7,7 +7,7 @@
 class Renderer {
 	public:
 		Renderer(int x, int y);
-		void setBackgroundColor(Vec3<float>& vec);
+		void setBackgroundColor(Vec3<float> & vec);
 		void setPathDepth(int n);
 		Vec3<float> getBackgroundColor() const;
 		int getPathDepth() const;

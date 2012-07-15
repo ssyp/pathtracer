@@ -15,6 +15,6 @@ void MonteCarloImage::add(int x, int y, Vec3<float> color) {
 	pixels[y][x] += color;
 }
 
-Vec3<float>& MonteCarloImage::get(int x, int y) const {
+Vec3<float> & MonteCarloImage::get(int x, int y) const {
 	return pixels[y][x];
 }

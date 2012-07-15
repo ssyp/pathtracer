@@ -12,7 +12,7 @@ MonteCarloImage::MonteCarloImage(int x, int y)
 	
 }
 
-void MonteCarloImage::add(int x, int y, Vec3<float>& color) {
+void MonteCarloImage::add(int x, int y, Vec3<float> color) {
 	pixels[y][x] += color;
 }
 

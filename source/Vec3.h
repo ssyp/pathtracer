@@ -19,8 +19,13 @@ class Vec3 {
 		y = newY;
 		z = newZ;
 	}
-
-	Vec3(const Vec3<T> & newV) {
+	
+	Vec3<T> operator = (const Vec3<T> & vec) const {
+		Vec3<T> result;
+		result.x = vec.x;
+		result.y = vec.y;
+		result.z = vec.z;
+		return result;
 	}
 
 	Vec3<T> operator + (const Vec3<T> & vec) const {

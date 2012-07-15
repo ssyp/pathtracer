@@ -1,23 +1,22 @@
 #ifndef __SPHERE_H__
 #define __SPHERE_H__
 
-template<class T>
 class Sphere : ISurface {
 	public:
-		vec3<T> pos;
-		T radious;
+		Vec3<float> pos;
+		float radious;
 		
-		vec3<T> getNormal(vec3<T> ip);
+		Vec3<float> getNormal(Vec3<float> ip);
 		
-		bool getIntersection(Ray r, vec3<T> &ip);
+		bool getIntersection(Ray r, Vec3<float> &ip);
 };
 
-vec3<T> Sphere<T>::getNormal(vec3<T> ip) {
+Vec3<float> Sphere::getNormal(Vec3<float> ip) {
 	
 }
 
-bool Sphere<T>::getIntersection(Ray r, vec3<T> &ip) {
-
+bool Sphere::getIntersection(Ray r, Vec3<float> &ip) {
+	
 }
 
 #endif

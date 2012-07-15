@@ -1,11 +1,11 @@
 #include "Renderer.h"
 #include "Ray.h"
-Renderer::Renderer()
+Renderer::Renderer(int x, int y)
 {
 	samples = 0;
 	curDepth = 0;
 	distance = 1;
-	mci = new MonteCarloImage();
+	mci = new MonteCarloImage(x,y);
 }
 
 void Renderer::setBackgroundColor(Vec3<float>& vec)
@@ -33,9 +33,9 @@ void Renderer::render(Camera & camera, Scene & scene)
 	for(int y = 0; y < camera.getDpiY(); y++)
 		for(int x = 0; x < camera.getDpiX(); x++)
 		{
-			vec3 curVec(x,y,distance);
+			Vec3<float> curVec(x,y,distance);
 			Ray ray(camera.getPos(), curVec);
-			Vec3 color = pathTrace(ray, scene);
+			Vec3<float> color = pathTrace(ray, scene);
 			mci->add(y,x,color);
 			samples++;
 		}
@@ -46,22 +46,26 @@ int Renderer::getSamples()
 	return samples;
 }
 
-Vec3<float> pathTrace(Ray & ray, Scene & scene)
+Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene)
 {
 	if(curDepth > pathDepth)
 	{
 		curDepth = 0;
 		return Vec3<float>(0,0,0);
 	}
-	Vec3<float> point;
-	ISurface* surf = scene.getSurface(ray);
-	if(surf->getIntersection(ray, &point))
+	float pointRay;
+	int ind = scene.getIntersection(ray);
+	ISurface* surf = scene.getSurface(ind);
+	
+	if(surf->getIntersection(ray, pointRay))
 	{
 		Vec3<float> normal = surf->getNormal(point);
-		float x = (rand()%normal.x)/100, y = (rand()%normal.y)/100, z = sqrt(1 - x*x - y*y);
+		float x = (rand()%static_cast<int>(normal.x))/100, y = (rand()%static_cast<int>(normal.y))/100, z = sqrt(1 - x*x - y*y);
 		Vec3<float> randVec(x, y, z);
-		Ray ray(point, randVec);
-		pathTrace(ray,scene);
+		
+		Vec3<float> ray.eval(pointRay);
+		Ray randRay(point,randVec);
+		pathTrace(randRay,scene);
 		curDepth++;
 	}
 	else {

@@ -1,6 +1,8 @@
 #ifndef __SPHERE_H__
 #define __SPHERE_H__
 
+#include <cmath>
+
 class Sphere : ISurface {
 	public:
 		Vec3<float> pos;
@@ -10,13 +12,5 @@ class Sphere : ISurface {
 		
 		bool getIntersection(Ray r, Vec3<float> &ip);
 };
-
-Vec3<float> Sphere::getNormal(Vec3<float> ip) {
-	
-}
-
-bool Sphere::getIntersection(Ray r, Vec3<float> &ip) {
-	
-}
 
 #endif

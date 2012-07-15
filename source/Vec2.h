@@ -6,6 +6,20 @@ class Vec2 {
 	public:
 		T x;
 		T y;
+
+	Vec2() {
+		x = 0;
+		y = 0;
+	}
+
+	Vec2(T newX, T newY, T newZ) {
+		x = newX;
+		y = newY;
+	}
+
+	Vec2(const Vec2<T> & newV) {
+	}
+
 	Vec2<T> operator + (const Vec2<T> & vec2) const {
 		Vec2<T> result;
 		result.x = x + vec2.x;

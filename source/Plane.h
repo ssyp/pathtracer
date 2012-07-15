@@ -11,7 +11,7 @@ class Plane : ISurface {
 		
 		Vec3<float> getNormal(const Vec3<float> & ip) const;
 		
-		bool getIntersection(const Ray & r, Vec3<float> & ip) const;
+		bool getIntersection(const Ray & ray, Vec3<float> & ip) const;
 };
 
 #endif

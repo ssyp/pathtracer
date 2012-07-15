@@ -3,8 +3,9 @@
 #include "Vec3.h"
 
 class Ray {
-	Vec3<float> position;
-	Vec3<float> direction;
-	Vec3<float> eval(const float & t) const;
+	public:
+		Vec3<float> position;
+		Vec3<float> direction;
+		Vec3<float> eval(float t);
 };
 #endif

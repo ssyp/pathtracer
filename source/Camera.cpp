@@ -1,6 +1,6 @@
 #include "Camera.h"
 
-Camera::Camera(Vector& pos, Vector& d, int x, int y)
+Camera::Camera(Vec3<float>& pos, Vec3<float>& d, int x, int y)
 {
 	position = pos;
 	direct  = d;
@@ -8,11 +8,11 @@ Camera::Camera(Vector& pos, Vector& d, int x, int y)
 	dpiY = y;
 }
 
-Vector& getPos() const
+Vec3<float>& getPos() const
 {
 	return position;
 }
-Vector& getDir() const
+Vec3<float>& getDir() const
 {
 	return direct;
 }

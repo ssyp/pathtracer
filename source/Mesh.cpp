@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 
-bool Mesh::getIntersection(const Ray & ray, float & t) const{
+bool Mesh::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const{
 	Plane plane;
 	bool colision=false;
 	size_t index;

@@ -7,11 +7,8 @@
 #include <vector>
 
 class Mesh : public ISurface {		
-	public:
-	
-		Vec3<float> getNormal(const Vec3<float> & ip) const;
-		
-		bool getIntersection(const Ray & ray, float & t) const;
+	public:		
+		bool getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const;
 		
 		void load(const std::string & fileName);
 		

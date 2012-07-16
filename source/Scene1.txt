@@ -1,0 +1,2 @@
+Surface plane abc:[10;0;0] d:0
+Surface sphere pos:[0;0;0] radius:5.0

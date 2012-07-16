@@ -90,6 +90,17 @@ void Parser::parse(const std::string &name) {
 				block.map[inMap] = string;
 			}
 		}
-		blocks.push_back(block);
+		blocks.push_back(block);	
 	}
+}
+
+int Parser::getNumBlocks() {
+	return blocks.size();
+}
+
+Block Parser::getBlock(const int &n) {
+	Block block;
+	block.surface = blocks[n].surface;
+	block.map = blocks[n].map;
+	return block;
 }

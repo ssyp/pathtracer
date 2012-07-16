@@ -16,6 +16,12 @@ Vec3<float> Camera::getPos() const {
 Vec3<float> Camera::getDir() const {
 	return direct;
 }
+
+float Camera::getAngel() const
+{
+	return angel;
+}
+
 int Camera::getDpiX() const {
 	return dpiX;
 }

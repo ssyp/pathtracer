@@ -8,6 +8,7 @@ class Camera {
 		Camera(Vec3<float> & pos, Vec3<float> & d, float angel, int x, int y);
 		Vec3<float> getPos() const;
 		Vec3<float> getDir() const;
+		float getAngel() const;
 		int getDpiX() const;
 		int getDpiY() const;
 	private:

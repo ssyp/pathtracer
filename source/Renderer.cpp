@@ -25,15 +25,21 @@ int Renderer::getPathDepth() const {
 }
 
 void Renderer::render(Camera & camera, Scene & scene) {
-	for(int y = camera.getDpiY() / 2; y > - camera.getDpiY() / 2; y--)
-		for(int x = -camera.getDpiX() / 2; x > camera.getDpiX() / 2; x++) {
-			Vec3<float> curVec(x,y,distance);
-			Ray ray(camera.getPos(), curVec);
-			Vec3<float> color; 
-			pathTrace(ray, scene, color);
-			mci->add(y,x,color);
-			samples++;
+	for(int k = 0; k < 50; k++) 
+	{
+		for(int y = camera.getDpiY() / 2; y > - camera.getDpiY() / 2; y--) {
+			for(int x = -camera.getDpiX() / 2; x > camera.getDpiX() / 2; x++) {
+				Vec3<float> curVec(x,y,distance);
+				Ray ray(camera.getPos(), curVec);
+				Vec3<float> color; 
+				pathTrace(ray, scene, color);
+				mci->add(y,x,color);
+				
+			}
 		}
+		samples++;
+	}
+
 }
 
 int Renderer::getSamples() const {

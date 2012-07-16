@@ -11,7 +11,7 @@ class Sphere : public ISurface {
 		Sphere(const Vec3<float> & pos, const float & r);
 	
 		bool getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const;
-	
+		
 	private:
 		Vec3<float> position;
 		float radius;

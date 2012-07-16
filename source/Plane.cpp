@@ -29,3 +29,4 @@ bool Plane::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) co
 	}
 	return false;
 }
+

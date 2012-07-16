@@ -46,3 +46,4 @@ bool Sphere::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) c
 	normal.normalize();
 	return true;
 }
+

@@ -37,6 +37,7 @@ bool Mesh::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) con
 	return false;
 }
 
+
 void Mesh::load(const std::string & fileName) {
 	Vec3 v;
 	std::ifstream file(fileName);

@@ -9,6 +9,8 @@
     <ClCompile Include="source\Renderer.cpp" />
     <ClCompile Include="source\Scene.cpp" />
     <ClCompile Include="source\Sphere.cpp" />
+    <ClCompile Include="source\SimpleMaterial.cpp" />
+    <ClCompile Include="source\Parser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ISurface.h" />
@@ -22,5 +24,8 @@
     <ClInclude Include="source\Vec3.h" />
     <ClInclude Include="source\Camera.h" />
     <ClInclude Include="source\MathUtils.h" />
+    <ClInclude Include="source\IMaterial.h" />
+    <ClInclude Include="source\SimpleMaterial.h" />
+    <ClInclude Include="source\Parser.h" />
   </ItemGroup>
 </Project>

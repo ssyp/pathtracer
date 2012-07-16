@@ -91,20 +91,5 @@ void Parser::parse(const std::string &name) {
 			}
 		}
 		blocks.push_back(block);
-
-		std::cout << surfaceN;
-		for(int i = 1;i<nParameters + 1;i++) {
-			std::cout << "|" << parameters[i];
-			if (type[i] == "vector") {
-				std::cout << "|" << vX[i];
-				std::cout << "|" << vY[i];
-				std::cout << "|" << vZ[i];
-			}
-			else if (type[i] == "value")
-				std::cout << "|" << fValue[i];
-			else if (type[i] == "string")
-				std::cout << "|" << sValue[i];
-		}
-		std::cout << std::endl;
 	}
 }

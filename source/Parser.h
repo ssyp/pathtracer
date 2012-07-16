@@ -5,13 +5,6 @@
 #include <vector>
 #include <string>
 
-class Vec3 {
-	public:
-		float x;
-		float y;
-		float z;
-};
-
 class Variable {
 	public:
 		float floatValue;
@@ -32,8 +25,8 @@ class Parser {
 	
 		void parse(const std::string &name);
 
-		/*int getNumBlocks();
-		Block getBlock();*/
+		int getNumBlocks();
+		Block getBlock();
 };
 
 #endif

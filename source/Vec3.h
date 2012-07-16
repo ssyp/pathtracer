@@ -20,6 +20,12 @@ class Vec3 {
 		z = newZ;
 	}
 	
+	Vec3(const Vec3<T> & vec) {
+		x = vec.x;
+		y = vec.y;
+		z = vec.z;
+	}
+
 	Vec3<T> operator = (const Vec3<T> & vec) const {
 		Vec3<T> result;
 		result.x = vec.x;

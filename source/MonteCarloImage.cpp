@@ -46,9 +46,9 @@ void MonteCarloImage::save() const {
 			if (r > 255) r = 255;
 			if (g > 255) g = 255;
 			if (b > 255) b = 255;
-			img[(x+y*w)*3+2] = (unsigned char)(r);
-			img[(x+y*w)*3+1] = (unsigned char)(g);
-			img[(x+y*w)*3+0] = (unsigned char)(b);
+			img[(i+j*w)*3+2] = (unsigned char)(r);
+			img[(i+j*w)*3+1] = (unsigned char)(g);
+			img[(i+j*w)*3+0] = (unsigned char)(b);
 		}
 	}
 

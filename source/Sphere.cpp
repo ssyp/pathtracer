@@ -1,36 +1,48 @@
 #include "Sphere.h"
 
-
-Vec3<float> Sphere::getNormal(const Vec3<float> & ip) const {
-	Vec3<float> normal=ip-position;
-	normal.normalize();
-	return normal;
+Sphere::Sphere() {
+	position.x = 0;
+	position.y = 0;
+	position.z = 0;
+	radius = 1;
 }
 
-bool Sphere::getIntersection(const Ray & ray, float & t) const {
+Sphere::Sphere(const Vec3<float> & pos, const float & r) {
+	position=pos;
+	radius=r;
+}
+
+bool Sphere::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const {
 	Vec3<float> localPosition = ray.position-position;
-	float D = 4 * ray.direction.dot(localPosition) * ray.direction.dot(localPosition) - 
-		4 * ray.direction.dot(ray.direction) * localPosition.dot(localPosition) +
-		4 * ray.direction.dot(ray.direction) * radious * radious;
+	
+	float dotDirectionDirection = ray.direction.dot(ray.direction) ;
+	float dotDirectionLocalPosition = ray.direction.dot(localPosition);
+	
+	float D = 4 * dotDirectionLocalPosition * dotDirectionLocalPosition - 
+		4 * dotDirectionDirection * localPosition.dot(localPosition) +
+		4 * dotDirectionDirection * radius * radius;
 			
 	if(D < 0) {
 		return false;
 	}
 	
 	if(fabs(D)<0.01) {
-		t = (-1 * ray.direction.dot(localPosition)) / (ray.direction.dot(ray.direction));
+		t = (-1 * dotDirectionLocalPosition) / (dotDirectionDirection);
 		
+		normal=ray.eval(t)-position;
+		normal.normalize();
 		return true;
 	}
 	
-	if(D > 0) {
-		float t1, t2;
+	float t1, t2;
 		
-		t1 = (-1 * ray.direction.dot(localPosition) - sqrt(D)) / (ray.direction.dot(ray.direction));
-		t2 = (-1 * ray.direction.dot(localPosition) + sqrt(D)) / (ray.direction.dot(ray.direction));
+	t1 = (-1 * dotDirectionLocalPosition - sqrt(D)) / (dotDirectionDirection);
+	t2 = (-1 * dotDirectionLocalPosition + sqrt(D)) / (dotDirectionDirection);
 
-		t = std::min(t1,t2);
-		
-		return true;
-	}
+	t = std::min(t1,t2);
+	
+	
+	normal=ray.eval(t)-position;
+	normal.normalize();
+	return true;
 }

@@ -3,7 +3,7 @@
 
 template <class T>
 class Vec2 {
-	public:
+public:
 		T x;
 		T y;
 
@@ -15,6 +15,13 @@ class Vec2 {
 	Vec2(T newX, T newY, T newZ) {
 		x = newX;
 		y = newY;
+	}
+
+	Vec2<T> operator * (const Vec2<T> & vec) const {
+		Vec2<T> result;
+		result.x = x * vec.x;
+		result.y = y * vec.y;
+		return result;
 	}
 
 	Vec2(const Vec2<T> & vec) {

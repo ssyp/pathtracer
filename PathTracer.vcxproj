@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Camera.cpp" />
+    <ClCompile Include="source\MathUtils.cpp" />
     <ClCompile Include="source\MonteCarloImage.cpp" />
     <ClCompile Include="source\Parser.cpp" />
     <ClCompile Include="source\PathTracer.cpp" />

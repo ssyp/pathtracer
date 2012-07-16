@@ -1,14 +1,17 @@
 #ifndef __PARSER_H__
 #define __PARSER_H__
 
+#include "Vec3.h"
 #include <map>
 #include <vector>
 #include <string>
 
+using namespace Math;
+
 class Variable {
 	public:
 		float floatValue;
-		Vec3 vectorValue;
+		Vec3<float> vectorValue;
 		std::string stringValue;
 		int type;
 };

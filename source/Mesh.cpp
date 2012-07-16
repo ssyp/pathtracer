@@ -1,24 +1,38 @@
 #include "Mesh.h"
+#include "Plane.h"
 #include <iostream>
 #include <fstream>
 
-Vec3<float> Mesh::getNormal(const Vec3<float> & ip) const{
-	Vec3<float> normal;
-	for(size_t i = 0; i < poligon.size(); i++) {
-		
-	}
-	normal.normalize();
-	return normal;
-}
-
 bool Mesh::getIntersection(const Ray & ray, float & t) const{
-	Vec3<float> normal = getNormal(abc);
+	Plane plane;
+	bool colision=false;
+	size_t index;
+	float pointIntersection,t1;
+	t=inf;
 	
-	for(size_t i = 0; i < poligon.size(); i++) {
-		if(normal.dot(ray.direction)!= 0) {
-			t = -(normal.dot(ray.position) + d) / normal.dot(ray.direction);
-			return true;
+	for(size_t i = 0; i < poligon.size(); i++) {	
+		plane.setAbcd(poligon[i],0);
+		if(plane.getIntersection(ray,pointIntersection)) {
+			Vec3<float> ad = pointIntersection - poligon[i].x;
+			Vec3<float> bd = pointIntersection - poligon[i].y;
+			Vec3<float> cd = pointIntersection - poligon[i].z;
+			Vec3<float> ab = poligon[i].y - poligon[i].x;
+			Vec3<float> bc = poligon[i].z - poligon[i].y;
+			Vec3<float> ca = poligon[i].x - poligon[i].z;
+			if( ad.dot(ab) > 0 && bd.dot(bc) > 0 && ca.dot(cd) > 0) {
+				t1=pointIntersection;
+				if(t1 < t) { 
+					t=t1;
+					index=i;
+					colision=true;
+				}
+			}
 		}
+	}
+	if(colision) {
+		normal = poligon[index];
+		normal.normalize();
+		return true;
 	}
 	return false;
 }

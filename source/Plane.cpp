@@ -13,7 +13,6 @@ Plane::Plane() {
 	d=0;
 }
 
-
 Vec3<float> Plane::getNormal(const Vec3<float> & ip) const{
 	Vec3<float> normal = abc;
 	normal.normalize();

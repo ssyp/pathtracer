@@ -26,6 +26,14 @@ class Vec3 {
 		z = vec.z;
 	}
 
+	Vec3<T> operator * (const Vec3<T> & vec) const {
+		Vec3<T> result;
+		result.x = x * vec.x;
+		result.y = y * vec.y;
+		result.z = z * vec.z;
+		return result;
+	}
+
 	Vec3<T> operator = (const Vec3<T> & vec) const {
 		Vec3<T> result;
 		result.x = vec.x;

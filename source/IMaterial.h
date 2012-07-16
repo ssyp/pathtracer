@@ -1,6 +1,8 @@
 #ifndef __IMATERIAL_H__
 #define __IMATERIAL_H__
 
+#include "Vec3.h"
+
 using namespace Math;
 
 class IMaterial {

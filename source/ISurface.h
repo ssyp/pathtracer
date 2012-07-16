@@ -3,6 +3,7 @@
 
 #include "Vec3.h"
 #include "Ray.h"
+using namespace Math;
 
 class ISurface {
 	public:

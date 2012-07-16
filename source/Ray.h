@@ -10,6 +10,6 @@ namespace Math {
 		Vec3<float> eval(const float & t) const;
 		Ray();
 		Ray(Vec3<float> pos, Vec3<float> dir);
-	}
+	};
 }
 #endif

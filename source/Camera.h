@@ -3,6 +3,8 @@
 
 #include "vec3.h"
 
+using namespace Math;
+
 class Camera {
 	public:
 		Camera(Vec3<float> & pos, Vec3<float> & d, float angel, int x, int y);

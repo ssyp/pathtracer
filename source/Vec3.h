@@ -146,6 +146,6 @@ namespace Math {
 			}
 			return 1;
 		}
-	}
+	};
 }
 #endif

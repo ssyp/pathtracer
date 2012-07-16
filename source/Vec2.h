@@ -30,7 +30,7 @@ namespace Math {
 			y = vec.y;
 		}
 
-		Vec2<T> operator = () const {
+		Vec2<T> operator = (const Vec2<T> & vec) const {
 			Vec2<T> result;
 			result.x = vec.x;
 			result.y = vec.y;
@@ -127,7 +127,7 @@ namespace Math {
 			}
 			return 1;
 		}
-	}
+	};
 }
 #endif
 

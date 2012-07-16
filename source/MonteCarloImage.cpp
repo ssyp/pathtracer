@@ -40,12 +40,12 @@ void MonteCarloImage::save() const {
 	for(int i=0; i<w; i++) {
 		for(int j=0; j<h; j++) {
 			//x=i; y=(yres-1)-j;
-			int r = pixels[i][j].x * 255;
-			int g = pixels[i][j].y * 255;
-			int b = pixels[i][j].z * 255;
-			if (r > 255) r=255;
-			if (g > 255) g=255;
-			if (b > 255) b=255;
+			int r = static_cast<int>(pixels[i][j].x * 255);
+			int g = static_cast<int>(pixels[i][j].y * 255);
+			int b = static_cast<int>(pixels[i][j].z * 255);
+			if (r > 255) r = 255;
+			if (g > 255) g = 255;
+			if (b > 255) b = 255;
 			img[(x+y*w)*3+2] = (unsigned char)(r);
 			img[(x+y*w)*3+1] = (unsigned char)(g);
 			img[(x+y*w)*3+0] = (unsigned char)(b);
@@ -75,8 +75,8 @@ void MonteCarloImage::save() const {
 	fwrite(bmpinfoheader,1,40,f);
 	for(int i=0; i<h; i++)
 	{
-		fwrite(img+(w*(h-i-1)*3),3,w,f);
-		fwrite(bmppad,1,(4-(w*3)%4)%4,f);
+		fwrite(img + (w * (h - i - 1) * 3), 3, w, f);
+		fwrite(bmppad, 1, (4 - (w * 3) % 4) % 4, f);
 	}
 	fclose(f);
 

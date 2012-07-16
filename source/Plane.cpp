@@ -1,5 +1,19 @@
 #include "Plane.h"
 
+
+Plane::Plane(const Vec3<float> & vec, const float & d1) {
+	abc=vec;
+	d=d1;
+}
+
+Plane::Plane() {
+	abc.x=0;
+	abc.y=0;
+	abc.z=0;
+	d=0;
+}
+
+
 Vec3<float> Plane::getNormal(const Vec3<float> & ip) const{
 	Vec3<float> normal = abc;
 	normal.normalize();

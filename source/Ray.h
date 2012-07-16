@@ -2,12 +2,14 @@
 #define __RAY_H__
 #include "Vec3.h"
 
-class Ray {
+namespace Math {
+	class Ray {
 	public:
 		Vec3<float> position;
 		Vec3<float> direction;
 		Vec3<float> eval(const float & t) const;
 		Ray();
 		Ray(Vec3<float> pos, Vec3<float> dir);
-};
+	}
+}
 #endif

@@ -1,5 +1,17 @@
 #include "Sphere.h"
 
+Sphere() {
+	position.x=0;
+	position.y=0;
+	position.z=0;
+	radius=1;
+}
+
+Sphere(const Vec3<float> & pos, const float & r) {
+	position=pos;
+	r=radius;
+}
+
 bool Sphere::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const {
 	Vec3<float> localPosition = ray.position-position;
 	

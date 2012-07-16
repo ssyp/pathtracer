@@ -1,6 +1,6 @@
 #ifndef __MATHUTILS_H__ 
 #define __MATHUTILS_H__
-#include <algoritms>
+#include <algorithm>
 
 const float inf = 100000000.0f;
 const float eps = 0.001f;

@@ -13,6 +13,10 @@ Plane::Plane() {
 	d=0;
 }
 
+Plane::setAbcd(const Vec3<float> & vec, const float & d1) {
+	abc=vec;
+	d=d1;
+}
 
 Vec3<float> Plane::getNormal(const Vec3<float> & ip) const{
 	Vec3<float> normal = abc;

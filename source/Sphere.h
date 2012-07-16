@@ -7,12 +7,14 @@
 
 class Sphere : public ISurface {
 	public:
-		Vec3<float> position;
-		float radious;
 		
 		Vec3<float> getNormal(const Vec3<float> & ip) const;
 		
 		bool getIntersection(const Ray & ray, float & t) const;
+	
+	private:
+		Vec3<float> position;
+		float radius;
 };
 
 #endif

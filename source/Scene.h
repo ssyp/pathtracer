@@ -3,9 +3,8 @@
 
 #include <vector>
 #include "ISurface.h"
+#include "MathUtils.h"
 
-
-const float inf = 1E37;
 
 class Scene {
 	public:

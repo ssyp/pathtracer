@@ -10,10 +10,8 @@ class Plane : public ISurface {
 		Plane(const Vec3<float> & vec, const float & d1);
 		
 		setAbcd(const Vec3<float> & vec, const float & d1) {
-
-		Vec3<float> getNormal(const Vec3<float> & ip) const;
 		
-		bool getIntersection(const Ray & ray, float & t) const;
+		bool getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const;
 		
 	private:
 		Vec3<float> abc;

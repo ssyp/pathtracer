@@ -7,10 +7,10 @@
 
 class Sphere : public ISurface {
 	public:
-		
-		Vec3<float> getNormal(const Vec3<float> & ip) const;
-		
-		bool getIntersection(const Ray & ray, float & t) const;
+		Sphere();
+		Sphere(const Vec3<float> & pos, const float & r);
+	
+		bool getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const;
 	
 	private:
 		Vec3<float> position;

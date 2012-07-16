@@ -23,6 +23,7 @@
   <ItemGroup>
     <ClInclude Include="source\Camera.h" />
     <ClInclude Include="source\ISurface.h" />
+    <ClInclude Include="source\MathUtils.h" />
     <ClInclude Include="source\MonteCarloImage.h" />
     <ClInclude Include="source\Plane.h" />
     <ClInclude Include="source\Ray.h" />
@@ -61,7 +62,7 @@
   <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>

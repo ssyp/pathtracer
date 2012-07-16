@@ -18,9 +18,9 @@ namespace Math {
 		randVe.x = RAND_MAX / RAND_MAX * 2 - 1;
 		randVe.y = RAND_MAX / RAND_MAX * 2 - 1;
 
-		randV.x = rand() % 10;
-		randV.y = rand() % 10;
-		randV.z = rand() % 10;
+		randV.x = static_cast<float> (rand() % 10);
+		randV.y = static_cast<float> (rand() % 10);
+		randV.z = static_cast<float> (rand() % 10);
 		dirX = randV.cross(n);  
 		dirY = dirX.cross(n);
 		dirX.normalize();
@@ -38,9 +38,9 @@ namespace Math {
 		randVe.y = RAND_MAX / RAND_MAX * 2 - 1;
 		randVe.z = sqrt(1 - randVe.x * randVe.x - randVe.y * randVe.y);
 
-		randV.x = rand() % 10;
-		randV.y = rand() % 10;
-		randV.z = rand() % 10;
+		randV.x = static_cast<float> (rand() % 10);
+		randV.y = static_cast<float> (rand() % 10);
+		randV.z = static_cast<float> (rand() % 10);
 		dirX = randV.cross(n);  
 		dirY = dirX.cross(n);
 		dirX.normalize();

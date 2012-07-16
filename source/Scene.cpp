@@ -33,9 +33,10 @@ ISurface* Scene::getSurface(const int index) const {
 	
 int Scene::getIntersection(const Ray & ray) const {
 	float t1, t = inf;
-	int index;
+	Vec3<float> normal;
+	int index = 0;
 	for(size_t i = 0; i < nodes.size(); i++) {
-		if(nodes[i]->getIntersection(ray, t1)) {
+		if(nodes[i]->getIntersection(ray, t1, normal)) {
 			if(t1 < t) {
 				t = t1;
 				index = i;

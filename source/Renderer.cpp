@@ -1,11 +1,10 @@
 #include "Renderer.h"
-#include "Ray.h"
-Renderer::Renderer(int x, int y) {
-	samples = 0;
+
+Renderer::Renderer(int x, int y, int samp) {
+	samples = samp;
 	curDepth = 0;
 	distance = 1;
 	mci = new MonteCarloImage(x,y);
-	//backgroundColor = NULL;
 }
 
 void Renderer::setBackgroundColor(Vec3<float>& vec) {
@@ -25,19 +24,22 @@ int Renderer::getPathDepth() const {
 }
 
 void Renderer::render(Camera & camera, Scene & scene) {
-	for(int k = 0; k < 50; k++) 
+	for(int k = 0; k < samples; k++) 
 	{
 		for(int y = camera.getDpiY() / 2; y > - camera.getDpiY() / 2; y--) {
 			for(int x = -camera.getDpiX() / 2; x > camera.getDpiX() / 2; x++) {
-				Vec3<float> curVec(x,y,distance);
-				Ray ray(camera.getPos(), curVec);
+				
+				//Vec3<float> curVec = camera.genRay(x, y, distance);
+				Ray ray = camera.genRay(x, y, distance);
+				
 				Vec3<float> color; 
 				pathTrace(ray, scene, color);
+				
 				mci->add(y,x,color);
 				
 			}
 		}
-		samples++;
+		
 	}
 
 }
@@ -46,34 +48,38 @@ int Renderer::getSamples() const {
 	return samples;
 }
 
-int Renderer::brdf(Vec3<float> & v1, Vec3<float> & v2)
-{
-	return 1;
-}
-
 Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, Vec3<float> & color) {
+	
 	if(curDepth > pathDepth) {
 		curDepth = 0;
 		return color;
 	}
-	float pointRay;
+
+	
 	int ind = scene.getIntersection(ray);
 	ISurface* surf = scene.getSurface(ind);
 	
-	if(surf->getIntersection(ray, pointRay)) {
+	float pointRay;
+	Vec3<float> normal;
+
+	if(surf->getIntersection(ray, pointRay, normal)) {
 		Vec3<float> point = ray.eval(pointRay);
-		Vec3<float> normal = surf->getNormal(point);
-		float x = (rand() % static_cast<int>(normal.x)) / 100, y = (rand() % static_cast<int>(normal.y)) / 100, z = sqrt(1 - x * x - y * y);
-		Vec3<float> randVec(x, y, z);
+	
+		//float x = (rand() % static_cast<int>(normal.x)) / 100, y = (rand() % static_cast<int>(normal.y)) / 100, z = sqrt(1 - x * x - y * y);
+		//Vec3<float> randVec(x, y, z);
 		
-		Ray randRay(point,randVec);
-		color += pathTrace(randRay,scene,color);
+		
+		Ray newRay(point, (surf->getMaterial())->interact(ray.direction, point, normal));
+		
 		curDepth++;
+		color = color * pathTrace(newRay,scene,color);
+		
 	}
 	else if (curDepth > 0) {
 		curDepth = 0;
 		return color;
 	}
-	else return Vec3<float>(0,0,0);
+	
+	return Vec3<float>(0,0,0);
 	
 }

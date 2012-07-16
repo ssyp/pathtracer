@@ -60,10 +60,11 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, Vec3<float> & color) {
 	ISurface* surf = scene.getSurface(ind);
 	
 	float pointRay;
+	Vec3<float> normal;
 
-	if(surf->getIntersection(ray, pointRay)) {
+	if(surf->getIntersection(ray, pointRay, normal)) {
 		Vec3<float> point = ray.eval(pointRay);
-		Vec3<float> normal = surf->getNormal(point);
+	
 		//float x = (rand() % static_cast<int>(normal.x)) / 100, y = (rand() % static_cast<int>(normal.y)) / 100, z = sqrt(1 - x * x - y * y);
 		//Vec3<float> randVec(x, y, z);
 		

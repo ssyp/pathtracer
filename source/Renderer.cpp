@@ -68,7 +68,8 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, Vec3<float> & color) {
 		//float x = (rand() % static_cast<int>(normal.x)) / 100, y = (rand() % static_cast<int>(normal.y)) / 100, z = sqrt(1 - x * x - y * y);
 		//Vec3<float> randVec(x, y, z);
 		
-		Ray newRay(point, surf->getMaterial().interact(ray, point, normal));
+		
+		Ray newRay(point, (surf->getMaterial())->interact(ray.direction, point, normal));
 		
 		curDepth++;
 		color = color * pathTrace(newRay,scene,color);

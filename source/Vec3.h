@@ -20,7 +20,7 @@ namespace Math {
 			y = newY;
 			z = newZ;
 		}
-
+  
 		Vec3(const Vec3<T> & vec) {
 			x = vec.x;
 			y = vec.y;

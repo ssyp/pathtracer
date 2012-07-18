@@ -27,7 +27,7 @@ bool Application::onInit() {
 	scene = new Scene();
 	camera = new Camera(Vec3<float>(0, 0, 0),Vec3<float>(0, 0, 1), 0.5f, 640, 480); 
 	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 100); 
-
+	image = new MonteCarloImage(camera->getDpiX(), camera->getDpiY());
 
 	Block block;
 	ISurface * surf;
@@ -38,7 +38,9 @@ bool Application::onInit() {
 		surf -> init(block);
 		scene -> addSurface(surf);
 	}
+	renderer -> setPathDepth(1);
 	renderer -> render(*camera, *scene);
+	image->save();
 
     return true;
 }
@@ -47,6 +49,11 @@ void Application::onCleanup() {
 	SDL_FreeSurface(surfTest);
     SDL_FreeSurface(surfDisplay);
 	delete parser;
+	delete image;
+	delete scene;
+	delete camera;
+	delete renderer;
+	delete surfaceFactory;
     SDL_Quit();
 }
 

@@ -21,7 +21,8 @@ class Application {
 		Renderer * renderer;
         SDL_Surface * surfDisplay;
         SDL_Surface * surfTest;
- 
+		MonteCarloImage * image; 
+
     public:
         Application();
         int onExecute();

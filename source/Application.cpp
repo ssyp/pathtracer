@@ -21,7 +21,7 @@ bool Application::onInit() {
     }
 	
 	parser = new Parser();
-	parser -> parse("Scene1.txt");
+	parser -> parse("source/Scene1.txt");
 
 	surfaceFactory = new SurfaceFactory(); 
 	scene = new Scene();
@@ -32,8 +32,8 @@ bool Application::onInit() {
 	Block block;
 	ISurface * surf;
 
-	for (int i = 0; i < parser -> getNumBlocks(); i++) {
-		block = parser -> getBlock(i);
+	for (int i = 0; i < parser ->getNumSurfaceBlocks(); i++) {
+		block = parser -> getSurfaceBlock(i);
 		surf = surfaceFactory -> createSurface(block);
 		surf -> init(block);
 		scene -> addSurface(surf);

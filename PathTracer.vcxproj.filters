@@ -12,6 +12,8 @@
     <ClCompile Include="source\SimpleMaterial.cpp" />
     <ClCompile Include="source\Parser.cpp" />
     <ClCompile Include="source\MathUtils.cpp" />
+    <ClCompile Include="source\Application.cpp" />
+    <ClCompile Include="source\Surface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ISurface.h" />
@@ -28,5 +30,7 @@
     <ClInclude Include="source\IMaterial.h" />
     <ClInclude Include="source\SimpleMaterial.h" />
     <ClInclude Include="source\Parser.h" />
+    <ClInclude Include="source\Application.h" />
+    <ClInclude Include="source\Surface.h" />
   </ItemGroup>
 </Project>

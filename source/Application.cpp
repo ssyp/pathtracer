@@ -15,10 +15,6 @@ bool Application::onInit() {
     if((surfDisplay = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL) {
         return false;
     }
-
-	if((surfTest = Surface::OnLoad("img.bmp")) == NULL) {
-        return false;
-    }
 	
 	parser = new Parser();
 	parser -> parse("source/Scene1.txt");

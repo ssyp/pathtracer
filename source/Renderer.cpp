@@ -26,16 +26,16 @@ int Renderer::getPathDepth() const {
 void Renderer::render(Camera & camera, Scene & scene) {
 	for(int k = 0; k < samples; k++) 
 	{
-		for(int y = camera.getDpiY() / 2; y > - camera.getDpiY() / 2; y--) {
-			for(int x = -camera.getDpiX() / 2; x > camera.getDpiX() / 2; x++) {
+		for(int y = 0; y < camera.getDpiY(); ++y) {
+			for(int x = 0; x < camera.getDpiX(); ++x) {
 				
 				//Vec3<float> curVec = camera.genRay(x, y, distance);
-				Ray ray = camera.genRay(x, y, distance);
+				Ray ray = camera.genRay(x-camera.getDpiX() / 2, y-camera.getDpiY() / 2, distance);
 				
 				Vec3<float> color; 
 				pathTrace(ray, scene, color);
 				
-				mci->add(y,x,color);
+				mci->add(x, y,color);
 				
 			}
 		}
@@ -63,8 +63,10 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, Vec3<float> & color) {
 
 	if(surf->getIntersection(ray, pointRay, normal)) {
 		Vec3<float> point = ray.eval(pointRay);
-		
-		Ray newRay(point, (surf->getMaterial())->interact(ray.direction, point, normal));
+
+		IMaterial* material = surf->getMaterial();
+		Vec3<float> newVec = material->interact(ray.direction, point, normal);
+		Ray newRay(point, newVec);
 
 		curDepth++;
 		color *= (surf->getMaterial())->getBRDF(ray.direction, newRay.direction, normal);

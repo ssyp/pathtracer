@@ -7,7 +7,7 @@
 
 namespace Math { 
 
-	Vec3<float> getRandromPointOnPlane(const Vec3<float> & n) {
+	Vec3<float> getRandomPointOnPlane(const Vec3<float> & n) {
 		Vec3<float> randV;
 		Vec3<float> dirX;
 		Vec3<float> dirY;

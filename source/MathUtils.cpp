@@ -1,8 +1,13 @@
 #include "MathUtils.h"
 
+#include <cstdlib>
+#include <algorithm>
+#include <cmath>
+#include <ctime>
+
 namespace Math { 
 
-	Vec3<float> GetRandromPointOnPlane(const Vec3<float> & n) {
+	Vec3<float> getRandromPointOnPlane(const Vec3<float> & n) {
 		Vec3<float> randV;
 		Vec3<float> dirX;
 		Vec3<float> dirY;
@@ -20,8 +25,8 @@ namespace Math {
 		dirY.normalize();
 		return (dirX * randVe.x + dirY * randVe.y);
 	} 
-	
-	Vec3<float> GetRandomPointOnHemisphere(const Vec3<float> & n) {
+
+	Vec3<float> getRandomPointOnHemisphere(const Vec3<float> & n) {
 		Vec3<float> randV;
 		Vec3<float> dirX;
 		Vec3<float> dirY;

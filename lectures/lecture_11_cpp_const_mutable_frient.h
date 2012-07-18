@@ -77,7 +77,7 @@ class ISurface {
 }
 
 class SurfaceFactory {
-	public:
+	public
 		
 		ISurface * createSurface(const Block & block); // смотрим тип блока, создаём нужный instance ISurface и вызываем у него метод init с нужным блоком
 };

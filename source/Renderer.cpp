@@ -54,7 +54,6 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, Vec3<float> & color) {
 		curDepth = 0;
 		return color;
 	}
-
 	
 	int ind = scene.getIntersection(ray);
 	ISurface* surf = scene.getSurface(ind);
@@ -77,6 +76,7 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, Vec3<float> & color) {
 		return color;
 	}
 	
+	curDepth = 0;
 	return Vec3<float>(0,0,0);
 	
 }

@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Application.cpp" />
+    <ClCompile Include="source\Block.cpp" />
     <ClCompile Include="source\Camera.cpp" />
     <ClCompile Include="source\Factory.cpp" />
     <ClCompile Include="source\MathUtils.cpp" />

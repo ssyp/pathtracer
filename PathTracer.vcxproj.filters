@@ -16,6 +16,7 @@
     <ClCompile Include="source\Surface.cpp" />
     <ClCompile Include="source\Factory.cpp" />
     <ClCompile Include="source\SurfaceFactory.cpp" />
+    <ClCompile Include="source\Block.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ISurface.h" />

@@ -1,5 +1,5 @@
 #include "MaterialManager.h"
-#include "Vec3.h"
+
 
 void MaterialManager::addMaterial(IMaterial* material, const std::string & string) {
 	materials[string] = material;

@@ -1,6 +1,10 @@
 #ifndef __MATERIALMANAGER_H__
 #define __MATERIALMANAGER_H__
 
+#include <string>
+#include <map>
+#include "IMaterial.h"
+
 class MaterialManager {
 	public:
 		

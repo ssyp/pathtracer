@@ -9,8 +9,13 @@ class Block {
 		std::map<std::string,Variable> map;
 		std::string surface;
 
-		Variable getVariable(const std::string & name) {
-			return map[name];
+		const Variable& getVariable(const std::string & name) const {
+			std::map<std::string,Variable>::const_iterator it = map.find(name);
+			if (it == map.end()) {
+				Variable var;
+				return var; 
+			} 
+			return it -> second;
 		}
 };
 

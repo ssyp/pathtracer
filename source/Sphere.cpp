@@ -48,6 +48,6 @@ bool Sphere::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) c
 }
 
 void Sphere::init(const Block & block) {
-	position = block.map["pos"].vectorValue;
-	radius = block.map["radius"].floatValue;
+	position = block.getVariable("pos").vectorValue;
+	radius = block.getVariable("radius").floatValue;
 };

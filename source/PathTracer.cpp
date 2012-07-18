@@ -4,5 +4,5 @@ int main(int argc, char* argv[])
 {
 	Application theApp;
  
-    return theApp.OnExecute();
+    return theApp.onExecute();
 }

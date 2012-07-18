@@ -15,10 +15,6 @@ bool Application::onInit() {
     if((surfDisplay = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL) {
         return false;
     }
-
-	if((surfTest = Surface::OnLoad("img.bmp")) == NULL) {
-        return false;
-    }
 	
 	parser = new Parser();
 	parser -> parse("source/Scene1.txt");
@@ -26,8 +22,7 @@ bool Application::onInit() {
 	surfaceFactory = new SurfaceFactory(); 
 	scene = new Scene();
 	camera = new Camera(Vec3<float>(0, 0, 0),Vec3<float>(0, 0, 1), 0.5f, 640, 480); 
-	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 100); 
-	image = new MonteCarloImage(camera->getDpiX(), camera->getDpiY());
+	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 1); 
 
 	Block block;
 	ISurface * surf;
@@ -40,7 +35,7 @@ bool Application::onInit() {
 	}
 	renderer -> setPathDepth(1);
 	renderer -> render(*camera, *scene);
-	image->save();
+	renderer->mci->save();
 
     return true;
 }
@@ -49,7 +44,6 @@ void Application::onCleanup() {
 	SDL_FreeSurface(surfTest);
     SDL_FreeSurface(surfDisplay);
 	delete parser;
-	delete image;
 	delete scene;
 	delete camera;
 	delete renderer;

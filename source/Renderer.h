@@ -11,6 +11,8 @@ class Renderer {
 	public:
 		Renderer(int x, int y, int samples);
 		
+		MonteCarloImage* mci;
+
 		void setPathDepth(int n);
 		int getPathDepth() const;
 
@@ -30,7 +32,6 @@ class Renderer {
 		
 		Vec3<float> backgroundColor;
 		
-		MonteCarloImage* mci;
 };
 
 #endif

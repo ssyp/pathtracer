@@ -2,28 +2,30 @@
 #include <cstdio>
 #include <cstdlib>
 #include <fstream>
-
+#include <assert.h>
 MonteCarloImage::MonteCarloImage(int x, int y) {
+
 
 	this->x = x;
 	this->y = y;
 
-	pixels = new Vec3<float>*[y];
+	pixels = new Vec3<float>*[x];
 
-	for(int i = 0; i < y; i++) {
+	for(int i = 0; i < x; i++) {
 		
-		pixels[i] = new Vec3<float>[x];
+		pixels[i] = new Vec3<float>[y];
 		
 	}
 	
 }
 
-void MonteCarloImage::add(int x, int y, Vec3<float> color) {
-	pixels[y][x] += color;
+void MonteCarloImage::add(int tx, int ty, Vec3<float> color) {
+	
+	pixels[tx][ty] += color;
 }
 
-Vec3<float> & MonteCarloImage::get(int x, int y) const {
-	return pixels[y][x];
+Vec3<float> & MonteCarloImage::get(int tx, int ty) const {
+	return pixels[tx][ty];
 }
 
 void MonteCarloImage::save() const
@@ -38,8 +40,8 @@ void MonteCarloImage::save() const
 	for(int i = 0; i < 3*w*h; i++)
 		img[i] = 0;
 
-	for(int i=0; i<w-1; i++) {
-		for(int j=0; j<h-1; j++) {
+	for(int i=0; i<h-1; i++) {
+		for(int j=0; j<w-1; j++) {
 			int r = static_cast<int>(pixels[i][j].x * 255);
 			int g = static_cast<int>(pixels[i][j].y * 255);
 			int b = static_cast<int>(pixels[i][j].z * 255);
@@ -82,8 +84,8 @@ void MonteCarloImage::save() const
 
 MonteCarloImage::~MonteCarloImage()
 {
-	for(int i = 0; i < y; i++)
-		delete [] pixels[y];
+	for(int i = 0; i < x; i++)
+		delete [] pixels[i];
 
 	delete [] pixels;
 }

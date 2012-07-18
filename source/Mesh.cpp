@@ -44,5 +44,10 @@ void Mesh::load(const std::string & fileName) {
 	while(!file.eof()) {
 		file >> v.x >> v.y >> v.z;
 		poligon.push_back(v);
-	}				
+	}
+}
+
+void init(const Block & block) {
+	load(block.map["file"].stringValue);
+	
 }

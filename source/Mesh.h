@@ -11,6 +11,8 @@ class Mesh : public ISurface {
 		bool getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const;
 		
 		void load(const std::string & fileName);
+
+		void init(const Block & block);
 		
 	private:
 		vector<Vec3<float>> poligon;

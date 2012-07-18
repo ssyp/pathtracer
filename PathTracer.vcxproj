@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Application.cpp" />
     <ClCompile Include="source\Camera.cpp" />
     <ClCompile Include="source\MathUtils.cpp" />
     <ClCompile Include="source\MonteCarloImage.cpp" />
@@ -22,8 +23,10 @@
     <ClCompile Include="source\Scene.cpp" />
     <ClCompile Include="source\SimpleMaterial.cpp" />
     <ClCompile Include="source\Sphere.cpp" />
+    <ClCompile Include="Surface.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Application.h" />
     <ClInclude Include="source\Camera.h" />
     <ClInclude Include="source\IMaterial.h" />
     <ClInclude Include="source\ISurface.h" />
@@ -38,6 +41,7 @@
     <ClInclude Include="source\Sphere.h" />
     <ClInclude Include="source\Vec2.h" />
     <ClInclude Include="source\Vec3.h" />
+    <ClInclude Include="Surface.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4E40D4A3-8AC0-488D-826C-EA8074A05497}</ProjectGuid>
@@ -70,9 +74,12 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>D:\projects\pathtracer\api\sdl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\projects\pathtracer\api\sdl\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL.lib;SDLmain.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

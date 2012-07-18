@@ -1,7 +1,8 @@
-#include <iostream>
+#include "Application.h"
 
-int main() {
-	std::cout << "Hello world!" << std::endl;
-
-	return 0;
+int main(int argc, char* argv[])
+{
+	Application theApp;
+ 
+    return theApp.OnExecute();
 }

@@ -3,7 +3,27 @@
 Application::Application() {
     Surf_Display = NULL;
 	Surf_Test = NULL;
-    
+ 
+	parser= new Parser();
+	parser->parse("Scene1.txt");
+
+	surfaceFactory = new SurfaceFactory(); 
+	scene = new Scene();
+	camera = new Camera(Vec3<float>(0, 0, 0),Vec3<float>(0, 0, 1), 0.5f, 640, 480); 
+	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 100); 
+
+
+	Block block;
+	ISurface * surf;
+
+	for (int i = 0; i < parser->getNumBlocks(); i++) {
+		block = parser->getBlock(i);
+		surf=surfaceFactory->createSurface(block);
+		surf.init(block);
+		scene->addSurface(surf);
+	}
+	renderer->render(*camera,*scene);
+
     Running = true;
 }
 
@@ -26,6 +46,7 @@ bool Application::OnInit() {
 void Application::OnCleanup() {
 	SDL_FreeSurface(Surf_Test);
     SDL_FreeSurface(Surf_Display);
+	delete parser;
     SDL_Quit();
 }
 

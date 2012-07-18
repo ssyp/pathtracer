@@ -3,7 +3,23 @@
 Application::Application() {
     Surf_Display = NULL;
 	Surf_Test = NULL;
+
+    Running = true;
+}
+
+bool Application::OnInit() {
+    if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+        return false;
+    }
  
+    if((Surf_Display = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL) {
+        return false;
+    }
+
+	if((Surf_Test = Surface::OnLoad("img.bmp")) == NULL) {
+        return false;
+    }
+	
 	parser= new Parser();
 	parser->parse("Scene1.txt");
 
@@ -24,22 +40,6 @@ Application::Application() {
 	}
 	renderer->render(*camera,*scene);
 
-    Running = true;
-}
-
-bool Application::OnInit() {
-    if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-        return false;
-    }
- 
-    if((Surf_Display = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL) {
-        return false;
-    }
-
-	if((Surf_Test = Surface::OnLoad("img.bmp")) == NULL) {
-        return false;
-    }
- 
     return true;
 }
 

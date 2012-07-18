@@ -12,33 +12,26 @@
 
 class Application {
     private:
-        bool Running;
+        bool running;
 		
 		Parser * parser;
 		SurfaceFactory * surfaceFactory;
 		Scene * scene;
 		Camera * camera;
 		Renderer * renderer;
-
-        SDL_Surface* Surf_Display;
- 
-        SDL_Surface* Surf_Test;
+        SDL_Surface * surfDisplay;
+        SDL_Surface * surfTest;
  
     public:
         Application();
- 
-        int OnExecute();
+        int onExecute();
  
     public:
-        bool OnInit();
- 
-        void OnEvent(SDL_Event* Event);
- 
-        void OnLoop();
- 
-        void OnRender();
- 
-        void OnCleanup();
+        bool onInit();
+        void onEvent(SDL_Event * Event);
+        void onLoop();
+        void onRender();
+        void onCleanup();
 };
 
 #endif

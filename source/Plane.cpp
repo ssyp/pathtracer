@@ -30,7 +30,7 @@ bool Plane::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) co
 	return false;
 }
 
-void init(const Block & block) {
+void Plane::init(const Block & block) {
 	abc = block.map["abc"].vectorValue;
 	d = block.map["d"].floatValue;
 };

@@ -6,7 +6,7 @@
 class Variable {
 	public:
 		float floatValue;
-		Vec3<float> vectorValue;
+		Math::Vec3<float> vectorValue;
 		std::string stringValue;
 		int type;
 };

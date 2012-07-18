@@ -21,14 +21,14 @@ MonteCarloImage::MonteCarloImage(int x, int y) {
 
 void MonteCarloImage::add(int tx, int ty, Vec3<float> color) {
 	
-	pixels[tx][ty] += color;
+	pixels[tx][ty] = pixels[tx][ty] + color;
 }
 
 Vec3<float> & MonteCarloImage::get(int tx, int ty) const {
 	return pixels[tx][ty];
 }
 
-void MonteCarloImage::save() const
+void MonteCarloImage::save(int samp) const
 {
 	std::ofstream f("img.bmp", std::ios::out | std::ios::binary);
 
@@ -42,9 +42,9 @@ void MonteCarloImage::save() const
 
 	for(int i=0; i<h; i++) {
 		for(int j=0; j<w; j++) {
-			int r = static_cast<int>(pixels[i][j].x * 255);
-			int g = static_cast<int>(pixels[i][j].y * 255);
-			int b = static_cast<int>(pixels[i][j].z * 255);
+			int r = static_cast<int>(pixels[i][j].x * 255)/samp;
+			int g = static_cast<int>(pixels[i][j].y * 255)/samp;
+			int b = static_cast<int>(pixels[i][j].z * 255)/samp;
 			if (r > 255) r = 255;
 			if (g > 255) g = 255;
 			if (b > 255) b = 255;

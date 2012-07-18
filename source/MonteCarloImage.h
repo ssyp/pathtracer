@@ -11,8 +11,7 @@ class MonteCarloImage {
 		void add(int x, int y, Vec3<float> color);
 		Vec3<float> & get(int x, int y) const;
 		
-		void save() const;
-		void save_cpp() const;
+		void save(int samp) const;
 
 	private:
 		int x, y;

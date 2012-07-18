@@ -32,7 +32,7 @@ void Renderer::render(Camera & camera, Scene & scene) {
 				//Vec3<float> curVec = camera.genRay(x, y, distance);
 				Ray ray(camera.genRay(x-camera.getDpiX() / 2, y-camera.getDpiY() / 2, distance));
 				
-				Vec3<float> color; 
+				Vec3<float> color = backgroundColor; 
 				pathTrace(ray, scene, color);
 				
 				mci->add(x, y,color);
@@ -69,7 +69,7 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, Vec3<float> & color) {
 		Ray newRay(point, newVec);
 
 		curDepth++;
-		color *= (surf->getMaterial())->getBRDF(ray.direction, newRay.direction, normal);
+		color = color * (surf->getMaterial())->getBRDF(ray.direction, newRay.direction, normal);
 		color = color * pathTrace(newRay, scene, color);
 		
 	}
@@ -79,6 +79,6 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, Vec3<float> & color) {
 	}
 	
 	curDepth = 0;
-	return backgroundColor;
+	return color;
 	
 }

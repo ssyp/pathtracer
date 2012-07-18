@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="source\Application.cpp" />
     <ClCompile Include="source\Camera.cpp" />
     <ClCompile Include="source\MathUtils.cpp" />
     <ClCompile Include="source\MonteCarloImage.cpp" />
@@ -23,10 +23,10 @@
     <ClCompile Include="source\Scene.cpp" />
     <ClCompile Include="source\SimpleMaterial.cpp" />
     <ClCompile Include="source\Sphere.cpp" />
-    <ClCompile Include="Surface.cpp" />
+    <ClCompile Include="source\Surface.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application.h" />
+    <ClInclude Include="source\Application.h" />
     <ClInclude Include="source\Camera.h" />
     <ClInclude Include="source\IMaterial.h" />
     <ClInclude Include="source\ISurface.h" />
@@ -39,9 +39,9 @@
     <ClInclude Include="source\Scene.h" />
     <ClInclude Include="source\SimpleMaterial.h" />
     <ClInclude Include="source\Sphere.h" />
+    <ClInclude Include="source\Surface.h" />
     <ClInclude Include="source\Vec2.h" />
     <ClInclude Include="source\Vec3.h" />
-    <ClInclude Include="Surface.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4E40D4A3-8AC0-488D-826C-EA8074A05497}</ProjectGuid>

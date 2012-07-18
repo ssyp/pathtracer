@@ -9,6 +9,8 @@ using namespace Math;
 class ISurface {
 	public:
 		virtual bool getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const = 0;
+
+		virtual void init(const Block & block) = 0;
 		
 		IMaterial* getMaterial( ) const{
 			return material;

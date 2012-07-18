@@ -21,7 +21,7 @@ class Camera {
 		int getDpiX() const;
 		int getDpiY() const;
 
-		Ray & genRay(int x, int y, int z);
+		Ray genRay(int x, int y, int z);
 
 	private:
 		Vec3<float> position;

@@ -52,7 +52,7 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, Vec3<float> & color) {
 	
 	if(curDepth > pathDepth) {
 		curDepth = 0;
-		return color;
+		return color;a
 	}
 	
 	int ind = scene.getIntersection(ray);

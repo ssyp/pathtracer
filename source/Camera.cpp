@@ -38,7 +38,7 @@ int Camera::getDpiY() const {
 	return dpiY;
 }
 
-Ray & Camera::genRay(int curX, int curY, int distance)
+Ray Camera::genRay(int curX, int curY, int distance)
 {
 	Vec3<float> vert(0,1,0);
 	Vec3<float> vecX = direct.cross(vert);
@@ -46,7 +46,8 @@ Ray & Camera::genRay(int curX, int curY, int distance)
 
 	vecX.normalize(); vecY.normalize();
 
-	Vec3<float> newVec = vecX * curX + vecY * curY; //vecX.x * curX + vecY.x * curY, vecX.y * curX + vecY.y * curY, vecX.z * curX + vecY.z * curY);
+	Vec3<float> newVec = vecX * curX + vecY * curY + direct * distance; //vecX.x * curX + vecY.x * curY, vecX.y * curX + vecY.y * curY, vecX.z * curX + vecY.z * curY);
+	newVec.normalize();
 
 	Ray newRay(getPos(), newVec);
 

@@ -8,7 +8,7 @@
 class MaterialManager {
 	public:
 		
-		static void IMaterial * getMaterial(const std::string & string) const;
+		static IMaterial * getMaterial(const std::string & string);
 		
 		static void addMaterial(IMaterial* material, const std::string & string);
 		static void deleteMaterial(const std::string & string);

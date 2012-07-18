@@ -6,5 +6,5 @@ float SimpleMaterial::getBRDF(const Vec3<float> & in, const Vec3<float> & out, c
 }
 
 Vec3<float> SimpleMaterial::interact(const Vec3<float> & in, const Vec3<float> & ip, const Vec3<float> & n) const {
-	return GetRandomPointOnHemisphere(n);
+	return getRandomPointOnHemisphere(n);
 }

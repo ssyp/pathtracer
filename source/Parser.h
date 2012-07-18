@@ -4,6 +4,9 @@
 #include <map>
 #include <vector>
 #include <string>
+#include "Vec3.h"
+
+using namespace Math;
 
 class Variable {
 	public:

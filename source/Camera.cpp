@@ -46,7 +46,7 @@ Ray & Camera::genRay(int curX, int curY, int distance)
 
 	vecX.normalize(); vecY.normalize();
 
-	Vec3<float> newVec(vecX.x * curX + vecY.x * curY, vecX.y * curX + vecY.y * curY, vecX.z * curX + vecY.z * curY);
+	Vec3<float> newVec = vecX * curX + vecY * curY; //vecX.x * curX + vecY.x * curY, vecX.y * curX + vecY.y * curY, vecX.z * curX + vecY.z * curY);
 
 	Ray newRay(getPos(), newVec);
 

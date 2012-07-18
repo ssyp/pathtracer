@@ -1,9 +1,8 @@
 #ifndef _CAMERA_H_
 #define _CAMERA_H_
 
-#include "vec3.h"
 #include "Ray.h"
-using namespace Math;
+#include "Vec3.h"
 
 using namespace Math;
 

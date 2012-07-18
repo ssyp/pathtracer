@@ -18,8 +18,8 @@ Application::Application() {
 
 	for (int i = 0; i < parser->getNumBlocks(); i++) {
 		block = parser->getBlock(i);
-		surf=surfaceFactory->createSurface(block);
-		surf.init(block);
+		surf = surfaceFactory->createSurface(block);
+		surf->init(block);
 		scene->addSurface(surf);
 	}
 	renderer->render(*camera,*scene);

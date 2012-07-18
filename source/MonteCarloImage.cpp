@@ -40,8 +40,8 @@ void MonteCarloImage::save() const
 	for(int i = 0; i < 3*w*h; i++)
 		img[i] = 0;
 
-	for(int i=0; i<h; i++) {
-		for(int j=0; j<w; j++) {
+	for(int i=0; i<h-1; i++) {
+		for(int j=0; j<w-1; j++) {
 			int r = static_cast<int>(pixels[i][j].x * 255);
 			int g = static_cast<int>(pixels[i][j].y * 255);
 			int b = static_cast<int>(pixels[i][j].z * 255);

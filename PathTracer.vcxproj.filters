@@ -15,6 +15,7 @@
     <ClCompile Include="source\Application.cpp" />
     <ClCompile Include="source\Surface.cpp" />
     <ClCompile Include="source\Factory.cpp" />
+    <ClCompile Include="source\SurfaceFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ISurface.h" />
@@ -36,5 +37,6 @@
     <ClInclude Include="source\Block.h" />
     <ClInclude Include="source\Variable.h" />
     <ClInclude Include="source\Factory.h" />
+    <ClInclude Include="source\SurfaceFactory.h" />
   </ItemGroup>
 </Project>

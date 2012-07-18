@@ -25,6 +25,7 @@
     <ClCompile Include="source\SimpleMaterial.cpp" />
     <ClCompile Include="source\Sphere.cpp" />
     <ClCompile Include="source\Surface.cpp" />
+    <ClCompile Include="source\SurfaceFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Application.h" />
@@ -43,6 +44,7 @@
     <ClInclude Include="source\SimpleMaterial.h" />
     <ClInclude Include="source\Sphere.h" />
     <ClInclude Include="source\Surface.h" />
+    <ClInclude Include="source\SurfaceFactory.h" />
     <ClInclude Include="source\Variable.h" />
     <ClInclude Include="source\Vec2.h" />
     <ClInclude Include="source\Vec3.h" />

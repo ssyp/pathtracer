@@ -4,6 +4,8 @@
 #include "Vec3.h"
 #include "Ray.h"
 #include "IMaterial.h"
+#include "Block.h"
+
 using namespace Math;
 
 class ISurface {

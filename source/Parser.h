@@ -5,8 +5,8 @@
 #include <vector>
 #include <string>
 #include "Vec3.h"
-#indlude "Block.h"
-#indlude "Variable.h"
+#include "Block.h"
+#include "Variable.h"
 
 using namespace Math;
 

@@ -1,10 +1,6 @@
 #include <iostream>
 #include <fstream>
 
-#include <map>
-#include <vector>
-#include <string>
-
 #include "Parser.h"
 
 void Parser::parse(const std::string &name) {

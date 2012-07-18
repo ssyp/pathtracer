@@ -4,6 +4,8 @@
 #include "ISurface.h"
 #include <cmath>
 #include <algorithm>
+#include "Block.h"
+#include <map>
 
 class Sphere : public ISurface {
 	public:

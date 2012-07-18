@@ -8,7 +8,8 @@
 #include "Scene.h"
 #include "Camera.h"
 #include "Renderer.h"
- 
+#include "SurfaceFactory.h"
+
 class Application {
     private:
         bool Running;

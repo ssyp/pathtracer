@@ -1,32 +1,22 @@
 #include "MaterialManager.h"
 #include "Vec3.h"
 
-void MaterialManager::addMaterial(IMaterial* material) {
-	for(size_t i = 0; i < nodes.size(); i++) {
-		if(nodes[i] == material) {
-			return;
-		}
-	}
-	nodes.push_back(material);	
+void MaterialManager::addMaterial(IMaterial* material, const std::string & string) {
+	materials[string] = material;
 }
 
-void MaterialManager::deleteMaterial(const int index) {
-	nodes.erase(nodes.begin()+index);
+void MaterialManager::deleteMaterial(const std::string & string) {
+	std::map<std::string,IMaterial *>::const_iterator it = materials.find(string);
+	if (it == materials.end()) {
+		return; 
+	} 
+	materials.erase(it);
 }
 
-void MaterialManager::deleteMaterial(const IMaterial* material) {
-	for(std::vector<IMaterial*>::iterator it = nodes.begin(); it < nodes.end(); it++) {
-		if(*it == material) {
-			nodes.erase(it);
-			break;
-		}
-	}
-}
-
-int MaterialManager::getNumMaterial() const { 
-	return nodes.size();
-}
-
-IMaterial* MaterialManager::getMaterial(const int index) const {
-	return nodes[index];
+IMaterial* MaterialManager::getMaterial(const std::string & string) const {
+	std::map<std::string,IMaterial *>::const_iterator it = materials.find(string);
+	if (it == materials.end()) {
+		return NULL; 
+	} 
+	return it->second;
 }

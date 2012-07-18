@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="source\Application.cpp" />
     <ClCompile Include="source\Camera.cpp" />
+    <ClCompile Include="source\Factory.cpp" />
     <ClCompile Include="source\MathUtils.cpp" />
     <ClCompile Include="source\MonteCarloImage.cpp" />
     <ClCompile Include="source\Parser.cpp" />
@@ -24,12 +25,12 @@
     <ClCompile Include="source\SimpleMaterial.cpp" />
     <ClCompile Include="source\Sphere.cpp" />
     <ClCompile Include="source\Surface.cpp" />
-    <ClCompile Include="source\SurfaceFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Application.h" />
     <ClInclude Include="source\Block.h" />
     <ClInclude Include="source\Camera.h" />
+    <ClInclude Include="source\Factory.h" />
     <ClInclude Include="source\IMaterial.h" />
     <ClInclude Include="source\ISurface.h" />
     <ClInclude Include="source\MathUtils.h" />
@@ -42,7 +43,6 @@
     <ClInclude Include="source\SimpleMaterial.h" />
     <ClInclude Include="source\Sphere.h" />
     <ClInclude Include="source\Surface.h" />
-    <ClInclude Include="source\SurfaceFactory.h" />
     <ClInclude Include="source\Variable.h" />
     <ClInclude Include="source\Vec2.h" />
     <ClInclude Include="source\Vec3.h" />

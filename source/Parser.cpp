@@ -5,24 +5,41 @@
 
 void Parser::parse(const std::string &name) {
 	std::ifstream file(name);
+	int typeBlock = -1;
 	while(!file.eof()) {
 		char buffer[256];
 		file.getline(buffer,256);
 		std::string str(buffer);
+
 		int n = 0, begin = 0, end = 0, nParameters = 0;
 		std::string word, surfaceN;
 		std::map<int,float> fValue, vX, vY, vZ;
 		std::map<int,std::string> sValue, parameters, type;
 		bool firstS = false, firstWord = false;
+
 		for(std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
-			if((*it == ' ')&&(firstS == false)) {
+			// Определяем глобальные блоки
+			if(typeBlock == -1) {
+				if(*it == 'M') {
+					typeBlock = 0;
+					break;
+				}
+				if(*it == 'S') {
+					typeBlock = 1;
+					break;
+				}
+			}
+			else if(*it == '}') {
+				typeBlock = -1;
+			}
+			else if((*it == ' ') && (firstS == false)) {
 				begin = n + 1;
 				firstS = true;
 			}
-			else if(((*it == ' ')||((n + 1) == str.length()))&&(end < begin)) {
+			else if(((*it == ' ') || ((n + 1) == str.length())) && (end < begin)) {
 				if((n + 1) == str.length()) end = n + 1;
 				else end = n;
-				word = str.substr(begin,(end - begin));
+				word = str.substr(begin, (end - begin));
 
 				if (firstWord == false) {
 					surfaceN = word;
@@ -34,12 +51,12 @@ void Parser::parse(const std::string &name) {
 						if(*it2 == ':') {
 							nParameters++;
 							parameters[nParameters] = word.substr(0,n2);
-							if((*(it2 + 1) != '[')&&(*(it2 + 1) != '"')) {
-								fValue[nParameters] = static_cast<float>(atof((word.substr((n2 + 1),(word.length() - n2))).c_str()));
+							if((*(it2 + 1) != '[') && (*(it2 + 1) != '"')) {
+								fValue[nParameters] = static_cast<float>(atof((word.substr((n2 + 1), (word.length() - n2))).c_str()));
 								type[nParameters] = "value";
 							}
 							else if (*(it2 + 1) == '"') {
-								sValue[nParameters] = word.substr((n2 + 2),((word.length() - n2) - 3));
+								sValue[nParameters] = word.substr((n2 + 2), ((word.length() - n2) - 3));
 								type[nParameters] = "string";
 							}
 							else if (*(it2 + 1) == '['){
@@ -47,13 +64,13 @@ void Parser::parse(const std::string &name) {
 								type[nParameters] = "vector";
 							}
 						}
-						if((*it2 == ';')||(*it2 == ']')) {
+						if((*it2 == ';') || (*it2 == ']')) {
 							if (nCoord == 0)
-								vX[nParameters] = static_cast<float>(atof((word.substr(begin2,(n2 - begin2))).c_str()));
+								vX[nParameters] = static_cast<float>(atof((word.substr(begin2, (n2 - begin2))).c_str()));
 							else if (nCoord == 1)
-								vY[nParameters] = static_cast<float>(atof((word.substr(begin2,(n2 - begin2))).c_str()));
+								vY[nParameters] = static_cast<float>(atof((word.substr(begin2, (n2 - begin2))).c_str()));
 							else if (nCoord == 2)
-								vZ[nParameters] = static_cast<float>(atof((word.substr(begin2,(n2 - begin2))).c_str()));
+								vZ[nParameters] = static_cast<float>(atof((word.substr(begin2, (n2 - begin2))).c_str()));
 							nCoord++;
 							begin2 = n2 + 1;
 						}
@@ -86,17 +103,11 @@ void Parser::parse(const std::string &name) {
 				block.map[inMap] = string;
 			}
 		}
-		blocks.push_back(block);	
+		if(typeBlock == 1 && block.surface != "") {
+			surfaceBlocks.push_back(block);
+		}
+		if(typeBlock == 0 && block.surface != "") {
+			materialBlocks.push_back(block);
+		}
 	}
-}
-
-int Parser::getNumBlocks() {
-	return blocks.size();
-}
-
-Block Parser::getBlock(const int &n) {
-	Block block;
-	block.surface = blocks[n].surface;
-	block.map = blocks[n].map;
-	return block;
 }

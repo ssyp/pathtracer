@@ -1,10 +1,8 @@
 #ifndef __PARSER_H__
 #define __PARSER_H__
 
-#include <map>
 #include <vector>
-#include <string>
-#include "Vec3.h"
+
 #include "Block.h"
 #include "Variable.h"
 
@@ -12,11 +10,27 @@ using namespace Math;
 
 class Parser {
 	private:
-		std::vector<Block> blocks;
+		std::vector<Block> surfaceBlocks;
+		std::vector<Block> materialBlocks;
+
 	public:
 		void parse(const std::string &name);
-		int getNumBlocks();
-		Block getBlock(const int &n);
+
+		inline int getNumSurfaceBlocks() {
+			return surfaceBlocks.size();
+		}
+
+		inline int getNumMaterialBlocks() {
+			return materialBlocks.size();
+		}
+
+		inline Block getSurfaceBlock(const int &n) {
+			return surfaceBlocks[n];
+		}
+
+		inline Block getMaterialBlock(const int &n) {
+			return materialBlocks[n];
+		}
 };
 
 #endif

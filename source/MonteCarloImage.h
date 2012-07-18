@@ -12,6 +12,7 @@ class MonteCarloImage {
 		Vec3<float> & get(int x, int y) const;
 		
 		void save() const;
+		void save_cpp() const;
 
 	private:
 		int x, y;

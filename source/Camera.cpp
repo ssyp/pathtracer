@@ -42,7 +42,7 @@ int Camera::getDpiY() const {
 
 Ray Camera::genRay(int curX, int curY, int distance)
 {
-	Vec3<float> vert(0,1,0);
+	Vec3<float> vert(0,0,1);
 	Vec3<float> vecX = direct.cross(vert);
 	Vec3<float> vecY = vecX.cross(direct);
 

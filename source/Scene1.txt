@@ -1,3 +1,13 @@
+Materials {
+	Material simple name:"redLight" reflectance:[0.0;0.0;0.0] emittance:[10.0;0.0;0.0]
+	Material simple name:"greenLight" reflectance:[0.0;0.0;0.0] emittance:[0.0;10.0;0.0]
+	Material simple name:"blueLight" reflectance:[0.0;0.0;0.0] emittance:[0.0;0.0;10.0]
+	Material simple name:"planeMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
+}
+
 Scene {
-	Surface sphere pos:[10;10;10] radius:100.0 
+	Surface sphere material:"redLight" pos:[10;50;10] radius:20.0
+	Surface sphere material:"greenLight" pos:[10;10;10] radius:20.0
+	Surface sphere material:"blueLight" pos:[10;-30;10] radius:20.0
+	Surface plane material:"planeMaterial" abc:[0;0;1] d:0
 }

@@ -25,12 +25,16 @@ bool Sphere::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) c
 	if(D < 0) {
 		return false;
 	}
+
+	normal=ray.eval(t)-position;
+	normal.normalize();
 	
 	if(fabs(D)<0.01) {
 		t = (-1 * dotDirectionLocalPosition) / (dotDirectionDirection);
+		if(t < 0) {
+			return false;
+		}
 		
-		normal=ray.eval(t)-position;
-		normal.normalize();
 		return true;
 	}
 	
@@ -40,10 +44,11 @@ bool Sphere::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) c
 	t2 = (-1 * dotDirectionLocalPosition + sqrt(D)) / (dotDirectionDirection);
 
 	t = std::min(t1,t2);
+
+	if(t < 0) {
+		return false;
+	}
 	
-	
-	normal=ray.eval(t)-position;
-	normal.normalize();
 	return true;
 }
 

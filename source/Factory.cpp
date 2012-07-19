@@ -3,11 +3,10 @@
 
 
 ISurface * Factory::createSurface(const Block & block) {
-	ISurface * surf;
+	ISurface * surf = NULL;
 
 	if (block.surface == "plane") {
 		surf = new Plane();
-		surf -> init(block); 
 	}
 
 	/*if (block.surface == "mesh") {
@@ -17,6 +16,9 @@ ISurface * Factory::createSurface(const Block & block) {
 
 	if (block.surface == "sphere") {
 		surf = new Sphere();
+	}
+
+	if(surf != NULL) {
 		surf->init(block);
 	}
 	return surf;

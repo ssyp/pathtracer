@@ -21,3 +21,10 @@ IMaterial* MaterialManager::getMaterial(const std::string & string) {
 	} 
 	return it->second;
 }
+
+void MaterialManager::init(& Parser) {
+	int n = getNumMaterialBlocks();
+	for(int i = 0; i < n; i++) {
+		addMaterial(Factory::createMaterial(materialBlocks[i]),materialBlocks[i].getVariable("name").stringValue);
+	}
+}

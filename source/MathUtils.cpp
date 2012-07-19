@@ -46,7 +46,7 @@ namespace Math {
 			randV.x = static_cast<float> (rand() * infRandMax) * 2 - 1; 
 			randV.y = static_cast<float> (rand() * infRandMax) * 2 - 1;
 			randV.z = static_cast<float> (rand() * infRandMax) * 2 - 1;
-		} while (cross(n, randV) == vec);
+		} while (n.cross(randV) == vec);
 		
 		dirX = randV.cross(n);  
 		dirY = dirX.cross(n);

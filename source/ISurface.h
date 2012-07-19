@@ -11,9 +11,6 @@ using namespace Math;
 
 class ISurface {
 	public:
-		ISurface() {
-			material = new SimpleMaterial();
-		}
 
 		virtual bool getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const = 0;
 

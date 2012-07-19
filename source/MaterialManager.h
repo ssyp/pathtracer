@@ -4,6 +4,8 @@
 #include <string>
 #include <map>
 #include "IMaterial.h"
+#include "Parser.h"
+#include "Factory.h"
 
 class MaterialManager {
 	public:
@@ -12,6 +14,8 @@ class MaterialManager {
 		
 		static void addMaterial(IMaterial* material, const std::string & string);
 		static void deleteMaterial(const std::string & string);
+
+		static void init(& Parser);
 		
 	private:
 		

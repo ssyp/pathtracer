@@ -27,7 +27,7 @@ IMaterial * Factory::createMaterial(const Block & block) {
 
 	if (block.surface == "simple") {
 		mater = new SimpleMaterial();
-		//mater -> init(block);
+		mater -> init(block);
 	}
 	return mater;
 }

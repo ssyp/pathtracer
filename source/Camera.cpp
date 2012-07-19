@@ -1,6 +1,6 @@
 #include "Camera.h"
 
-Camera::Camera(Vec3<float> & pos, Vec3<float> & d, float angel, int _camDpiX, int _camDpiY, int _realDpiX, int _realDpiY) {
+Camera::Camera(const Vec3<float> & pos, const Vec3<float> & d, float angel, int _camDpiX, int _camDpiY, int _realDpiX, int _realDpiY) {
 	position = pos;
 	direct  = d;
 	camDpiX = _camDpiX;

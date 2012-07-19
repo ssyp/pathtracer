@@ -8,7 +8,7 @@ using namespace Math;
 
 class Camera {
 	public:
-		Camera(Vec3<float> & pos, Vec3<float> & d, float angel, int camDpiX, int camDpiY, int realDpiX, int realDpiY);
+		Camera(const Vec3<float> & pos, const Vec3<float> & d, float angel, int camDpiX, int camDpiY, int realDpiX, int realDpiY);
 
 		void setPos(Vec3<float> & vec);
 		Vec3<float> getPos() const;

@@ -7,7 +7,7 @@ Renderer::Renderer(int x, int y, int samp) {
 	mci = new MonteCarloImage(x,y);
 }
 
-void Renderer::setBackgroundColor(Vec3<float>& vec) {
+void Renderer::setBackgroundColor(const Vec3<float>& vec) {
 	backgroundColor = vec;
 }
 

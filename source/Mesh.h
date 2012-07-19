@@ -15,7 +15,7 @@ class Mesh : public ISurface {
 		void init(const Block & block);
 		
 	private:
-		std::vector<Vec3<float>> poligon;
+		std::vector<poligon> poligons;
 };
 
 #endif

@@ -113,7 +113,7 @@ namespace Math {
 	
 			bool operator == (const Vec2<T> & vec2) const
 			{
-				if (x + y == vec2.x + vec2.y) 
+				if (x == vec2.x && y == vec2.y) 
 				{
 					return true;
 				}
@@ -122,7 +122,7 @@ namespace Math {
 	
 			bool operator != (const Vec2<T> & vec2) const
 			{
-				if (x + y + z != vec2.x + vec2.y) 
+				if (x != vec2.x && y != vec2.y) 
 				{
 					return true;
 				}

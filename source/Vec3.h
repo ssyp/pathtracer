@@ -149,7 +149,7 @@ namespace Math {
 	
 			bool operator != (const Vec3<T> & vec) const
 			{
-				if (x + y + z != vec.x + vec.y + vec.z) 
+				if (x != vec.x &&  y != vec.y && z != vec.z) 
 				{
 					return true;
 				}

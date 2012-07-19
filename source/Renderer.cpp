@@ -49,6 +49,9 @@ int Renderer::getSamples() const {
 Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, int depth) {
 	
 	int ind = scene.getIntersection(ray);
+
+	if(ind == -1) return backgroundColor;
+
 	ISurface* surf = scene.getSurface(ind);
 	
 	float pointRay;

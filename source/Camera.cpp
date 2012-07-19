@@ -7,8 +7,8 @@ Camera::Camera(Vec3<float> & pos, Vec3<float> & d, float angel, int _camDpiX, in
 	camDpiY = _camDpiY;
 	realDpiX = _realDpiX;
 	realDpiY = _realDpiY;
-	kX = realDpiX / (float)camDpiX;
-	kY = realDpiY / (float)camDpiY;
+	kX = realDpiX / static_cast<float>(camDpiX);
+	kY = realDpiY / static_cast<float>(camDpiY);
 	this->angel = angel;
 }
 

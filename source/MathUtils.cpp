@@ -31,17 +31,18 @@ namespace Math {
 		Vec3<float> dirX;
 		Vec3<float> dirY;
 		Vec3<float> randVe;
+		float infRandMax = 1.0f / RAND_MAX;
 
-		float alpha = static_cast<float>(rand() % RAND_MAX) * pi2;
-		float phi = static_cast<float>(rand() % RAND_MAX) * 2 * pi;
+		float alpha = static_cast<float>(rand() * infRandMax) * pi2;
+		float phi = static_cast<float>(rand() * infRandMax) * 2 * pi;
 
 		randVe.x = cos(alpha) * cos(phi);
 		randVe.y = cos(alpha) * sin(phi);
 		randVe.z = sin(alpha);
 
-		randV.x = static_cast<float> (rand() % 21) - 10;
-		randV.y = static_cast<float> (rand() % 21) - 10;
-		randV.z = static_cast<float> (rand() % 21) - 10;
+		randV.x = static_cast<float> (rand() * infRandMax) * 2 - 1; 
+		randV.y = static_cast<float> (rand() * infRandMax) * 2 - 1;
+		randV.z = static_cast<float> (rand() * infRandMax) * 2 - 1;
 		dirX = randV.cross(n);  
 		dirY = dirX.cross(n);
 		dirX.normalize();

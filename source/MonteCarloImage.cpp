@@ -42,9 +42,9 @@ void MonteCarloImage::save(int samp) const
 
 	for(int i=0; i<h; i++) {
 		for(int j=0; j<w; j++) {
-			int r = static_cast<int>(pixels[i][j].x * 255)/samp;
-			int g = static_cast<int>(pixels[i][j].y * 255)/samp;
-			int b = static_cast<int>(pixels[i][j].z * 255)/samp;
+			int r = static_cast<int>(pixels[i][j].x / static_cast<float>(samp) * 255);
+			int g = static_cast<int>(pixels[i][j].y / static_cast<float>(samp) * 255);
+			int b = static_cast<int>(pixels[i][j].z / static_cast<float>(samp) * 255);
 			if (r > 255) r = 255;
 			if (g > 255) g = 255;
 			if (b > 255) b = 255;

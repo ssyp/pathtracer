@@ -23,7 +23,7 @@ class Renderer {
 
 		int getSamples() const;
 		
-		Vec3<float> pathTrace(Ray & ray, Scene & scene, Vec3<float> & color);
+		Vec3<float> pathTrace(Ray & ray, Scene & scene, int depth);
 	
 	private:
 		int samples;

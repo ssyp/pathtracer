@@ -21,7 +21,7 @@ bool Application::onInit() {
 
 	factory = new Factory(); 
 	scene = new Scene();
-	camera = new Camera(Vec3<float>(0, 0, -20),Vec3<float>(0, 0, 1), 0.5f, 640, 480); 
+	camera = new Camera(Vec3<float>(0, 0, -20),Vec3<float>(0, 0, 1), 0.5f, 640, 480, 640, 480); 
 	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 1); 
 
 	Block block;

@@ -1,12 +1,14 @@
 #include "Camera.h"
 
-Camera::Camera(Vec3<float> & pos, Vec3<float> & d, float angel, int x, int y) {
+Camera::Camera(Vec3<float> & pos, Vec3<float> & d, float angel, int _camDpiX, int _camDpiY, int _realDpiX, int _realDpiY) {
 	position = pos;
 	direct  = d;
-	dpiX = x;
-	dpiY = y;
-	screenSizeX = 1024 / dpiX;
-	screenSizeY = 600 / dpiY;
+	camDpiX = _camDpiX;
+	camDpiY = _camDpiY;
+	realDpiX = _realDpiX;
+	realDpiY = _realDpiY;
+	kX = realDpiX / camDpiX;
+	kY = realDpiY / camDpiY;
 	this->angel = angel;
 }
 
@@ -31,11 +33,11 @@ float Camera::getAngel() const {
 }
 
 int Camera::getDpiX() const {
-	return dpiX;
+	return camDpiX;
 }
 
 int Camera::getDpiY() const {
-	return dpiY;
+	return camDpiY;
 }
 
 Ray Camera::genRay(int curX, int curY, int distance)
@@ -46,7 +48,7 @@ Ray Camera::genRay(int curX, int curY, int distance)
 
 	vecX.normalize(); vecY.normalize();
 
-	Vec3<float> newVec = vecX * curX + vecY * curY + direct * distance; //vecX.x * curX + vecY.x * curY, vecX.y * curX + vecY.y * curY, vecX.z * curX + vecY.z * curY);
+	Vec3<float> newVec = vecX * curX * kX + vecY * curY * kY + direct * distance; //vecX.x * curX + vecY.x * curY, vecX.y * curX + vecY.y * curY, vecX.z * curX + vecY.z * curY);
 	newVec.normalize();
 
 	Ray newRay(getPos(), newVec);

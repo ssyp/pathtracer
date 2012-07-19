@@ -29,13 +29,11 @@ void Renderer::render(Camera & camera, Scene & scene) {
 		for(int y = 0; y < camera.getDpiY(); ++y) {
 			for(int x = 0; x < camera.getDpiX(); ++x) {
 				
-				//Vec3<float> curVec = camera.genRay(x, y, distance);
 				Ray ray(camera.genRay(x-camera.getDpiX() / 2, y-camera.getDpiY() / 2, distance));
+
+				Vec3<float> color = pathTrace(ray, scene, 0);
 				
-				Vec3<float> color = backgroundColor; 
-				pathTrace(ray, scene, color);
-				
-				mci->add(x, y,color);
+				mci->add(x, y, color);
 				
 			}
 		}
@@ -48,12 +46,7 @@ int Renderer::getSamples() const {
 	return samples;
 }
 
-Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, Vec3<float> & color) {
-	
-	if(curDepth > pathDepth) {
-		curDepth = 0;
-		return color;
-	}
+Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, int depth) {
 	
 	int ind = scene.getIntersection(ray);
 	ISurface* surf = scene.getSurface(ind);
@@ -61,24 +54,27 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, Vec3<float> & color) {
 	float pointRay;
 	Vec3<float> normal;
 
-	if(surf->getIntersection(ray, pointRay, normal)) {
-		Vec3<float> point = ray.eval(pointRay);
+	if(!surf->getIntersection(ray, pointRay, normal)) {
+		return backgroundColor;
+	}
 
-		IMaterial* material = surf->getMaterial();
-		Vec3<float> newVec = material->interact(ray.direction, point, normal);
-		Ray newRay(point, newVec);
-
-		curDepth++;
-		color = color * (surf->getMaterial())->getBRDF(ray.direction, newRay.direction, normal);
-		color = color * pathTrace(newRay, scene, color);
+	if(depth > pathDepth) {
+		return Vec3<float>(0,0,0);
+	}
 		
-	}
-	else if (curDepth > 0) {
-		curDepth = 0;
-		return color;
-	}
+	Vec3<float> point = ray.eval(pointRay);
+
+	IMaterial* material = surf->getMaterial();
+	Vec3<float> newVec = material->interact(ray.direction, point, normal);
+	Ray newRay(point, newVec);
+
+	float brdf = material->getBRDF(ray.direction, newRay.direction, normal);
+	float cosOmega = normal.dot(newRay.direction);
+
+	Vec3<float> color = pathTrace(newRay, scene, ++depth);
+
+	Vec3<float> finalColor = material->getColor(color * (brdf * cosOmega));
 	
-	curDepth = 0;
-	return color;
+	return finalColor;
 	
 }

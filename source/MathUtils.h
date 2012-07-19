@@ -11,6 +11,8 @@ namespace Math {
 
 	const float inf = 100000000.0f;
 	const float eps = 0.001f;
+	const float pi = 3.14159265f;
+	const float pi2 = 1.57079632f;
 
 	extern bool f_eq(float v1, float v2);
 }

@@ -29,7 +29,7 @@ void Renderer::render(Camera & camera, Scene & scene) {
 		for(int y = 0; y < camera.getDpiY(); ++y) {
 			for(int x = 0; x < camera.getDpiX(); ++x) {
 				
-				Ray ray(camera.genRay(x-camera.getDpiX() / 2, y-camera.getDpiY() / 2, distance));
+				Ray ray(camera.genRay(x-camera.getDpiX() / 2, camera.getDpiY() / 2 - y, distance));
 
 				Vec3<float> color = pathTrace(ray, scene, 0);
 				
@@ -56,10 +56,6 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, int depth) {
 	
 	float pointRay;
 	Vec3<float> normal;
-
-	if(!surf->getIntersection(ray, pointRay, normal)) {
-		return backgroundColor;
-	}
 
 	if(depth > pathDepth) {
 		return Vec3<float>(0,0,0);

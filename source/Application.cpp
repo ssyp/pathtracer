@@ -20,8 +20,8 @@ bool Application::onInit() {
 	parser -> parse("source/Scene1.txt");
 
 	scene = new Scene();
-	camera = new Camera(Vec3<float>(0, -67, 0),Vec3<float>(0, 1, 0), 0.5f, 400, 400, 10, 10); 
-	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 10); 
+	camera = new Camera(Vec3<float>(0, -67, 0),Vec3<float>(0, 1, 0), 0.5f, 300, 300, 10, 10); 
+	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 5); 
 
 	Block block;
 	ISurface * surf;

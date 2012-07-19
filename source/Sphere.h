@@ -6,6 +6,7 @@
 #include <algorithm>
 #include "Block.h"
 #include <map>
+#include "MaterialManager.h"
 
 class Sphere : public ISurface {
 	public:

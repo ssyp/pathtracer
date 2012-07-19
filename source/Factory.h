@@ -8,9 +8,8 @@
 
 class Factory {
 	public:
-		
-		ISurface * createSurface(const Block & block);
-		IMaterial * createMaterial(const Block & block);
+		static ISurface * createSurface(const Block & block);
+		static IMaterial * createMaterial(const Block & block);
 };
 
 #endif

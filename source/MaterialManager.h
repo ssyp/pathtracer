@@ -15,7 +15,7 @@ class MaterialManager {
 		static void addMaterial(IMaterial* material, const std::string & string);
 		static void deleteMaterial(const std::string & string);
 
-		static void init(& Parser);
+		static void init(Parser & parser);
 		
 	private:
 		

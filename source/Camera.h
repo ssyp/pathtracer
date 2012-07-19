@@ -30,7 +30,7 @@ class Camera {
 		int camDpiX, realDpiX;
 		int camDpiY, realDpiY;
 
-		int kX, kY;
+		float kX, kY;
 		
 		float angel;
 };

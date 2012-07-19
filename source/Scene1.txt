@@ -1,3 +1,3 @@
 Scene {
-	Surface sphere pos:[10;10;10] radius:10.0
+	Surface sphere pos:[10;10;10] radius:100.0 
 }

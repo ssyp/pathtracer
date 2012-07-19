@@ -24,6 +24,9 @@ bool Plane::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) co
 	
 	if(normal.dot(ray.direction)!= 0) {
 		t = -(normal.dot(ray.position) + d) / normal.dot(ray.direction);
+		if(t < 0) {
+			return false;
+		}
 		normal.normalize();
 		return true;
 	}

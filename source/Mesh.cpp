@@ -1,16 +1,22 @@
 #include "Mesh.h"
 #include "Plane.h"
+#include "Poligon.h"
+#include "MathUtils.h"
 #include <iostream>
 #include <fstream>
 
+using namespace Math;
+
 bool Mesh::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const{
 	Plane plane;
+	Vec3<float> abc;
 	bool colision=false;
 	size_t index;
 	float pointIntersection,t1;
 	t=inf;
 	
-	for(size_t i = 0; i < poligon.size(); i++) {	
+/*	for(size_t i = 0; i < poligons.size(); i++) {	
+
 		plane.setAbcd(poligon[i],0);
 		if(plane.getIntersection(ray,pointIntersection)) {
 			Vec3<float> ad = pointIntersection - poligon[i].x;
@@ -34,20 +40,22 @@ bool Mesh::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) con
 		normal.normalize();
 		return true;
 	}
-	return false;
+	return false; */
 }
 
 
 void Mesh::load(const std::string & fileName) {
-	Vec3 v;
+	Vec3<float> point;
+	Poligon poligon;
 	std::ifstream file(fileName);
 	while(!file.eof()) {
-		file >> v.x >> v.y >> v.z;
-		poligon.push_back(v);
+		file >> poligon.vertices1.x >> poligon.vertices1.y >> poligon.vertices1.z;
+		file >> poligon.vertices1.x >> poligon.vertices1.y >> poligon.vertices1.z;
+		file >> poligon.vertices1.x >> poligon.vertices1.y >> poligon.vertices1.z;
+		poligons.push_back(poligon);
 	}
 }
 
-void init(const Block & block) {
-	load(block.map["file"].stringValue);
-	
+void Mesh::init(const Block & block) {
+	load(block.getVariable("file").stringValue);
 }

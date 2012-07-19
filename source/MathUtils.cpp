@@ -34,7 +34,7 @@ namespace Math {
 		Vec3<float> randVe;
 
 		if (n == vec) {
-			return 0;
+			return vec;
 		}
 
 		float infRandMax = 1.0f / RAND_MAX;

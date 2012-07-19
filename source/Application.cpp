@@ -21,8 +21,9 @@ bool Application::onInit() {
 
 	factory = new Factory(); 
 	scene = new Scene();
-	camera = new Camera(Vec3<float>(0, 0, -50),Vec3<float>(0, 0, 1), 0.5f, 100, 100, 100, 100); 
-	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 1); 
+	camera = new Camera(Vec3<float>(0, 0, -110),Vec3<float>(0, 0, 1), 0.5f, 400, 400, 10, 10); 
+	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 10); 
+	//renderer->setBackgroundColor(Vec3<float>(0,0,0));
 
 	Block block;
 	ISurface * surf;
@@ -33,7 +34,7 @@ bool Application::onInit() {
 		surf -> init(block);
 		scene -> addSurface(surf);
 	}
-	renderer -> setPathDepth(10);
+	renderer -> setPathDepth(5);
 	renderer->setBackgroundColor(Vec3<float>(0.5,0.5,0.5));
 	renderer -> render(*camera, *scene);
 	renderer->mci->save(renderer->getSamples());

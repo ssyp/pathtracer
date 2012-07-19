@@ -21,8 +21,19 @@ Factory
 
 Renderer
 
-Этот код:		color = color * (surf->getMaterial())->getBRDF(ray.direction, newRay.direction, normal);
-				color = color * pathTrace(newRay, scene, color);
-				
-Заменить на:	IMaterial * material = surf->getMaterial();
-				color = material->getColor(color) * dot(n,отражённого луча) * pathTrace(newRay, scene, color);
+Vec3<float> pathTrace(Scene, Ray, Depth) {
+	
+	Проверяем пересечение с чем-либо
+	
+	Если пересечения нет, то вернуть цвет фона
+	Если глубина луча больше допустимой, вернуть чёрный цвет
+	
+	Вычисляем отражённый луч методом interact у IMaterial
+	Вычисляем BDRF методом getBDRF у IMaterial
+	Вычисляем cosOmega = dot(n, newRay.direction);
+	
+	Вычисляем цвет отражённого луча, вызывая pathTrace
+	
+	Финальный цвет вычисляем по формуле getColor(BRDF * cosOmega * цвет отражённого луча)
+}
+

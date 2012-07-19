@@ -3,6 +3,8 @@
 
 #include "ISurface.h"
 #include <cmath>
+#include "MaterialManager.h"
+
 
 class Plane : public ISurface {
 	public:

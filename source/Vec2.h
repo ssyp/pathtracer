@@ -14,9 +14,14 @@ namespace Math {
 				y = 0;
 			}
 	
-			Vec2(T newX, T newY, T newZ) {
+			Vec2(T newX, T newY) {
 				x = newX;
 				y = newY;
+			}
+
+			Vec2(const Vec2<T> & vec) {
+				x = vec.x;
+				y = vec.y;
 			}
 				
 			Vec2<T> operator * (const Vec2<T> & vec) const {
@@ -24,11 +29,6 @@ namespace Math {
 				result.x = x * vec.x;
 				result.y = y * vec.y;
 				return result;
-			}
-	
-			Vec2(const Vec2<T> & vec) {
-				x = vec.x;
-				y = vec.y;
 			}
 	
 			Vec2<T> operator = (const Vec2<T> & vec) const {
@@ -76,18 +76,18 @@ namespace Math {
 			{
 				if (x + y + z < vec2.x + vec2.y) 
 				{
-					return 1;
+					return true;
 				}
-				return 0;
+				return false;
 			}
 	
 			bool operator > (const Vec2<T> & vec2) const
 			{
 				if (x + y + z < vec2.x + vec2.y) 
 				{
-					return 0;
+					return true;
 				}
-				return 1;
+				return false;
 			}
 	
 			Vec2<T> operator += (const Vec2<T> & vec2) const {
@@ -113,22 +113,23 @@ namespace Math {
 	
 			bool operator == (const Vec2<T> & vec2) const
 			{
-				if (x + y + z = vec2.x + vec2.y) 
+				if (x == vec2.x && y == vec2.y) 
 				{
-					return 0;
+					return true;
 				}
-				return 1;
+				return false;
 			}
 	
 			bool operator != (const Vec2<T> & vec2) const
 			{
-				if (x + y + z != vec2.x + vec2.y) 
+				if (x != vec2.x && y != vec2.y) 
 				{
-					return 0;
+					return true;
 				}
-				return 1;
+				return false;
 			}
 	};
 }
 #endif
+
 

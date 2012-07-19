@@ -19,21 +19,22 @@ bool Application::onInit() {
 	parser = new Parser();
 	parser -> parse("source/Scene1.txt");
 
-	surfaceFactory = new SurfaceFactory(); 
+	factory = new Factory(); 
 	scene = new Scene();
-	camera = new Camera(Vec3<float>(0, 0, -20),Vec3<float>(0, 0, 1), 0.5f, 640, 480); 
-	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 1); 
+	camera = new Camera(Vec3<float>(0, 0, -110),Vec3<float>(0, 0, 1), 0.5f, 400, 400, 10, 10); 
+	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 10); 
+	//renderer->setBackgroundColor(Vec3<float>(0,0,0));
 
 	Block block;
 	ISurface * surf;
 
 	for (int i = 0; i < parser ->getNumSurfaceBlocks(); i++) {
 		block = parser -> getSurfaceBlock(i);
-		surf = surfaceFactory -> createSurface(block);
+		surf = factory -> createSurface(block);
 		surf -> init(block);
 		scene -> addSurface(surf);
 	}
-	renderer -> setPathDepth(10);
+	renderer -> setPathDepth(5);
 	renderer->setBackgroundColor(Vec3<float>(0.5,0.5,0.5));
 	renderer -> render(*camera, *scene);
 	renderer->mci->save(renderer->getSamples());
@@ -48,7 +49,7 @@ void Application::onCleanup() {
 	delete scene;
 	delete camera;
 	delete renderer;
-	delete surfaceFactory;
+	delete factory;
     SDL_Quit();
 }
 
@@ -80,7 +81,6 @@ int Application::onExecute() {
 }
 
 void Application::onRender() {
-	Surface::OnDraw(surfDisplay, surfTest, 0, 0);
  
     SDL_Flip(surfDisplay);
 }

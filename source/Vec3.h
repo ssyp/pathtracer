@@ -38,10 +38,26 @@ namespace Math {
 				return result;
 			}
 
+			Vec3<T> operator * (const T & k) const {
+				Vec3<T> result;
+				result.x = x * k;
+				result.y = y * k;
+				result.z = z * k;
+				return result;
+			}
+
 			void operator = (const Vec3<T> & vec) {
 				x = vec.x;
 				y = vec.y;
 				z = vec.z;
+			}
+
+			Vec3<T> operator = (const Vec3<T> & vec) const {
+				Vec3<T> result;
+				result.x = vec.x;
+				result.y = vec.y;
+				result.z = vec.z;
+				return result;
 			}
 	
 			Vec3<T> operator + (const Vec3<T> & vec) const {
@@ -57,14 +73,6 @@ namespace Math {
 				result.x = x - vec.x;
 				result.y = y - vec.y;
 				result.z = z - vec.z;
-				return result;
-			}
-	
-			Vec3<T> operator * (const T & k) const {
-				Vec3<T> result;
-				result.x = x * k;
-				result.y = y * k;
-				result.z = z * k;
 				return result;
 			}
 	
@@ -92,18 +100,18 @@ namespace Math {
 			{
 				if (x + y + z < vec.x + vec.y + vec.z) 
 				{
-					return 1;
+					return true;
 				}
-				return 0;
+				return false;
 			}
 	
 			bool operator > (const Vec3<T> & vec) const
 			{
 				if (x + y + z < vec.x + vec.y + vec.z) 
 				{
-					return 0;
+					return true;
 				}
-				return 1;
+				return false;
 			}
 	
 			Vec3<T> operator += (const Vec3<T> & vec) const {
@@ -132,21 +140,22 @@ namespace Math {
 	
 			bool operator == (const Vec3<T> & vec) const
 			{
-				if (x + y + z == vec.x + vec.y + vec.z) 
+				if (x == vec.x && y == vec.y && z == vec.z) 
 				{
-					return 0;
+					return true;
 				}
-				return 1;
+				return false;
 			}
 	
 			bool operator != (const Vec3<T> & vec) const
 			{
-				if (x + y + z != vec.x + vec.y + vec.z) 
+				if (x != vec.x &&  y != vec.y && z != vec.z) 
 				{
-					return 0;
+					return true;
 				}
-				return 1;
+				return false;
 			}
 	};
 }
 #endif
+

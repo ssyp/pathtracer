@@ -50,4 +50,5 @@ bool Sphere::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) c
 void Sphere::init(const Block & block) {
 	position = block.getVariable("pos").vectorValue;
 	radius = block.getVariable("radius").floatValue;
+	material = MaterialManager::getMaterial(block.getVariable("material").stringValue);
 };

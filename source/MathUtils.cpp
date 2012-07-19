@@ -27,10 +27,12 @@ namespace Math {
 	} 
 
 	Vec3<float> getRandomPointOnHemisphere(const Vec3<float> & n) {
+		Vec3<float> vec;
 		Vec3<float> randV;
 		Vec3<float> dirX;
 		Vec3<float> dirY;
 		Vec3<float> randVe;
+
 		float infRandMax = 1.0f / RAND_MAX;
 
 		float alpha = static_cast<float>(rand() * infRandMax) * pi2;
@@ -40,9 +42,12 @@ namespace Math {
 		randVe.y = cos(alpha) * sin(phi);
 		randVe.z = sin(alpha);
 
-		randV.x = static_cast<float> (rand() * infRandMax) * 2 - 1; 
-		randV.y = static_cast<float> (rand() * infRandMax) * 2 - 1;
-		randV.z = static_cast<float> (rand() * infRandMax) * 2 - 1;
+		do {
+			randV.x = static_cast<float> (rand() * infRandMax) * 2 - 1; 
+			randV.y = static_cast<float> (rand() * infRandMax) * 2 - 1;
+			randV.z = static_cast<float> (rand() * infRandMax) * 2 - 1;
+		} while (n.cross(randV) == vec);
+		
 		dirX = randV.cross(n);  
 		dirY = dirX.cross(n);
 		dirX.normalize();

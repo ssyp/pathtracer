@@ -51,14 +51,6 @@ namespace Math {
 				y = vec.y;
 				z = vec.z;
 			}
-
-			Vec3<T> operator = (const Vec3<T> & vec) const {
-				Vec3<T> result;
-				result.x = vec.x;
-				result.y = vec.y;
-				result.z = vec.z;
-				return result;
-			}
 	
 			Vec3<T> operator + (const Vec3<T> & vec) const {
 				Vec3<T> result;

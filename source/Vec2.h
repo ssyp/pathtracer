@@ -24,20 +24,18 @@ namespace Math {
 				y = vec.y;
 			}
 				
+			void operator = (const Vec2<T> & vec) {
+				x = vec.x;
+				y = vec.y;
+			}
+	
 			Vec2<T> operator * (const Vec2<T> & vec) const {
 				Vec2<T> result;
 				result.x = x * vec.x;
 				result.y = y * vec.y;
 				return result;
 			}
-	
-			Vec2<T> operator = (const Vec2<T> & vec) const {
-				Vec2<T> result;
-				result.x = vec.x;
-				result.y = vec.y;
-				return result;
-			}
-	
+
 			Vec2<T> operator + (const Vec2<T> & vec2) const {
 				Vec2<T> result;
 				result.x = x + vec2.x;

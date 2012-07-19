@@ -33,6 +33,10 @@ namespace Math {
 		Vec3<float> dirY;
 		Vec3<float> randVe;
 
+		if (n == vec) {
+			return 0;
+		}
+
 		float infRandMax = 1.0f / RAND_MAX;
 
 		float alpha = static_cast<float>(rand() * infRandMax) * pi2;

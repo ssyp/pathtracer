@@ -2,20 +2,20 @@
 #define __APP_H__
  
 #include "SDL.h"
-#include "Surface.h"
+
 #include "Parser.h"
 #include "ISurface.h"
 #include "Scene.h"
 #include "Camera.h"
 #include "Renderer.h"
-#include "SurfaceFactory.h"
+#include "Factory.h"
 
 class Application {
     private:
         bool running;
 		
 		Parser * parser;
-		SurfaceFactory * surfaceFactory;
+		Factory * factory;
 		Scene * scene;
 		Camera * camera;
 		Renderer * renderer;

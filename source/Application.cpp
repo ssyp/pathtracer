@@ -19,21 +19,21 @@ bool Application::onInit() {
 	parser = new Parser();
 	parser -> parse("source/Scene1.txt");
 
-	factory = new Factory(); 
 	scene = new Scene();
 	camera = new Camera(Vec3<float>(0, -110, 0),Vec3<float>(0, 1, 0), 0.5f, 400, 400, 10, 10); 
 	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 10); 
-	//renderer->setBackgroundColor(Vec3<float>(0,0,0));
 
 	Block block;
 	ISurface * surf;
 
 	for (int i = 0; i < parser ->getNumSurfaceBlocks(); i++) {
 		block = parser -> getSurfaceBlock(i);
-		surf = factory -> createSurface(block);
+		surf = Factory::createSurface(block);
 		surf -> init(block);
 		scene -> addSurface(surf);
 	}
+	MaterialManager::init(*parser);
+
 	renderer -> setPathDepth(5);
 	renderer->setBackgroundColor(Vec3<float>(0.5,0.5,0.5));
 	renderer -> render(*camera, *scene);

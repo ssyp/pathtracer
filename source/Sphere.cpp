@@ -1,4 +1,5 @@
 #include "Sphere.h"
+#include "MathUtils.h"
 
 Sphere::Sphere() {
 	position.x = 0;
@@ -43,11 +44,18 @@ bool Sphere::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) c
 	t1 = (-1 * dotDirectionLocalPosition - sqrt(D)) / (dotDirectionDirection);
 	t2 = (-1 * dotDirectionLocalPosition + sqrt(D)) / (dotDirectionDirection);
 
-	t = std::min(t1,t2);
-
+	t=Math::inf;
+	if(t1 < 0) {
+		t=t2;
+	}
+	if(t2 < 0) {
+		t=t1;
+	}
 	if(t < 0) {
 		return false;
 	}
+	
+	t = std::min(t1,t2);
 	
 	return true;
 }

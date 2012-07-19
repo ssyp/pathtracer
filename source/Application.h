@@ -15,7 +15,6 @@ class Application {
         bool running;
 		
 		Parser * parser;
-		Factory * factory;
 		Scene * scene;
 		Camera * camera;
 		Renderer * renderer;

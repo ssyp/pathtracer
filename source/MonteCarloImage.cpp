@@ -33,15 +33,15 @@ void MonteCarloImage::save(int samp) const
 	std::ofstream f("img.bmp", std::ios::out | std::ios::binary);
 
 	unsigned char *img = NULL;
-	int w = y, h = x;
+	int w = x, h = y;
 	int filesize = 54 + 3*w*h;
 
 	img = new unsigned char[3*w*h];
 	for(int i = 0; i < 3*w*h; i++)
 		img[i] = 0;
 
-	for(int i=0; i<h; i++) {
-		for(int j=0; j<w; j++) {
+	for(int i = 0; i < w; i++) {
+		for(int j = 0; j < h; j++) {
 			int r = static_cast<int>(pixels[i][j].x / static_cast<float>(samp) * 255);
 			int g = static_cast<int>(pixels[i][j].y / static_cast<float>(samp) * 255);
 			int b = static_cast<int>(pixels[i][j].z / static_cast<float>(samp) * 255);

@@ -49,7 +49,7 @@ void Application::onCleanup() {
 	delete scene;
 	delete camera;
 	delete renderer;
-	delete factory;
+
     SDL_Quit();
 }
 

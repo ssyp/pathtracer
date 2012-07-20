@@ -45,7 +45,7 @@ namespace Math {
 		else {return false;}
 	}
 
-	Vec3<float> getColor(const Vec3<int> & rgb){
+	Vec3<float> getColor(const Vec3<float> & rgb){
 		Vec3<float> vec;
 
 		vec.z=static_cast<float>(rgb.x) / 255.0f;

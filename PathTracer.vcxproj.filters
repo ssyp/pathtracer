@@ -16,6 +16,7 @@
     <ClCompile Include="source\Factory.cpp" />
     <ClCompile Include="source\Block.cpp" />
     <ClCompile Include="source\MaterialManager.cpp" />
+    <ClCompile Include="source\MirrorMaterial.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ISurface.h" />
@@ -37,5 +38,6 @@
     <ClInclude Include="source\Variable.h" />
     <ClInclude Include="source\Factory.h" />
     <ClInclude Include="source\MaterialManager.h" />
+    <ClInclude Include="source\MirrorMaterial.h" />
   </ItemGroup>
 </Project>

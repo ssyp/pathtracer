@@ -15,7 +15,7 @@ class Parser {
 		std::vector<Block> settingBlocks;
 
 	public:
-		void parse(const std::string &name);
+		void parse(const std::string & name);
 
 		inline int getNumSurfaceBlocks() {
 			return surfaceBlocks.size();
@@ -29,15 +29,15 @@ class Parser {
 			return settingBlocks.size();
 		}
 
-		inline Block getSurfaceBlock(const int &n) {
+		inline Block getSurfaceBlock(const int & n) {
 			return surfaceBlocks[n];
 		}
 
-		inline Block getMaterialBlock(const int &n) {
+		inline Block getMaterialBlock(const int & n) {
 			return materialBlocks[n];
 		}
 
-		inline Block getSettingBlock(const int &n) {
+		inline Block getSettingBlock(const int & n) {
 			return settingBlocks[n];
 		}
 };

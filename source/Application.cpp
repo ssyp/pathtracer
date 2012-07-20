@@ -10,11 +10,21 @@ Application::Application() {
 bool Application::onInit() {
     samples=0;
 	parser = new Parser();
-	parser -> parse("scenes/Test.scene");
+	parser->parse("scenes/Test.scene");
+
+	Block blockS, blockCamera, blockRender;
+
+	for (int i = 0; i < parser ->getNumSettingBlocks(); i++) {
+		blockS = parser -> getSettingBlock(i);
+		if(blockS.surface == "camera")
+			blockCamera = blockS;
+		else if(blockS.surface == "render")
+			blockRender = blockS;
+	}
 
 	scene = new Scene();
-	camera = new Camera(Vec3<float>(-10,-47, 60),Vec3<float>(0, 1, 0), 0.785f, 300, 300, 2, 2); 
-	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 2);
+	camera = new Camera(blockCamera.getVariable("pos").vectorValue,blockCamera.getVariable("focus").vectorValue, blockCamera.getVariable("angle").floatValue, static_cast<int>(blockCamera.getVariable("imagesize").vectorValue.x), static_cast<int>(blockCamera.getVariable("imagesize").vectorValue.y), static_cast<int>(blockCamera.getVariable("realsize").vectorValue.x), static_cast<int>(blockCamera.getVariable("realsize").vectorValue.y)); 
+	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), static_cast<int>(blockRender.getVariable("samplesPerIteration").floatValue)); 
 	
 	if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         return false;
@@ -23,8 +33,6 @@ bool Application::onInit() {
     if((surfDisplay = SDL_SetVideoMode(renderer->mci->getWidth(), renderer->mci->getHeight(), 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL) {
         return false;
     }
-	
-	 
 
 	Block block;
 	ISurface * surf;
@@ -38,8 +46,8 @@ bool Application::onInit() {
 		scene -> addSurface(surf);
 	}
 
-	renderer -> setPathDepth(5);
-	renderer->setBackgroundColor(getColor(Vec3<int>(136, 219, 255)));
+	renderer->setPathDepth(5);
+	renderer->setBackgroundColor(getColor(blockRender.getVariable("backgroundColor").vectorValue));
 	//renderer->mci->save(renderer->getSamples());
 
     return true;

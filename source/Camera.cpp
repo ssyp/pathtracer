@@ -1,15 +1,16 @@
 #include "Camera.h"
-
-Camera::Camera(const Vec3<float> & pos, const Vec3<float> & d, float angel, int _camDpiX, int _camDpiY, int _realDpiX, int _realDpiY) {
+#include <cmath>
+Camera::Camera(const Vec3<float> & pos, const Vec3<float> & point, float angle, int _camDpiX, int _camDpiY, int _realDpiX, int _realDpiY) {
 	position = pos;
-	direct  = d;
+	direct  = point-pos;
+	direct.normalize();
 	camDpiX = _camDpiX;
 	camDpiY = _camDpiY;
 	realDpiX = _realDpiX;
 	realDpiY = _realDpiY;
 	kX = realDpiX / static_cast<float>(camDpiX);
 	kY = realDpiY / static_cast<float>(camDpiY);
-	this->angel = angel;
+	this->angle = angle;
 }
 
 void Camera::setPos(Vec3<float> & vec) {
@@ -28,8 +29,8 @@ Vec3<float> Camera::getDir() const {
 	return direct;
 }
 
-float Camera::getAngel() const {
-	return angel;
+float Camera::getAngle() const {
+	return angle;
 }
 
 int Camera::getDpiX() const {
@@ -42,13 +43,14 @@ int Camera::getDpiY() const {
 
 Ray Camera::genRay(int curX, int curY, int distance)
 {
+	float dist = (realDpiX / 2.0 * tan(angle));
 	Vec3<float> vert(0,0,1);
 	Vec3<float> vecX = direct.cross(vert);
 	Vec3<float> vecY = vecX.cross(direct);
 
 	vecX.normalize(); vecY.normalize();
 
-	Vec3<float> newVec = vecX * static_cast<float>(curX) * kX + vecY * static_cast<float>(curY) * kY + direct * static_cast<float>(distance); //vecX.x * curX + vecY.x * curY, vecX.y * curX + vecY.y * curY, vecX.z * curX + vecY.z * curY);
+	Vec3<float> newVec = vecX * static_cast<float>(curX) * kX + vecY * static_cast<float>(curY) * kY  + direct * static_cast<float>(dist); //vecX.x * curX + vecY.x * curY, vecX.y * curX + vecY.y * curY, vecX.z * curX + vecY.z * curY);
 	newVec.normalize();
 
 	Ray newRay(getPos(), newVec);

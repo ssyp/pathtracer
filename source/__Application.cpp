@@ -8,48 +8,36 @@ Application::Application() {
 }
 
 bool Application::onInit() {
-    samples=0;
+    if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+        return false;
+    }
+ 
+    if((surfDisplay = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL) {
+        return false;
+    }
+	
+	samples=0;
 	parser = new Parser();
 	parser -> parse("source/Scene1.txt");
 
 	scene = new Scene();
-	camera = new Camera(Vec3<float>(-10,-77, 60),Vec3<float>(0, 1, 0), 0.5f, 300, 300, 2, 2); 
-	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 2);
-	
-	if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-        return false;
-    }
- 
-    if((surfDisplay = SDL_SetVideoMode(renderer->mci->getWidth(), renderer->mci->getHeight(), 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL) {
-        return false;
-    }
-	
-<<<<<<< HEAD
-	samples = 0;
-	parser = new Parser();
-	parser->parse("source/Scene1.txt");
-
-	scene = new Scene();
-	camera = new Camera(Vec3<float>(-10,-77, 60),Vec3<float>(0, 1, 0), 0.5f, 300, 300, 2, 2); 
-	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 2); 
-=======
-	 
->>>>>>> f6cc89b7a8ca7163a915c7be0c6f3bd6b325642d
+	camera = new Camera(Vec3<float>(10,-67, 60),Vec3<float>(10, 50, 35), 0.785, 300, 300, 30, 30); 
+	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 5); 
 
 	Block block;
 	ISurface * surf;
 
 	MaterialManager::init(*parser);
 
-	for (int i = 0; i < parser->getNumSurfaceBlocks(); i++) {
-		block = parser->getSurfaceBlock(i);
+	for (int i = 0; i < parser ->getNumSurfaceBlocks(); i++) {
+		block = parser -> getSurfaceBlock(i);
 		surf = Factory::createSurface(block);
-		surf->init(block);
-		scene->addSurface(surf);
+		surf -> init(block);
+		scene -> addSurface(surf);
 	}
 
-	renderer->setPathDepth(5);
-	renderer->setBackgroundColor(getColor(Vec3<int>(136, 219, 255)));
+	renderer -> setPathDepth(5);
+	renderer->setBackgroundColor(Vec3<float>(0.5,0.5,0.5));
 	//renderer->mci->save(renderer->getSamples());
 
     return true;
@@ -67,7 +55,7 @@ void Application::onCleanup() {
 }
 
 void Application::onEvent(SDL_Event * Event) {
-    if(Event->type == SDL_QUIT) {
+    if(Event -> type == SDL_QUIT) {
         running = false;
     }
 }
@@ -101,7 +89,7 @@ void Application::onRender() {
 		for(int y = 0; y < renderer->mci->getHeight(); y++)
 		{
 			Vec3<float> color = renderer->mci->get(x,y);
-			color *= 255.0f / static_cast<float>(samples);
+			color = color * (255.0f / static_cast<float>(samples));
 
 			color.clamp(0.0,255.0);
 

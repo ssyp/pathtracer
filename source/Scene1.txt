@@ -9,7 +9,7 @@ Materials {
 
 Scene {
 	Surface sphere material:"redLight" pos:[50;50;10] radius:20.0
-	Surface sphere material:"greenLight" pos:[10;50;10] radius:20.0
+	Surface sphere material:"sphereMaterial" pos:[10;50;10] radius:20.0
 	Surface sphere material:"blueLight" pos:[-30;50;10] radius:20.0
 	Surface plane material:"planeMaterial" abc:[0;0;1] d:0
 	

@@ -9,7 +9,6 @@ void Scene::addSurface(ISurface* surface) {
 	}
 	nodes.push_back(surface);	
 }
-
 void Scene::deleteSurface(const int index) {
 	nodes.erase(nodes.begin()+index);
 }

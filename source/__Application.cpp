@@ -8,40 +8,21 @@ Application::Application() {
 }
 
 bool Application::onInit() {
-    samples=0;
-	parser = new Parser();
-	parser -> parse("source/Scene1.txt");
-
-	scene = new Scene();
-	camera = new Camera(Vec3<float>(-10,-77, 60),Vec3<float>(0, 1, 0), 0.5f, 300, 300, 2, 2); 
-	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 2);
-	
-	if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+    if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         return false;
     }
  
-    if((surfDisplay = SDL_SetVideoMode(renderer->mci->getWidth(), renderer->mci->getHeight(), 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL) {
+    if((surfDisplay = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL) {
         return false;
     }
 	
-
 	samples=0;
 	parser = new Parser();
 	parser -> parse("source/Scene1.txt");
 
-	Block blockS, blockCamera, blockRender;
-
-	for (int i = 0; i < parser ->getNumSettingBlocks(); i++) {
-		blockS = parser -> getSettingBlock(i);
-		if(blockS.surface == "camera")
-			blockCamera = blockS;
-		else if(blockS.surface == "render")
-			blockRender = blockS;
-	}
-
 	scene = new Scene();
-	camera = new Camera(blockCamera.getVariable("pos").vectorValue,blockCamera.getVariable("focus").vectorValue, blockCamera.getVariable("angle").floatValue, blockCamera.getVariable("imagesize").vectorValue.x, blockCamera.getVariable("imagesize").vectorValue.y, blockCamera.getVariable("realsize").vectorValue.x, blockCamera.getVariable("realsize").vectorValue.y); 
-	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 2); 
+	camera = new Camera(Vec3<float>(10,-67, 60),Vec3<float>(10, 50, 35), 0.785, 300, 300, 30, 30); 
+	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 5); 
 
 	Block block;
 	ISurface * surf;
@@ -108,7 +89,7 @@ void Application::onRender() {
 		for(int y = 0; y < renderer->mci->getHeight(); y++)
 		{
 			Vec3<float> color = renderer->mci->get(x,y);
-			color *= 255.0f / static_cast<float>(samples);
+			color = color * (255.0f / static_cast<float>(samples));
 
 			color.clamp(0.0,255.0);
 

@@ -42,8 +42,8 @@ bool Sphere::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) c
 	float t1, t2;
 	float sqrtD=static_cast<float>(sqrt(D)*0.5);
 		
-	t1 = (-1 * dotDirectionLocalPosition - sqrtD) / (dotDirectionDirection);
-	t2 = (-1 * dotDirectionLocalPosition + sqrtD) / (dotDirectionDirection);
+	t1 = (-dotDirectionLocalPosition - sqrtD) / (dotDirectionDirection);
+	t2 = (-dotDirectionLocalPosition + sqrtD) / (dotDirectionDirection);
 
 	t=Math::inf;
 	if(t1 < 0) {

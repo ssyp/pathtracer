@@ -40,8 +40,8 @@ bool Application::onInit() {
 	}
 
 	scene = new Scene();
-	camera = new Camera(blockCamera.getVariable("pos").vectorValue,blockCamera.getVariable("focus").vectorValue, blockCamera.getVariable("angle").floatValue, blockCamera.getVariable("imagesize").vectorValue.x, blockCamera.getVariable("imagesize").vectorValue.y, blockCamera.getVariable("realsize").vectorValue.x, blockCamera.getVariable("realsize").vectorValue.y); 
-	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), blockRender.getVariable("samplesPerIteration").floatValue); 
+	camera = new Camera(blockCamera.getVariable("pos").vectorValue,blockCamera.getVariable("focus").vectorValue, blockCamera.getVariable("angle").floatValue, static_cast<int>(blockCamera.getVariable("imagesize").vectorValue.x), static_cast<int>(blockCamera.getVariable("imagesize").vectorValue.y), static_cast<int>(blockCamera.getVariable("realsize").vectorValue.x), static_cast<int>(blockCamera.getVariable("realsize").vectorValue.y)); 
+	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), static_cast<int>(blockRender.getVariable("samplesPerIteration").floatValue)); 
 
 	Block block;
 	ISurface * surf;

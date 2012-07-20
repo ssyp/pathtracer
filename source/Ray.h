@@ -1,6 +1,7 @@
 #ifndef __RAY_H__ 
 #define __RAY_H__
 #include "Vec3.h"
+#include "ISurface.h"
 
 namespace Math {
 	class Ray {

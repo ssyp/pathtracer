@@ -115,26 +115,23 @@ namespace Math {
 				return false;
 			}
 	
-			Vec3<T> operator += (const Vec3<T> & vec) const {
-				Vec3<T> result;
-				result.x = x + vec.x;
-				result.y = y + vec.y;
-				result.z = z + vec.z;
-				return result;
+			void operator += (const Vec3<T> & vec) {
+				x += vec.x;
+				y += vec.y;
+				z += vec.z;
 			}
 	
-			Vec3<T> operator -= (const Vec3<T> & vec) const {
-				Vec3<T> result;
-				result.x = x - vec.x;
-				result.y = y - vec.y;
-				result.z = z - vec.z;
-				return result;
+			void operator -= (const Vec3<T> & vec) {
+				x -= vec.x;
+				y -= vec.y;
+				z -= vec.z;
 			}
 	
-			Vec3<T> operator *= (const T & k) const {
-				x = x * k;
-				y = y * k;
-				z = z * k;
+			void operator *= (const T & k)
+			{
+				x *= k;
+				y *= k;
+				z *= k;
 			}
 	
 			bool operator == (const Vec3<T> & vec) const

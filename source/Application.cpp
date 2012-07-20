@@ -89,7 +89,7 @@ void Application::onRender() {
 		for(int y = 0; y < renderer->mci->getHeight(); y++)
 		{
 			Vec3<float> color = renderer->mci->get(x,y);
-			color = color * (255.0f / static_cast<float>(samples));
+			color *= 255.0f / static_cast<float>(samples);
 
 			color.clamp(0.0,255.0);
 

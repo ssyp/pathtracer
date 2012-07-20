@@ -13,6 +13,9 @@ class MonteCarloImage {
 		
 		void save(int samp) const;
 
+		int getWidth() const;
+		int getHeight() const;
+
 	private:
 		int x, y;
 		Vec3<float>** pixels;

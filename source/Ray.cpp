@@ -1,4 +1,5 @@
 #include "Ray.h"
+#include "ISurface.h"
 
 namespace Math {
 	Vec3<float> Ray::eval(const float & t) const {
@@ -12,6 +13,7 @@ namespace Math {
 		direction.x = 0;
 		direction.y = 0;
 		direction.z = 0;
+		prevSurface = NULL;  
 	}
 
 	Ray::Ray(Vec3<float> pos, Vec3<float> dir) {

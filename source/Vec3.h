@@ -30,7 +30,7 @@ namespace Math {
 				z = vec.z;
 			}
 				
-			void clamp (int min, int max) {
+			void clamp (float min, float max) {
 				if (x < min) x = min;
 				if (x > max) x = max;
 				if (y < min) y = min;

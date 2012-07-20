@@ -16,6 +16,7 @@ bool Application::onInit() {
         return false;
     }
 	
+	samples=0;
 	parser = new Parser();
 	parser -> parse("source/Scene1.txt");
 
@@ -37,7 +38,6 @@ bool Application::onInit() {
 
 	renderer -> setPathDepth(5);
 	renderer->setBackgroundColor(Vec3<float>(0.5,0.5,0.5));
-	renderer -> render(*camera, *scene);
 	renderer->mci->save(renderer->getSamples());
 
     return true;
@@ -82,8 +82,21 @@ int Application::onExecute() {
 }
 
 void Application::onRender() {
- 
-    SDL_Flip(surfDisplay);
+	renderer->render(*camera, *scene);
+	samples+=renderer->getSamples();
+
+	for(int x = 0; x < renderer->mci->getWidth(); x++)
+		for(int y = 0; y < renderer->mci->getHeigth(); y++)
+		{
+			Vec3<float> color = renderer->mci->get(x,y);
+			color *= 1.0/samples;	
+			unsigned char * pixel = static_cast<unsigned char *>(surfDisplay->pixels) + y * surfDisplay->pitch + x * surfDisplay->format->BytesPerPixel;
+			*pixel++ = static_cast<unsigned char>(color.x);
+			*pixel++ = static_cast<unsigned char>(color.y);
+			*pixel++ = static_cast<unsigned char>(color.z);
+		}
+
+	SDL_Flip(surfDisplay);
 }
 
 void Application::onLoop() {}

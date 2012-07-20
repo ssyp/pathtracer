@@ -13,7 +13,8 @@
 class Application {
     private:
         bool running;
-		
+		int samples;
+
 		Parser * parser;
 		Scene * scene;
 		Camera * camera;

@@ -10,7 +10,7 @@ Application::Application() {
 bool Application::onInit() {
     samples=0;
 	parser = new Parser();
-	parser -> parse("source/Scene1.txt");
+	parser -> parse("scenes/Test.scene");
 
 	scene = new Scene();
 	camera = new Camera(Vec3<float>(-10,-47, 60),Vec3<float>(0, 1, 0), 0.785f, 300, 300, 2, 2); 
@@ -27,7 +27,7 @@ bool Application::onInit() {
 
 	samples=0;
 	parser = new Parser();
-	parser -> parse("source/Scene1.txt");
+	parser->parse("scenes/Test.scene");
 
 	Block blockS, blockCamera, blockRender;
 

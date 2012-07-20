@@ -86,7 +86,7 @@ void Application::onRender() {
 	samples+=renderer->getSamples();
 
 	for(int x = 0; x < renderer->mci->getWidth(); x++)
-		for(int y = 0; y < renderer->mci->getHeigth(); y++)
+		for(int y = 0; y < renderer->mci->getHeight(); y++)
 		{
 			Vec3<float> color = renderer->mci->get(x,y);
 			color *= 1.0/samples;	

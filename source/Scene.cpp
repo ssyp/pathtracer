@@ -26,22 +26,21 @@ void Scene::deleteSurface(const ISurface* surface) {
 int Scene::getNumSurfaces() const { 
 	return nodes.size();
 }
-
-ISurface* Scene::getSurface(const int index) const {
-	return nodes[index];
-}
 	
-int Scene::getIntersection(const Ray & ray) const {
-	float t1, t = inf;
-	Vec3<float> normal;
+bool Scene::getIntersection(Ray & ray, ISurface* & surface, float & t, Vec3<float> & normal) const {
 	int index = -1;
+	float t1;
+	t = inf;
 	for(size_t i = 0; i < nodes.size(); i++) {
-		if(nodes[i]->getIntersection(ray, t1, normal)) {
+		if(ray.prevSurface != nodes[i] && nodes[i]->getIntersection(ray, t1, normal)) {
 			if(t1 < t) {
 				t = t1;
 				index = i;
 			}
 		}
 	}
-	return index;
+	if(index != -1) {
+		surface=nodes[index];
+		ray.prevSurface=surface;
+	}
 }

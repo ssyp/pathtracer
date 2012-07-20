@@ -15,9 +15,8 @@ class Scene {
 			void deleteSurface(const ISurface* surface);
 	
 			int getNumSurfaces() const;	
-			ISurface* getSurface(const int index) const;
 	
-			int getIntersection(const Ray & ray) const;
+			bool getIntersection(Ray & ray, ISurface* & surface, float & t, Vec3<float> & normal) const;
 };
 
 #endif

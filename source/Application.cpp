@@ -24,24 +24,7 @@ bool Application::onInit() {
         return false;
     }
 	
-
-	samples=0;
-	parser = new Parser();
-	parser->parse("scenes/Test.scene");
-
-	Block blockS, blockCamera, blockRender;
-
-	for (int i = 0; i < parser ->getNumSettingBlocks(); i++) {
-		blockS = parser -> getSettingBlock(i);
-		if(blockS.surface == "camera")
-			blockCamera = blockS;
-		else if(blockS.surface == "render")
-			blockRender = blockS;
-	}
-
-	scene = new Scene();
-	camera = new Camera(blockCamera.getVariable("pos").vectorValue,blockCamera.getVariable("focus").vectorValue, blockCamera.getVariable("angle").floatValue, static_cast<int>(blockCamera.getVariable("imagesize").vectorValue.x), static_cast<int>(blockCamera.getVariable("imagesize").vectorValue.y), static_cast<int>(blockCamera.getVariable("realsize").vectorValue.x), static_cast<int>(blockCamera.getVariable("realsize").vectorValue.y)); 
-	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), static_cast<int>(blockRender.getVariable("samplesPerIteration").floatValue)); 
+	 
 
 	Block block;
 	ISurface * surf;
@@ -55,8 +38,8 @@ bool Application::onInit() {
 		scene -> addSurface(surf);
 	}
 
-	renderer->setPathDepth(5);
-	renderer->setBackgroundColor(getColor(blockRender.getVariable("backgroundColor").vectorValue));
+	renderer -> setPathDepth(5);
+	renderer->setBackgroundColor(getColor(Vec3<int>(136, 219, 255)));
 	//renderer->mci->save(renderer->getSamples());
 
     return true;

@@ -37,7 +37,7 @@ bool Application::onInit() {
 	}
 
 	renderer -> setPathDepth(5);
-	renderer->setBackgroundColor(Vec3<float>(0.5,0.5,0.5));
+	renderer->setBackgroundColor(getColor(Vec3<int>(136, 219, 255)));
 	//renderer->mci->save(renderer->getSamples());
 
     return true;

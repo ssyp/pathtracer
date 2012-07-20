@@ -56,7 +56,6 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, int depth) {
 		return backgroundColor;
 	}
 
-	
 	if(depth > pathDepth) {
 		return Vec3<float>(0,0,0);
 	}

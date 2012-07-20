@@ -4,8 +4,6 @@
 #include <fstream>
 #include <assert.h>
 MonteCarloImage::MonteCarloImage(int x, int y) {
-
-
 	this->x = x;
 	this->y = y;
 
@@ -42,9 +40,9 @@ void MonteCarloImage::save(int samp) const
 
 	for(int i = 0; i < w; i++) {
 		for(int j = 0; j < h; j++) {
-			float r = static_cast<float>(pixels[i][j].x / static_cast<float>(samp) * 255);
-			float g = static_cast<float>(pixels[i][j].y / static_cast<float>(samp) * 255);
-			float b = static_cast<float>(pixels[i][j].z / static_cast<float>(samp) * 255);
+			float r = static_cast<float>(pixels[i][j].x / static_cast<float>(samp * 255));
+			float g = static_cast<float>(pixels[i][j].y / static_cast<float>(samp * 255));
+			float b = static_cast<float>(pixels[i][j].z / static_cast<float>(samp * 255));
 			if (r > 255) r = 255;
 			if (g > 255) g = 255;
 			if (b > 255) b = 255;
@@ -72,8 +70,8 @@ void MonteCarloImage::save(int samp) const
 	bmpinfoheader[10] = static_cast<unsigned char>(       h>>16);
 	bmpinfoheader[11] = static_cast<unsigned char>(       h>>24);
 
-	f.write(reinterpret_cast<const char*>(bmpfileheader),14);
-	f.write(reinterpret_cast<const char*>(bmpinfoheader),40);
+	f.write(reinterpret_cast<const char*>(bmpfileheader), 14);
+	f.write(reinterpret_cast<const char*>(bmpinfoheader), 40);
 	for(int i = 0; i < h; i++)
 	{
 		f.write(reinterpret_cast<const char*>(img + (w * (h - i - 1) * 3)),3*w);
@@ -91,7 +89,6 @@ int MonteCarloImage::getWidth() const
 {
 	return x;
 }
-
 
 MonteCarloImage::~MonteCarloImage()
 {

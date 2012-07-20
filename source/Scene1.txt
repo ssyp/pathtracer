@@ -1,3 +1,8 @@
+Config {
+	Settings camera pos:[-10;-47;60] focus:[0;1;0] angle:0.785 imagesize:[300;300;0] realsize:[30;30;0]
+	Settings render backgroundColor:[200;200;200] samplesPerIteration:5
+}
+
 Materials {
 	Material simple name:"redLight" reflectance:[0.0;0.0;0.0] emittance:[10.0;0.0;0.0]
 	Material simple name:"greenLight" reflectance:[0.0;0.0;0.0] emittance:[0.0;10.0;0.0]

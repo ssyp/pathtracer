@@ -20,8 +20,18 @@ bool Application::onInit() {
 	parser = new Parser();
 	parser -> parse("source/Scene1.txt");
 
+	Block blockS, blockCamera, blockRender;
+
+	for (int i = 0; i < parser ->getNumSettingBlocks(); i++) {
+		blockS = parser -> getSettingBlock(i);
+		if(blockS.surface == "camera")
+			blockCamera = blockS;
+		else if(blockS.surface == "render")
+			blockRender = blockS;
+	}
+
 	scene = new Scene();
-	camera = new Camera(Vec3<float>(-10,-77, 60),Vec3<float>(0, 1, 0), 0.5f, 300, 300, 2, 2); 
+	camera = new Camera(blockCamera.getVariable("pos").vectorValue,blockCamera.getVariable("focus").vectorValue, blockCamera.getVariable("angle").floatValue, blockCamera.getVariable("imagesize").vectorValue.x, blockCamera.getVariable("imagesize").vectorValue.y, blockCamera.getVariable("realsize").vectorValue.x, blockCamera.getVariable("realsize").vectorValue.y); 
 	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), 2); 
 
 	Block block;
@@ -37,7 +47,7 @@ bool Application::onInit() {
 	}
 
 	renderer -> setPathDepth(5);
-	renderer->setBackgroundColor(getColor(Vec3<int>(136, 219, 255)));
+	renderer->setBackgroundColor(Vec3<float>(0.5,0.5,0.5));
 	//renderer->mci->save(renderer->getSamples());
 
     return true;

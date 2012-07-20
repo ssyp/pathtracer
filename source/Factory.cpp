@@ -25,8 +25,7 @@ ISurface * Factory::createSurface(const Block & block) {
 }
 
 IMaterial * Factory::createMaterial(const Block & block) {
-	IMaterial * mater;
-
+	IMaterial * mater = NULL;
 	if (block.surface == "simple") {
 		mater = new SimpleMaterial();
 		mater -> init(block);

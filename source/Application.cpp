@@ -16,9 +16,9 @@ bool Application::onInit() {
         return false;
     }
 	
-	samples=0;
+	samples = 0;
 	parser = new Parser();
-	parser -> parse("source/Scene1.txt");
+	parser->parse("source/Scene1.txt");
 
 	scene = new Scene();
 	camera = new Camera(Vec3<float>(-10,-77, 60),Vec3<float>(0, 1, 0), 0.5f, 300, 300, 2, 2); 
@@ -29,14 +29,14 @@ bool Application::onInit() {
 
 	MaterialManager::init(*parser);
 
-	for (int i = 0; i < parser ->getNumSurfaceBlocks(); i++) {
-		block = parser -> getSurfaceBlock(i);
+	for (int i = 0; i < parser->getNumSurfaceBlocks(); i++) {
+		block = parser->getSurfaceBlock(i);
 		surf = Factory::createSurface(block);
-		surf -> init(block);
-		scene -> addSurface(surf);
+		surf->init(block);
+		scene->addSurface(surf);
 	}
 
-	renderer -> setPathDepth(5);
+	renderer->setPathDepth(5);
 	renderer->setBackgroundColor(getColor(Vec3<int>(136, 219, 255)));
 	//renderer->mci->save(renderer->getSamples());
 
@@ -55,7 +55,7 @@ void Application::onCleanup() {
 }
 
 void Application::onEvent(SDL_Event * Event) {
-    if(Event -> type == SDL_QUIT) {
+    if(Event->type == SDL_QUIT) {
         running = false;
     }
 }

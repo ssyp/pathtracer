@@ -1,4 +1,5 @@
 #include "Ray.h"
+#include "ISurface.h"
 
 namespace Math {
 	Vec3<float> Ray::eval(const float & t) const {

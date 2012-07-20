@@ -89,7 +89,10 @@ void Application::onRender() {
 		for(int y = 0; y < renderer->mci->getHeight(); y++)
 		{
 			Vec3<float> color = renderer->mci->get(x,y);
-			color *= 1.0/samples;	
+			color *= 255.0f/samples;
+
+			color.clamp(0.0,255.0);
+
 			unsigned char * pixel = static_cast<unsigned char *>(surfDisplay->pixels) + y * surfDisplay->pitch + x * surfDisplay->format->BytesPerPixel;
 			*pixel++ = static_cast<unsigned char>(color.x);
 			*pixel++ = static_cast<unsigned char>(color.y);

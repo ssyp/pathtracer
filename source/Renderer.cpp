@@ -47,10 +47,6 @@ int Renderer::getSamples() const {
 }
 
 Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, int depth) {
-	
-	if(depth > pathDepth) {
-		return Vec3<float>(0,0,0);
-	}
 
 	ISurface* surf;
 	float pointRay;
@@ -58,6 +54,11 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, int depth) {
 
 	if(!scene.getIntersection(ray, surf, pointRay, normal)) {
 		return backgroundColor;
+	}
+
+	
+	if(depth > pathDepth) {
+		return Vec3<float>(0,0,0);
 	}
 
 	Vec3<float> point = ray.eval(pointRay);

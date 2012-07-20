@@ -11,6 +11,8 @@ namespace Math {
 		Ray();
 		Ray(Vec3<float> pos, Vec3<float> dir);
 		void operator=(Ray & r);
+
+		ISurface * prevSurface;
 	};
 }
 #endif

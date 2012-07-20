@@ -30,6 +30,15 @@ namespace Math {
 				z = vec.z;
 			}
 				
+			void clamp (int min, int max) {
+				if (x < min) x = min;
+				if (x > max) x = max;
+				if (y < min) y = min;
+				if (y > max) y = max;
+				if (z < min) z = min;
+				if (z > max) z = max;
+			}
+
 			Vec3<T> operator * (const Vec3<T> & vec) const {
 				Vec3<T> result;
 				result.x = x * vec.x;

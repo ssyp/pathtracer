@@ -15,7 +15,7 @@ bool Mesh::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) con
 	float pointIntersection,t1;
 	t=inf;
 	
-	for(size_t i = 0; i < poligons.size(); i++) {	
+/*	for(size_t i = 0; i < poligons.size(); i++) {	
 
 		plane.setAbcd(poligon[i],0);
 		if(plane.getIntersection(ray,pointIntersection)) {
@@ -40,7 +40,7 @@ bool Mesh::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) con
 		normal.normalize();
 		return true;
 	}
-	return false;
+	return false; */
 }
 
 

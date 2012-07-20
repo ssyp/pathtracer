@@ -1,6 +1,7 @@
 #ifndef __RAY_H__ 
 #define __RAY_H__
 #include "Vec3.h"
+#include "ISurface.h"
 
 namespace Math {
 	class Ray {
@@ -11,6 +12,8 @@ namespace Math {
 		Ray();
 		Ray(Vec3<float> pos, Vec3<float> dir);
 		void operator=(Ray & r);
+
+		ISurface * prevSurface;
 	};
 }
 #endif

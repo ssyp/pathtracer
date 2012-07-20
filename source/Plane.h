@@ -13,6 +13,8 @@ class Plane : public ISurface {
 		Plane(const Vec3<float> & a, const Vec3<float> & b, const Vec3<float> & c);
 		
 		void setAbcd(const Vec3<float> & vec, const float & d1);
+		void setAbcd(const Vec3<float> & a, const Vec3<float> & b, const Vec3<float> & c);
+
 		bool getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const;
 
 		void init(const Block & block);

@@ -21,6 +21,13 @@ Plane::Plane(const Vec3<float> & a, const Vec3<float> & b, const Vec3<float> & c
 	d = -(a.x * (b.y * c.z - c.y * b.z) + b.x * (c.y * a.z - a.y * c.z) + c.x * (a.y * b.z - b.y * a.z));
 }
 
+void Plane::setAbcd(const Vec3<float> & a, const Vec3<float> & b, const Vec3<float> & c) {
+	abc.x = a.y * (b.z - c.z) + b.y * (c.z - a.z) + c.y * (a.z - b.z);
+	abc.y = a.z * (b.x - c.x) + b.z * (c.x - a.x) + c.z * (a.x - b.x);
+	abc.z = a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y);
+	d = -(a.x * (b.y * c.z - c.y * b.z) + b.x * (c.y * a.z - a.y * c.z) + c.x * (a.y * b.z - b.y * a.z));
+}
+
 void Plane::setAbcd(const Vec3<float> & vec, const float & d1) {
 	abc = vec;
 	d = d1;

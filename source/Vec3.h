@@ -132,11 +132,9 @@ namespace Math {
 			}
 	
 			Vec3<T> operator *= (const T & k) const {
-				Vec3<T> result;
-				result.x = x * k;
-				result.y = y * k;
-				result.z = z * k;
-				return result;
+				x = x * k;
+				y = y * k;
+				z = z * k;
 			}
 	
 			bool operator == (const Vec3<T> & vec) const

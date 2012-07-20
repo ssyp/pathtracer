@@ -15,8 +15,12 @@ namespace Math {
 	const float eps = 0.001f;
 	const float pi = 3.14159265f;
 	const float pi2 = 1.57079632f;
+	const float pi4 = 0.78539816f;
 
 	extern bool f_eq(float v1, float v2);
+
+	extern float grad(float radian);
+	extern float radian(float grad);
 }
 
 #endif

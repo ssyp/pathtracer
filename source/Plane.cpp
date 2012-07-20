@@ -2,16 +2,16 @@
 
 
 Plane::Plane() {
-	abc.x=0;
-	abc.y=0;
-	abc.z=0;
-	d=0;
+	abc.x = 0;
+	abc.y = 0;
+	abc.z = 0;
+	d = 0;
 }
 
 
 Plane::Plane(const Vec3<float> & vec, const float & d1) {
-	abc=vec;
-	d=d1;
+	abc = vec;
+	d = d1;
 }
 
 Plane::Plane(const Vec3<float> & a, const Vec3<float> & b, const Vec3<float> & c) {
@@ -22,14 +22,14 @@ Plane::Plane(const Vec3<float> & a, const Vec3<float> & b, const Vec3<float> & c
 }
 
 void Plane::setAbcd(const Vec3<float> & vec, const float & d1) {
-	abc=vec;
-	d=d1;
+	abc = vec;
+	d = d1;
 }
 
 bool Plane::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const {
-	normal=abc;
+	normal = abc;
 	float dotNormalDirection = normal.dot(ray.direction);
-	if(dotNormalDirection!= 0) {
+	if(dotNormalDirection != 0) {
 		t = -(normal.dot(ray.position) + d) / dotNormalDirection;
 		if(t < 0) {
 			return false;
@@ -42,9 +42,8 @@ bool Plane::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) co
 
 void Plane::init(const Block & block) {
 	abc = block.getVariable("abc").vectorValue;
-	normalV=abc;
+	normalV = abc;
 	normalV.normalize();
 	d = block.getVariable("d").floatValue;
 	material = MaterialManager::getMaterial(block.getVariable("material").stringValue);
 };
-

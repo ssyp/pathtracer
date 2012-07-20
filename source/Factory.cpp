@@ -1,6 +1,6 @@
 #include "Factory.h"
 #include "SimpleMaterial.h"
-
+#include "MirrorMaterial.h"
 
 ISurface * Factory::createSurface(const Block & block) {
 	ISurface * surf = NULL;
@@ -29,6 +29,9 @@ IMaterial * Factory::createMaterial(const Block & block) {
 	if (block.surface == "simple") {
 		mater = new SimpleMaterial();
 		mater -> init(block);
+	}
+	else if (block.surface == "mirror") {
+		mater = new MirrorMaterial();
 	}
 	return mater;
 }

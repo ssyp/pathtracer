@@ -16,6 +16,7 @@ void Parser::parse(const std::string &name) {
 		std::map<int,float> fValue, vX, vY, vZ;
 		std::map<int,std::string> sValue, parameters, type;
 		bool firstS = false, firstWord = false;
+		int len = str.length();
 
 		for(std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
 			// Определяем глобальные блоки
@@ -28,6 +29,10 @@ void Parser::parse(const std::string &name) {
 					typeBlock = 1;
 					break;
 				}
+				if(*it == 'C') {
+					typeBlock = 2;
+					break;
+				}
 			}
 			else if(*it == '}') {
 				typeBlock = -1;
@@ -36,8 +41,8 @@ void Parser::parse(const std::string &name) {
 				begin = n + 1;
 				firstS = true;
 			}
-			else if(((*it == ' ') || ((n + 1) == str.length())) && (end < begin)) {
-				if((n + 1) == str.length()) end = n + 1;
+			else if(((*it == ' ') || ((n + 1) == len)) && (end < begin)) {
+				if((n + 1) == len) end = n + 1;
 				else end = n;
 				word = str.substr(begin, (end - begin));
 
@@ -102,6 +107,9 @@ void Parser::parse(const std::string &name) {
 				string.stringValue = sValue[i];
 				block.map[inMap] = string;
 			}
+		}
+		if(typeBlock == 2 && block.surface != "") {
+			settingBlocks.push_back(block);
 		}
 		if(typeBlock == 1 && block.surface != "") {
 			surfaceBlocks.push_back(block);

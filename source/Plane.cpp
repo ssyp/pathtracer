@@ -21,13 +21,13 @@ void Plane::setAbcd(const Vec3<float> & vec, const float & d1) {
 
 bool Plane::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const {
 	normal=abc;
-	
-	if(normal.dot(ray.direction)!= 0) {
-		t = -(normal.dot(ray.position) + d) / normal.dot(ray.direction);
+	float dotNormalDirection = normal.dot(ray.direction);
+	if(dotNormalDirection!= 0) {
+		t = -(normal.dot(ray.position) + d) / dotNormalDirection;
 		if(t < 0) {
 			return false;
 		}
-		normal.normalize();
+		normal = normalV;
 		return true;
 	}
 	return false;
@@ -35,6 +35,8 @@ bool Plane::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) co
 
 void Plane::init(const Block & block) {
 	abc = block.getVariable("abc").vectorValue;
+	normalV=abc;
+	normalV.normalize();
 	d = block.getVariable("d").floatValue;
 	material = MaterialManager::getMaterial(block.getVariable("material").stringValue);
 };

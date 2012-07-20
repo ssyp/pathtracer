@@ -9,6 +9,8 @@ namespace Math {
 	extern Vec3<float> getRandomPointOnPlane(const Vec3<float> & n);
 	extern Vec3<float> getRandomPointOnHemisphere(const Vec3<float> & n);
 
+	extern Vec3<float> getColor(const Vec3<int> & rgb);
+
 	const float inf = 100000000.0f;
 	const float eps = 0.001f;
 	const float pi = 3.14159265f;

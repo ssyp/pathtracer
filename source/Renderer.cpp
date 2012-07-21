@@ -67,6 +67,7 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, int depth) {
 
 	if(material == NULL) return Vec3<float>(0, 0, 0);
 
+	//ray.direction.normalize(); normal.normalize();
 	Vec3<float> newVec = material->interact(ray.direction, point, normal);
 	Ray newRay(point, newVec);
 

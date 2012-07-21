@@ -3,32 +3,26 @@
 #include <cstdlib>
 #include <fstream>
 #include <assert.h>
-MonteCarloImage::MonteCarloImage(int x, int y) {
+MonteCarloImage::MonteCarloImage(const int x, const int y) {
 	this->x = x;
 	this->y = y;
 
-	pixels = new Vec3<float>*[x];
-
-	for(int i = 0; i < x; i++) {
-		
-		pixels[i] = new Vec3<float>[y];
-		
-	}
+	pixels = new Vec3<float>[(x+1)*(y+1)];
 	
 }
 
-void MonteCarloImage::add(int tx, int ty, Vec3<float> color) {
+void MonteCarloImage::add(const int tx, const int ty, const Vec3<float> color) {
 	
-	pixels[tx][ty] = pixels[tx][ty] + color;
+	pixels[tx*y+ty] += color;
 }
 
-Vec3<float> & MonteCarloImage::get(int tx, int ty) const {
-	return pixels[tx][ty];
+Vec3<float> & MonteCarloImage::get(const int tx, const int ty) const {
+	return pixels[tx*y+ty];
 }
 
-void MonteCarloImage::save(int samp) const
+void MonteCarloImage::save(const int samp, const std::string & path) const
 {
-	std::ofstream f("Debug/img.bmp", std::ios::out | std::ios::binary);
+	std::ofstream f(path, std::ios::out | std::ios::binary);
 
 	unsigned char *img = NULL;
 	int w = x, h = y;
@@ -40,9 +34,9 @@ void MonteCarloImage::save(int samp) const
 
 	for(int i = 0; i < w; i++) {
 		for(int j = 0; j < h; j++) {
-			float r = static_cast<float>(pixels[i][j].x / static_cast<float>(samp * 255));
-			float g = static_cast<float>(pixels[i][j].y / static_cast<float>(samp * 255));
-			float b = static_cast<float>(pixels[i][j].z / static_cast<float>(samp * 255));
+			float r = static_cast<float>(pixels[i*w+j].x / static_cast<float>(samp * 255));
+			float g = static_cast<float>(pixels[i*w+j].y / static_cast<float>(samp * 255));
+			float b = static_cast<float>(pixels[i*w+j].z / static_cast<float>(samp * 255));
 			if (r > 255) r = 255;
 			if (g > 255) g = 255;
 			if (b > 255) b = 255;
@@ -92,8 +86,5 @@ int MonteCarloImage::getWidth() const
 
 MonteCarloImage::~MonteCarloImage()
 {
-	for(int i = 0; i < x; i++)
-		delete [] pixels[i];
-
 	delete [] pixels;
 }

@@ -1,6 +1,6 @@
 #include "Renderer.h"
 
-Renderer::Renderer(int x, int y, int samp) {
+Renderer::Renderer(const int x, const int y, const int samp) {
 	samples = samp;
 	curDepth = 0;
 	distance = 1;
@@ -11,7 +11,7 @@ void Renderer::setBackgroundColor(const Vec3<float>& vec) {
 	backgroundColor = vec;
 }
 
-void Renderer::setPathDepth(int n) {
+void Renderer::setPathDepth(const int n) {
 	pathDepth = n;
 }
 

@@ -1,6 +1,6 @@
 #include "Camera.h"
 #include <cmath>
-Camera::Camera(const Vec3<float> & pos, const Vec3<float> & point, float angle, int _camDpiX, int _camDpiY, int _realDpiX, int _realDpiY) {
+Camera::Camera(const Vec3<float> & pos, const Vec3<float> & point, const float angle, const int _camDpiX, const int _camDpiY, const int _realDpiX, const int _realDpiY) {
 	position = pos;
 	direct  = point-pos;
 	direct.normalize();
@@ -13,7 +13,7 @@ Camera::Camera(const Vec3<float> & pos, const Vec3<float> & point, float angle, 
 	this->angle = angle;
 }
 
-void Camera::setPos(Vec3<float> & vec) {
+void Camera::setPos(const Vec3<float> & vec) {
 	position = vec;
 }
 
@@ -21,7 +21,7 @@ Vec3<float> Camera::getPos() const {
 	return position;
 }
 
-void Camera::setDir(Vec3<float> & vec) {
+void Camera::setDir(const Vec3<float> & vec) {
 	direct = vec;
 }
 

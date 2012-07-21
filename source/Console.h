@@ -16,8 +16,7 @@ class Console {
 		Camera * camera;
 		Renderer * renderer;
 	public:
-		/*void parseStr(int n, char** str);*/
-		int consoleInit();
+		int consoleInit(std::string sceneN, int iterations, int samplesC, std::string output);
 };
 
 #endif

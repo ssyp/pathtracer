@@ -68,6 +68,14 @@ namespace Math {
 			return (vec.x * vec1.x + vec.y * vec1.y + vec.z * vec1.z);
 	}
 
+	Vec3<float> toDecard(const float & radius, const float & zenit, const float & azimut) {
+		Vec3<float> result;
+		result.x = radius * sin(zenit) * cos(azimut);
+		result.y = radius * sin(zenit) * cos(azimut);
+		result.z = radius * cos(zenit);
+		return result;
+	}
+
 	Vec3<float> cross(const Vec3<float> & vec, const Vec3<float> & vec1) {
 		Vec3<float> rezVec;		
 		rezVec.x = vec1.y * vec.z - vec.y * vec1.z;

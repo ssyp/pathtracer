@@ -17,7 +17,11 @@
     <ClCompile Include="source\Block.cpp" />
     <ClCompile Include="source\MaterialManager.cpp" />
     <ClCompile Include="source\MirrorMaterial.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="source\Mesh.cpp" />
+=======
+    <ClCompile Include="source\Cube.cpp" />
+>>>>>>> fbfb6705c97bf623d21360ee67b3317dd178d444
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ISurface.h" />
@@ -40,6 +44,10 @@
     <ClInclude Include="source\Factory.h" />
     <ClInclude Include="source\MaterialManager.h" />
     <ClInclude Include="source\MirrorMaterial.h" />
+<<<<<<< HEAD
     <ClInclude Include="source\Mesh.h" />
+=======
+    <ClInclude Include="source\Cube.h" />
+>>>>>>> fbfb6705c97bf623d21360ee67b3317dd178d444
   </ItemGroup>
 </Project>

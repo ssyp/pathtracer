@@ -10,7 +10,7 @@ Application::Application() {
 bool Application::onInit() {
     samples=0;
 	parser = new Parser();
-	parser->parse("scenes/Stable.scene");
+	parser->parse("scenes/Cube.scene");
 
 	Block blockS, blockCamera, blockRender;
 

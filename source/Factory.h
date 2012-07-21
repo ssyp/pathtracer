@@ -5,6 +5,7 @@
 #include "ISurface.h"
 #include "Sphere.h"
 #include "Plane.h"
+#include "Cube.h"
 
 class Factory {
 	public:

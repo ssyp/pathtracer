@@ -9,6 +9,10 @@ ISurface * Factory::createSurface(const Block & block) {
 		surf = new Plane();
 	}
 
+	if (block.surface == "cube") {
+		surf = new Cube();
+	}
+
 	/*if (block.surface == "mesh") {
 		surf = new Mesh();
 		surf -> init(block);

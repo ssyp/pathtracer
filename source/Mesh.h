@@ -2,6 +2,7 @@
 #define __MESH_H__
 
 #include "ISurface.h"
+#include "Poligon.h"
 #include <cmath>
 #include <string>
 #include <vector>
@@ -15,7 +16,7 @@ class Mesh : public ISurface {
 		void init(const Block & block);
 		
 	private:
-		std::vector<poligon> poligons;
+		std::vector<Poligon> poligons;
 };
 
 #endif

@@ -67,4 +67,12 @@ namespace Math {
 	float dot (const Vec3<float> & vec, const Vec3<float> & vec1) {
 			return (vec.x * vec1.x + vec.y * vec1.y + vec.z * vec1.z);
 	}
+
+	Vec3<float> cross(const Vec3<float> & vec, const Vec3<float> & vec1) {
+		Vec3<float> rezVec;		
+		rezVec.x = vec1.y * vec.z - vec.y * vec1.z;
+		rezVec.y = vec.x * vec1.z - vec1.x * vec.z;
+		rezVec.z = vec1.x * vec.y - vec.x * vec1.y;
+		return rezVec;
+	}
 }

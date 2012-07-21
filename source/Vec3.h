@@ -97,6 +97,7 @@ namespace Math {
 				result.z = x * vec.y - vec.x * y;
 				return result;
 			}
+
 			bool operator < (const Vec3<T> & vec) const
 			{
 				if (x + y + z < vec.x + vec.y + vec.z) 

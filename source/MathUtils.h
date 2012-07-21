@@ -23,6 +23,7 @@ namespace Math {
 	extern float radian(const float & rad);
 
 	extern float dot(const Vec3<float> & vec, const Vec3<float> & vec1);
+	extern Vec3<float> cross(const Vec3<float> & vec, const Vec3<float> & vec1);
 }
 
 #endif

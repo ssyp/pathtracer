@@ -5,7 +5,7 @@ float SimpleMaterial::getBRDF(const Vec3<float> & in, const Vec3<float> & out, c
 	return 1.0f;
 }
 
-Vec3<float> SimpleMaterial::getColor(const Vec3<float> & color) {
+Vec3<float> SimpleMaterial::getColor(const Vec3<float> & color, const Vec3<float> & point) {
 	return emittance + reflectance * color;
 }
 

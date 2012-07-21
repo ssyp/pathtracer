@@ -6,10 +6,9 @@
 
 class Block {
 	public:
-		std::map<std::string,Variable> map;
 		std::string surface;
-
 		const Variable& getVariable(const std::string & name) const;
+		std::map<std::string,Variable> map;
 };
 
 #endif

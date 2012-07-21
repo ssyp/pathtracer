@@ -7,16 +7,16 @@ Materials {
 	Material simple name:"redLight" reflectance:[0.0;0.0;0.0] emittance:[10.0;0.0;0.0]
 	Material simple name:"greenLight" reflectance:[0.0;0.0;0.0] emittance:[0.0;10.0;0.0]
 	Material simple name:"blueLight" reflectance:[0.0;0.0;0.0] emittance:[0.0;0.0;10.0]
-	Material simple name:"planeMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
-	Material simple name:"sphereMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"planeMaterial" reflectance:[1.0;1.0;1.0] emittance:[1.0;0.0;0.0]
+	Material mirror name:"sphereMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
 	Material simple name:"light" reflectance:[0.0;0.0;0.0] emittance:[10.0;10.0;10.0]
 	Material mirror name:"mirrorMaterial"
 }
 
 Scene {
-	Surface sphere material:"sphereMaterial" pos:[10;50;25] radius:20.0
-	Surface sphere material:"sphereMaterial" pos:[-95;50;90] radius:20.0
-	Surface sphere material:"greenLight" pos:[-70;50;90] radius:20.0
-	Surface plane material:"mirrorMaterial" abc:[0;0;1] d:0
+	Surface sphere material:"planeMaterial" pos:[10;50;25] radius:1000.0
+	Surface sphere material:"redLight" pos:[-150;50;40] radius:20.0
+	Surface sphere material:"greenLight" pos:[-70;50;40] radius:20.0
+	Surface plane material:"planeMaterial" abc:[0;0;1] d:0
 	
 }

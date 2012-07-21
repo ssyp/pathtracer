@@ -12,11 +12,12 @@ Materials {
 	Material simple name:"blueMaterial" reflectance:[1;0.6;0.6] emittance:[0.0;0.0;0.0]
 	Material simple name:"sphereMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
 	Material simple name:"light" reflectance:[0.0;0.0;0.0] emittance:[100.0;100.0;100.0]
+	Material sky name:"sky" file:"Debug/sky.bmp" size:[1000,1000,0]
 }
 
 Scene {
 	Surface sphere material:"redMaterial" pos:[10;50;25] radius:20.0
-	Surface sphere material:"blueMaterial" pos:[10;50;25] radius:1000.0
+	Surface sphere material:"sky" pos:[10;50;25] radius:1500.0
 	Surface sphere material:"light" pos:[-300;0;600] radius:50.0
 	Surface plane material:"planeMaterial" abc:[0;0;1] d:0
 	

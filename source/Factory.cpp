@@ -2,6 +2,7 @@
 
 #include "SimpleMaterial.h"
 #include "MirrorMaterial.h"
+#include "SkyMaterial.h"
 
 #include "Sphere.h"
 #include "Plane.h"
@@ -39,8 +40,14 @@ IMaterial * Factory::createMaterial(const Block & block) {
 		mater = new SimpleMaterial();
 		mater->init(block);
 	}
-	else if (block.surface == "mirror") {
+	
+	if (block.surface == "mirror") {
 		mater = new MirrorMaterial();
+	}
+
+	if (block.surface == "sky") {
+		mater = new SkyMaterial();
+		mater->init(block);
 	}
 	return mater;
 }

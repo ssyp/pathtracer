@@ -3,8 +3,6 @@
 
 #include "Block.h"
 #include "ISurface.h"
-#include "Sphere.h"
-#include "Plane.h"
 
 class Factory {
 	public:

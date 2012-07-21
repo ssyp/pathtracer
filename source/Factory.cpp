@@ -1,6 +1,11 @@
 #include "Factory.h"
+
 #include "SimpleMaterial.h"
 #include "MirrorMaterial.h"
+
+#include "Sphere.h"
+#include "Plane.h"
+#include "Mesh.h"
 
 ISurface * Factory::createSurface(const Block & block) {
 	ISurface * surf = NULL;
@@ -9,10 +14,10 @@ ISurface * Factory::createSurface(const Block & block) {
 		surf = new Plane();
 	}
 
-	/*if (block.surface == "mesh") {
+	if (block.surface == "mesh") {
 		surf = new Mesh();
 		surf -> init(block);
-	} */
+	}
 
 	if (block.surface == "sphere") {
 		surf = new Sphere();

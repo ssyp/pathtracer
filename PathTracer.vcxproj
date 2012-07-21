@@ -17,6 +17,7 @@
     <ClCompile Include="source\Factory.cpp" />
     <ClCompile Include="source\MaterialManager.cpp" />
     <ClCompile Include="source\MathUtils.cpp" />
+    <ClCompile Include="source\Mesh.cpp" />
     <ClCompile Include="source\MirrorMaterial.cpp" />
     <ClCompile Include="source\MonteCarloImage.cpp" />
     <ClCompile Include="source\Parser.cpp" />
@@ -37,6 +38,7 @@
     <ClInclude Include="source\ISurface.h" />
     <ClInclude Include="source\MaterialManager.h" />
     <ClInclude Include="source\MathUtils.h" />
+    <ClInclude Include="source\Mesh.h" />
     <ClInclude Include="source\MirrorMaterial.h" />
     <ClInclude Include="source\MonteCarloImage.h" />
     <ClInclude Include="source\Parser.h" />

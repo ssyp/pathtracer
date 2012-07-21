@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "MaterialManager.h"
  
 Application::Application() {
     surfDisplay = NULL;
@@ -10,10 +11,10 @@ Application::Application() {
 bool Application::onInit() {
     samples = 0;
 	parser = new Parser();
-	parser->parse("scenes/Stable.scene");
+	parser->parse("scenes/TestMesh.scene");
 
 	Block blockS, blockCamera, blockRender;
-
+ 
 	for (int i = 0; i < parser ->getNumSettingBlocks(); i++) {
 		blockS = parser -> getSettingBlock(i);
 		if(blockS.surface == "camera")

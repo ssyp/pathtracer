@@ -47,7 +47,7 @@ bool Mesh::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) con
 
 
 void Mesh::load(const std::string & fileName) {
-	Vec3<float> point;
+
 	Poligon poligon;
 	std::ifstream file;
 	file.open(fileName);

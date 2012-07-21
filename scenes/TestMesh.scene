@@ -1,6 +1,6 @@
 Config {
 	Settings camera pos:[-10;-180;40] focus:[10;50;25] angle:90 imagesize:[300;300;0] realsize:[30;30;0]
-	Settings render backgroundColor:[200;200;200] samplesPerIteration:5
+	Settings render backgroundColor:[200;200;200] samplesPerIteration:2
 }
 
 Materials {
@@ -12,7 +12,7 @@ Materials {
 	Material simple name:"sphereRed" reflectance:[0.0;0.0;1.0] emittance:[0.0;0.0;0.0]
 	Material simple name:"sphereGreen" reflectance:[0.0;1.0;0.0] emittance:[0.0;0.0;0.0]
 	Material simple name:"sphereBlue" reflectance:[1.0;0.0;0.0] emittance:[0.0;0.0;0.0]
-	Material simple name:"meshMaterial" reflectance:[0.2;0.2;0.2] emittance:[0.0;0.0;0.0]
+	Material simple name:"meshMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
 }
 
 Scene {

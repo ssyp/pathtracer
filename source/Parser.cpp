@@ -143,4 +143,5 @@ void Parser::parse(const std::string & name) {
 			materialBlocks.push_back(block);
 		}
 	}
+	file.close();
 }

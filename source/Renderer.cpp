@@ -1,4 +1,5 @@
 #include "Renderer.h"
+#include "MathUtils.h"
 
 Renderer::Renderer(const int x, const int y, const int samp) {
 	samples = samp;
@@ -57,22 +58,22 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, int depth) {
 	}
 
 	if(depth > pathDepth) {
-		return Vec3<float>(0,0,0);
+		return Vec3<float>(0, 0, 0);
 	}
 
 	Vec3<float> point = ray.eval(pointRay);
 
 	IMaterial* material = surf->getMaterial();
 
-	if(material == NULL) return Vec3<float>(0,0,0);
+	if(material == NULL) return Vec3<float>(0, 0, 0);
 
 	Vec3<float> newVec = material->interact(ray.direction, point, normal);
 	Ray newRay(point, newVec);
 
-	newRay.prevSurface=surf;
+	newRay.prevSurface = surf;
 
 	float brdf = material->getBRDF(ray.direction, newRay.direction, normal);
-	float cosOmega = normal.dot(newRay.direction);
+	float cosOmega = dot(normal, newRay.direction);
 
 	Vec3<float> color = pathTrace(newRay, scene, ++depth);
 

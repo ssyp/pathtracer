@@ -32,12 +32,10 @@ IMaterial * Factory::createMaterial(const Block & block) {
 	IMaterial * mater = NULL;
 	if (block.surface == "simple") {
 		mater = new SimpleMaterial();
-		mater -> init(block);
+		mater->init(block);
 	}
 	else if (block.surface == "mirror") {
 		mater = new MirrorMaterial();
 	}
 	return mater;
 }
-
-

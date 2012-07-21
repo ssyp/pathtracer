@@ -3,6 +3,7 @@
 
 #include "Ray.h"
 #include "Vec3.h"
+#include "MathUtils.h"
 
 using namespace Math;
 

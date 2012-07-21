@@ -37,9 +37,9 @@ void Plane::setAbcd(const Vec3<float> & vec, const float & d1) {
 
 bool Plane::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const {
 	normal = abc;
-	float dotNormalDirection = normal.dot(ray.direction);
+	float dotNormalDirection = dot(ray.direction, normal);
 	if(dotNormalDirection != 0) {
-		t = -(normal.dot(ray.position) + d) / dotNormalDirection;
+		t = -(dot(ray.position, normal) + d) / dotNormalDirection;
 		if(t < 0) {
 			return false;
 		}

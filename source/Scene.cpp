@@ -39,7 +39,7 @@ bool Scene::getIntersection(Ray & ray, ISurface* & surface, float & t, Vec3<floa
 		}
 	}
 	if(index != -1) {
-		surface=nodes[index];
+		surface = nodes[index];
 		return true;
 	}
 	return false;

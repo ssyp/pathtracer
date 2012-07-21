@@ -1,13 +1,14 @@
 #include "Camera.h"
 #include <cmath>
-Camera::Camera(const Vec3<float> & pos, const Vec3<float> & point, const float angle, const int _camDpiX, const int _camDpiY, const int _realDpiX, const int _realDpiY) {
+
+Camera::Camera(const Vec3<float> & pos, const Vec3<float> & point, const float angle, const int camDpiX1, const int camDpiY1, const int realDpiX1, const int realDpiY1) {
 	position = pos;
-	direct  = point-pos;
+	direct  = point - pos;
 	direct.normalize();
-	camDpiX = _camDpiX;
-	camDpiY = _camDpiY;
-	realDpiX = _realDpiX;
-	realDpiY = _realDpiY;
+	camDpiX = camDpiX1;
+	camDpiY = camDpiY1;
+	realDpiX = realDpiX1;
+	realDpiY = realDpiY1;
 	kX = realDpiX / static_cast<float>(camDpiX);
 	kY = realDpiY / static_cast<float>(camDpiY);
 	this->angle = angle;
@@ -44,9 +45,9 @@ int Camera::getDpiY() const {
 Ray Camera::genRay(int curX, int curY, int distance)
 {
 	float dist = (realDpiX / 2.0 * tan(angle));
-	Vec3<float> vert(0,0,1);
-	Vec3<float> vecX = direct.cross(vert);
-	Vec3<float> vecY = vecX.cross(direct);
+	Vec3<float> vert(0, 0, 1);
+	Vec3<float> vecX = cross(direct, vert);
+	Vec3<float> vecY = cross(vecX, direct);
 
 	vecX.normalize(); vecY.normalize();
 

@@ -1,34 +1,10 @@
 #include "Console.h"
 #include "MaterialManager.h"
 
-/*void Console::parseStr(int n, char** str) {
-	std::string sceneN, output;
-	float iterations, samples;
-	char* sceneC = "--scene";
-	char* iterationsC = "--iterations";
-	char* samplesC = "--samples";
-	char* outputC = "--output";
-	for(int i = 0; i < n; i++) {
-		if(str[i] == sceneC) {
-			sceneN = str[i + 1];
-			sceneN = sceneN.substr(1, (sceneN.length() - 2));
-		}
-		else if(str[i] == iterationsC) 
-			iterations = static_cast<float>(atof(str[i + 1]));
-		else if(str[i] == samplesC) 
-			samples = static_cast<float>(atof(str[i + 1]));
-		else if(str[i] == outputC) {
-			output = str[i + 1];
-			output = output.substr(1, (output.length() - 2));
-		}
-	}
-	consoleInit();
-}*/
-
-int Console::consoleInit() {
-	samples = 0;
+int Console::consoleInit(std::string sceneN, int iterations, int samplesC, std::string output) {
+	samples = samplesC;
 	parser = new Parser();
-	parser->parse("scenes/Stable.scene");
+	parser->parse(sceneN);
 
 	Block blockS, blockCamera, blockRender;
 
@@ -59,12 +35,12 @@ int Console::consoleInit() {
 	renderer->setPathDepth(5);
 	renderer->setBackgroundColor(getColor(blockRender.getVariable("backgroundColor").vectorValue));
 
-	for(int i = 0; i < 10; i++) {
+	for(int i = 0; i < iterations; i++) {
 		renderer->render(*camera, *scene);
 		samples+=renderer->getSamples();
 	}
 
-	renderer->mci->save(samples,"source/test.bmp");
+	renderer->mci->save(samples, output);
 
 	delete parser;
 	delete scene;

@@ -35,15 +35,11 @@ void MonteCarloImage::save(const int samp, const std::string & path) const
 
 	for(int i = 0; i < w; i++) {
 		for(int j = 0; j < h; j++) {
-			float r = static_cast<float>(pixels[i * w + j].x / static_cast<float>(samp * 255));
-			float g = static_cast<float>(pixels[i * w + j].y / static_cast<float>(samp * 255));
-			float b = static_cast<float>(pixels[i * w + j].z / static_cast<float>(samp * 255));
-			if (r > 255) r = 255;
-			if (g > 255) g = 255;
-			if (b > 255) b = 255;
-			img[(i + j * w) * 3 + 2] = static_cast<unsigned char>(r);
-			img[(i + j * w) * 3 + 1] = static_cast<unsigned char>(g);
-			img[(i + j * w) * 3 + 0] = static_cast<unsigned char>(b);
+			Vec3<float> color(pixels[i * w + j].x * (255.0f / static_cast<float>(samp)), pixels[i * w + j].y * (255.0f / static_cast<float>(samp)), pixels[i * w + j].z * (255.0f / static_cast<float>(samp)));
+			color.clamp(0.0,255.0);
+			img[(i + j * w) * 3 + 2] = color.x;
+			img[(i + j * w) * 3 + 1] = color.y;
+			img[(i + j * w) * 3 + 0] = color.z;
 		}
 	}
 

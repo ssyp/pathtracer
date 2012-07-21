@@ -19,8 +19,10 @@ namespace Math {
 
 	extern bool f_eq(float v1, float v2);
 
-	extern float grad(float radian);
-	extern float radian(float grad);
+	extern float grad(const float & radian);
+	extern float radian(const float & rad);
+
+	extern float dot(const Vec3<float> & vec, const Vec3<float> & vec1);
 }
 
 #endif

@@ -40,9 +40,10 @@ namespace Math {
 		return (dirX * randVe.x + dirY * randVe.y + n * randVe.z);
 	} 
 
+
 	bool f_eq(float v1, float v2){
-		if (fabs(v1 - v2) < eps) {return true;}
-		else {return false;}
+		if (fabs(v1 - v2) < eps) return true;
+	return false;
 	}
 
 	Vec3<float> getColor(const Vec3<float> & rgb){
@@ -55,11 +56,15 @@ namespace Math {
 		return vec;
 	}
 
-	float radian (float grad) {
+	float radian (const float & grad) {
 		return (grad * 180 / pi);
 	}
 
-	float grad (float radian) {
+	float grad (const float & radian) {
 		return (radian * pi / 180);	
+	}
+
+	float dot (const Vec3<float> & vec, const Vec3<float> & vec1) {
+			return (vec.x * vec1.x + vec.y * vec1.y + vec.z * vec1.z);
 	}
 }

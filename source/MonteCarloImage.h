@@ -1,8 +1,10 @@
 #ifndef _MONTE_CARLO_
 #define _MONTE_CARLO_
-#include "vec3.h"
-using namespace Math;
+
 #include <string>
+#include "vec3.h"
+
+using namespace Math;
 
 class MonteCarloImage {
 	public:
@@ -23,4 +25,3 @@ class MonteCarloImage {
 
 };
 #endif
-

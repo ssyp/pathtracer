@@ -7,5 +7,5 @@ const Variable& Block::getVariable(const std::string & name) const {
 		Variable var;
 		return var; 
 	} 
-	return it -> second;
+	return it->second;
 }

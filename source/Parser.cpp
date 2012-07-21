@@ -14,8 +14,8 @@ void Parser::parse(const std::string & name) {
 
 		int n = 0, begin = 0, end = 0, nParameters = 0;
 		std::string word, surfaceN;
-		std::map<int,float> fValue, vX, vY, vZ;
-		std::map<int,std::string> sValue, parameters, type;
+		std::map<int, float> fValue, vX, vY, vZ;
+		std::map<int, std::string> sValue, parameters, type;
 		bool firstS = false, firstWord = false;
 		int len = str.length();
 

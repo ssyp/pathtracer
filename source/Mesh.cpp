@@ -48,9 +48,8 @@ bool Mesh::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) con
 
 void Mesh::load(const std::string & fileName) {
 	Poligon poligon;
-	std::ifstream file;
-	file.open(fileName);
-	while(!file.eof()) {
+	std::ifstream file("scenes/" + fileName);
+	while(!file.eof() && file) {
 		file >> poligon.vertices1.x >> poligon.vertices1.y >> poligon.vertices1.z;
 		file >> poligon.vertices2.x >> poligon.vertices2.y >> poligon.vertices2.z;
 		file >> poligon.vertices3.x >> poligon.vertices3.y >> poligon.vertices3.z;
@@ -60,4 +59,5 @@ void Mesh::load(const std::string & fileName) {
 
 void Mesh::init(const Block & block) {
 	load(block.getVariable("file").stringValue);
+	material = MaterialManager::getMaterial(block.getVariable("material").stringValue);
 }

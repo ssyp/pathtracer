@@ -20,6 +20,7 @@
     <ClCompile Include="source\SimpleMaterial.cpp" />
     <ClCompile Include="source\Sphere.cpp" />
     <ClCompile Include="source\Console.cpp" />
+    <ClCompile Include="source\SkyMaterial.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Application.h" />
@@ -45,5 +46,6 @@
     <ClInclude Include="source\Vec2.h" />
     <ClInclude Include="source\Vec3.h" />
     <ClInclude Include="source\Console.h" />
+    <ClInclude Include="source\SkyMaterial.h" />
   </ItemGroup>
 </Project>

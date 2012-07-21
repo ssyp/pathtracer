@@ -9,11 +9,11 @@ using namespace Math;
 
 class Renderer {
 	public:
-		Renderer(int x, int y, int samples);
+		Renderer(const int x, const int y, const int samples);
 		
 		MonteCarloImage* mci;
 
-		void setPathDepth(int n);
+		void setPathDepth(const int n);
 		int getPathDepth() const;
 
 		void setBackgroundColor(const Vec3<float> & vec);

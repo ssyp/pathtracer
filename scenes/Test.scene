@@ -1,19 +1,23 @@
 Config {
-	Settings camera pos:[-10;-57;30] focus:[0;1;0] angle:1.047 imagesize:[300;300;0] realsize:[30;30;0]
+	Settings camera pos:[-10;-187;40] focus:[10;50;25] angle:90 imagesize:[300;300;0] realsize:[30;30;0]
 	Settings render backgroundColor:[200;200;200] samplesPerIteration:5
 }
 
 Materials {
-	Material simple name:"redLight" reflectance:[10.0;0.0;0.0] emittance:[10.0;0.0;0.0]
-	Material simple name:"greenLight" reflectance:[0.0;10.0;0.0] emittance:[0.0;10.0;0.0]
-	Material simple name:"blueLight" reflectance:[0.0;0.0;10.0] emittance:[0.0;0.0;10.0]
+	Material simple name:"redLight" reflectance:[0.0;0.0;0.0] emittance:[10.0;0.0;0.0]
+	Material simple name:"greenLight" reflectance:[0.0;0.0;0.0] emittance:[0.0;10.0;0.0]
+	Material simple name:"blueLight" reflectance:[0.0;0.0;0.0] emittance:[0.0;0.0;10.0]
 	Material simple name:"planeMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"sphereMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
 	Material simple name:"light" reflectance:[0.0;0.0;0.0] emittance:[10.0;10.0;10.0]
-	Material mirror name:"mirrorsphere"
+	Material mirror name:"mirrorMaterial"
 }
 
 Scene {
-	Surface sphere material:"redLight" pos:[50;50;10] radius:20.0
-	Surface sphere material:"mirrorsphere" pos:[10;50;10] radius:20.0
-	Surface sphere material:"blueLight" pos:[-30;50;10] radius:20.0
+	Surface sphere material:"redLight" pos:[50;50;25] radius:20.0
+	Surface sphere material:"sphereMaterial" pos:[10;50;25] radius:20.0
+	Surface sphere material:"blueLight" pos:[-30;50;25] radius:20.0
+	Surface plane material:"planeMaterial" abc:[0;0;1] d:0
+	Surface plane material:"mirrorMaterial" abc:[0;1;0] d:-100
+	
 }

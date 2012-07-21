@@ -11,7 +11,7 @@ Application::Application() {
 bool Application::onInit() {
     samples = 0;
 	parser = new Parser();
-	parser->parse("scenes/TestSky.scene");
+	parser->parse("scenes/TestMirrror.scene");
 
 	Block blockS, blockCamera, blockRender;
  
@@ -47,7 +47,7 @@ bool Application::onInit() {
 		scene->addSurface(surf);
 	}
 
-	renderer->setPathDepth(5);
+	renderer->setPathDepth(100);
 	renderer->setBackgroundColor(getColor(blockRender.getVariable("backgroundColor").vectorValue));
 	//renderer->mci->save(renderer->getSamples());
 

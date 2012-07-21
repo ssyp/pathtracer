@@ -10,7 +10,7 @@ Application::Application() {
 bool Application::onInit() {
     samples=0;
 	parser = new Parser();
-	parser->parse("scenes/Test.scene");
+	parser->parse("scenes/Stable.scene");
 
 	Block blockS, blockCamera, blockRender;
 
@@ -23,7 +23,7 @@ bool Application::onInit() {
 	}
 
 	scene = new Scene();
-	camera = new Camera(blockCamera.getVariable("pos").vectorValue,blockCamera.getVariable("focus").vectorValue, blockCamera.getVariable("angle").floatValue, static_cast<int>(blockCamera.getVariable("imagesize").vectorValue.x), static_cast<int>(blockCamera.getVariable("imagesize").vectorValue.y), static_cast<int>(blockCamera.getVariable("realsize").vectorValue.x), static_cast<int>(blockCamera.getVariable("realsize").vectorValue.y)); 
+	camera = new Camera(blockCamera.getVariable("pos").vectorValue,blockCamera.getVariable("focus").vectorValue, radian(blockCamera.getVariable("angle").floatValue), static_cast<int>(blockCamera.getVariable("imagesize").vectorValue.x), static_cast<int>(blockCamera.getVariable("imagesize").vectorValue.y), static_cast<int>(blockCamera.getVariable("realsize").vectorValue.x), static_cast<int>(blockCamera.getVariable("realsize").vectorValue.y)); 
 	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), static_cast<int>(blockRender.getVariable("samplesPerIteration").floatValue)); 
 	
 	if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {

@@ -9,18 +9,18 @@ Sphere::Sphere() {
 }
 
 Sphere::Sphere(const Vec3<float> & pos, const float & r) {
-	position=pos;
-	radius=r;
+	position = pos;
+	radius = r;
 }
 
 bool Sphere::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const {
 	Vec3<float> localPosition = ray.position-position;
 	
-	float dotDirectionDirection = ray.direction.dot(ray.direction) ;
-	float dotDirectionLocalPosition = ray.direction.dot(localPosition);
+	float dotDirectionDirection = dot(ray.direction, ray.direction) ;
+	float dotDirectionLocalPosition = dot(ray.direction, localPosition);
 	
 	float D = 4 * dotDirectionLocalPosition * dotDirectionLocalPosition - 
-		4 * dotDirectionDirection * localPosition.dot(localPosition) +
+		4 * dotDirectionDirection * dot(localPosition, localPosition) +
 		4 * dotDirectionDirection * radius * radius;
 			
 	if(D < 0) {

@@ -45,8 +45,8 @@ Ray Camera::genRay(int curX, int curY, int distance)
 {
 	float dist = (realDpiX / 2.0 * tan(angle));
 	Vec3<float> vert(0,0,1);
-	Vec3<float> vecX = direct.cross(vert);
-	Vec3<float> vecY = vecX.cross(direct);
+	Vec3<float> vecX = cross(direct, vert);
+	Vec3<float> vecY = cross(vecX, direct);
 
 	vecX.normalize(); vecY.normalize();
 

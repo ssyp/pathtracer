@@ -5,7 +5,7 @@ int main(int argc, char* argv[])
 {
 	if(argc > 1) {
 		std::string scene, output;
-		int iterations, samples;
+		int iterations = 0, samples = 0;
 		char* sceneC = "--scene";
 		char* iterationsC = "--iterations";
 		char* samplesC = "--samples";

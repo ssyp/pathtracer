@@ -37,9 +37,9 @@ void MonteCarloImage::save(const int samp, const std::string & path) const
 		for(int j = 0; j < h; j++) {
 			Vec3<float> color(pixels[i * w + j].x * (255.0f / static_cast<float>(samp)), pixels[i * w + j].y * (255.0f / static_cast<float>(samp)), pixels[i * w + j].z * (255.0f / static_cast<float>(samp)));
 			color.clamp(0.0,255.0);
-			img[(i + j * w) * 3 + 2] = color.x;
-			img[(i + j * w) * 3 + 1] = color.y;
-			img[(i + j * w) * 3 + 0] = color.z;
+			img[(i + j * w) * 3 + 2] = static_cast<unsigned char>(color.x);
+			img[(i + j * w) * 3 + 1] = static_cast<unsigned char>(color.y);
+			img[(i + j * w) * 3 + 0] = static_cast<unsigned char>(color.z);
 		}
 	}
 

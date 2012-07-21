@@ -1,4 +1,5 @@
 #include "Console.h"
+#include "MaterialManager.h"
 
 /*void Console::parseStr(int n, char** str) {
 	std::string sceneN, output;

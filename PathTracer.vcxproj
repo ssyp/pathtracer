@@ -14,6 +14,7 @@
     <ClCompile Include="source\Application.cpp" />
     <ClCompile Include="source\Block.cpp" />
     <ClCompile Include="source\Camera.cpp" />
+    <ClCompile Include="source\Console.cpp" />
     <ClCompile Include="source\Cube.cpp" />
     <ClCompile Include="source\Factory.cpp" />
     <ClCompile Include="source\MaterialManager.cpp" />
@@ -34,6 +35,7 @@
     <ClInclude Include="source\Application.h" />
     <ClInclude Include="source\Block.h" />
     <ClInclude Include="source\Camera.h" />
+    <ClInclude Include="source\Console.h" />
     <ClInclude Include="source\Cube.h" />
     <ClInclude Include="source\Factory.h" />
     <ClInclude Include="source\IMaterial.h" />

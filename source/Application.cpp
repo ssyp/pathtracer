@@ -11,7 +11,7 @@ Application::Application() {
 bool Application::onInit() {
     samples = 0;
 	parser = new Parser();
-	parser->parse("scenes/TestMesh.scene");
+	parser->parse("scenes/Test.scene");
 
 	Block blockS, blockCamera, blockRender;
  

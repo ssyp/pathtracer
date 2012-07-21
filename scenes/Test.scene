@@ -1,5 +1,5 @@
 Config {
-	Settings camera pos:[-10;-187;40] focus:[10;50;25] angle:90 imagesize:[300;300;0] realsize:[30;30;0]
+	Settings camera pos:[-10;-187;40] focus:[10;50;25] angle:90 imagesize:[600;400;0] realsize:[600;400;0]
 	Settings render backgroundColor:[200;200;200] samplesPerIteration:5
 }
 
@@ -18,6 +18,5 @@ Scene {
 	Surface sphere material:"sphereMaterial" pos:[10;50;25] radius:20.0
 	Surface sphere material:"blueLight" pos:[-30;50;25] radius:20.0
 	Surface plane material:"planeMaterial" abc:[0;0;1] d:0
-	Surface plane material:"mirrorMaterial" abc:[0;1;0] d:-100
 	
 }

@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
 		for(int i = 0; i < argc; i++) {
 			if(argv[i] == sceneC) {
 				scene = argv[i + 1];
-				scene = scene.substr(1, (scene.length() - 2));
+				scene = scene.substr(0, scene.length());
 			}
 			else if(argv[i] == iterationsC) 
 				iterations = static_cast<int>(atof(argv[i + 1]));
@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
 				samples = static_cast<int>(atof(argv[i + 1]));
 			else if(argv[i] == outputC) {
 				output = argv[i + 1];
-				output = output.substr(1, (output.length() - 2));
+				output = output.substr(0, output.length());
 			}
 		}
 		Console theCons;

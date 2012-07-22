@@ -1,5 +1,5 @@
 Config {
-	Settings camera pos:[-100;-100;50] focus:[10;10;35] angle:90 imagesize:[800;600;0] realsize:[80;60;0]
+	Settings camera pos:[-100;-100;50] focus:[10;10;35] angle:90 imagesize:[600;600;0] realsize:[60;60;0]
 	Settings render backgroundColor:[200;200;200] samplesPerIteration:1
 }
 

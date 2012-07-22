@@ -15,12 +15,10 @@ class SkyMaterial : public IMaterial {
 		Vec3<float> getTextureColor(const int x, const int y);
 	private:
 		SDL_Surface* surf;
-		SDL_Surface* surf1;
-		int h,w;
 		std::string file;
 		Uint32 getPixel(SDL_Surface *surface, int x, int y);
-		std::string toBin(Uint32 n);
-		float getBinColor(std::string & str);
+		//  getPixel(SDL_Surface *surface, int x, int y);
+		std::string toBin(Uint8 n);
 };
 
 #endif

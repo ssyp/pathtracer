@@ -9,7 +9,7 @@ float SkyMaterial::getBRDF(const Vec3<float> & in, const Vec3<float> & out, cons
 }
 
 Vec3<float> SkyMaterial::getColor(const Vec3<float> & color, const Vec3<float> & point) {
-	return getTextureColor(static_cast<int>(point.x),static_cast<int>(point.x));
+	return getTextureColor(static_cast<int>(point.x)+200,static_cast<int>(point.y)+200);
 }
 
 Vec3<float> SkyMaterial::interact(const Vec3<float> & in, const Vec3<float> & ip, const Vec3<float> & n) const {
@@ -17,34 +17,25 @@ Vec3<float> SkyMaterial::interact(const Vec3<float> & in, const Vec3<float> & ip
 }
 
 void SkyMaterial::init(const Block & block) {
-	file = block.getVariable("file").stringValue;
-	surf1 = NULL;
-	surf1 = SDL_LoadBMP(file.c_str());
-	//if(surf1 == NULL) 
-	surf = SDL_DisplayFormat(surf1);
-	SDL_FreeSurface(surf1);
+	file = "Debug/_sky.bmp"; //block.getVariable("file").stringValue;
+	surf = SDL_LoadBMP(file.c_str());
+	//if(surf == NULL) 
 };
 
 Vec3<float> SkyMaterial::getTextureColor(const int x, const int y)
 {
 	Vec3<float> color;
-	Uint32 pix = getPixel(surf, x, y);
-	std::string binPix = toBin(pix);
-	color.x = getBinColor(binPix.substr(0,8));
-	color.y = getBinColor(binPix.substr(8,8));
-	color.z = getBinColor(binPix.substr(16,8));
+	Uint32 pix=0;
+	SDL_LockSurface(surf);
+	SDL_LockSurface(surf);
+	pix = getPixel(surf, x, y);
+	SDL_UnlockSurface(surf);
+	Uint8 r, g, b;
+	SDL_GetRGB(pix, surf->format, &r, &g, &b);
+	color.x = static_cast<float>(r);
+	color.y = static_cast<float>(g);
+	color.z = static_cast<float>(b);
 	return color;
-}
-
-float SkyMaterial::getBinColor(std::string & str) {
-	int col = 0;
-	for(int i = 0; i < str.size(); i++) {
-		if(str[i] == '1') {
-			col += pow(2.0, (int)str.size() - i - 1);
-		}
-	}
-	col /= 255.0f;
-	return col;
 }
 
 Uint32 SkyMaterial::getPixel(SDL_Surface *surface, int x, int y) {
@@ -52,7 +43,7 @@ Uint32 SkyMaterial::getPixel(SDL_Surface *surface, int x, int y) {
      
     if(!surface->pixels) return 0;
      
-    p = (Uint8 *)surface->pixels
+    p = static_cast<Uint8 *>(surface->pixels)
         + y * surface->pitch
         + x * surface->format->BytesPerPixel;
      
@@ -73,17 +64,4 @@ Uint32 SkyMaterial::getPixel(SDL_Surface *surface, int x, int y) {
     default:
         return 0;
     }
-}
-
-std::string SkyMaterial::toBin(Uint32 n) {
-	std::string rez="";
-	while(n) {
-		(n % 2 == 0) ? rez += '0' : rez += '1';
-		n /= 2;
-	}
-	while(rez.size() != 32) {
-		rez += '0';
-	}
-	std::reverse(rez.begin(), rez.end());
-	return rez;
 }

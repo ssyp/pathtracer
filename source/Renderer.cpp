@@ -30,7 +30,7 @@ void Renderer::render(Camera & camera, Scene & scene) {
 		for(int y = 0; y < camera.getDpiY(); ++y) {
 			for(int x = 0; x < camera.getDpiX(); ++x) {
 				
-				Ray ray(camera.genRay(x-camera.getDpiX() / 2, camera.getDpiY() / 2 - y, distance));
+				Ray ray(camera.genRay(x-camera.getDpiX() / 2, camera.getDpiY() / 2 - y));
 
 				Vec3<float> color = pathTrace(ray, scene, 0);
 				

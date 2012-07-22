@@ -42,9 +42,9 @@ int Camera::getDpiY() const {
 	return camDpiY;
 }
 
-Ray Camera::genRay(int curX, int curY, int distance)
+Ray Camera::genRay(int curX, int curY)
 {
-	float dist = (realDpiX / 2.0 * tan(angle));
+	float dist = static_cast<float>(realDpiX / 2.0 * tan(angle));
 	Vec3<float> vert(0, 0, 1);
 	Vec3<float> vecX = cross(direct, vert);
 	Vec3<float> vecY = cross(vecX, direct);

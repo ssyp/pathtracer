@@ -9,7 +9,7 @@ float SkyMaterial::getBRDF(const Vec3<float> & in, const Vec3<float> & out, cons
 }
 
 Vec3<float> SkyMaterial::getColor(const Vec3<float> & color, const Vec3<float> & point) {
-	return getTextureColor(static_cast<int>(point.x)+200,static_cast<int>(point.y)+200);
+	return getTextureColor(static_cast<int>(point.x)+1500,static_cast<int>(point.y)+1500)*0.2f;
 }
 
 Vec3<float> SkyMaterial::interact(const Vec3<float> & in, const Vec3<float> & ip, const Vec3<float> & n) const {

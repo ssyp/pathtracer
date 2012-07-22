@@ -9,39 +9,41 @@ using namespace Math;
 
 bool Mesh::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const{
 	Plane plane;
-	Vec3<float> normalOutput;
+	Vec3<float> normalOutput, vertices4;
 	bool colision=false;
-	float pointIntersection,t1;
+	float pointIntersection;
 	t=inf;
 	
 	for(size_t i = 0; i < poligons.size(); i++) {	
 		plane.setPlane(poligons[i].vertices1,poligons[i].vertices2,poligons[i].vertices3);
 
 		if(plane.getIntersection(ray,pointIntersection,normal)) {
+			vertices4 = ray.eval(pointIntersection);
 
-			Vec3<float> ad = ray.eval(pointIntersection) - poligons[i].vertices1;
+			Vec3<float> ad = vertices4 - poligons[i].vertices1;
 			Vec3<float> ab = poligons[i].vertices2 - poligons[i].vertices1;
 
-			Vec3<float> bd = ray.eval(pointIntersection) - poligons[i].vertices2;
+			Vec3<float> bd = vertices4 - poligons[i].vertices2;
 			Vec3<float> bc = poligons[i].vertices3 - poligons[i].vertices2;
 
-			Vec3<float> cd = ray.eval(pointIntersection) - poligons[i].vertices3;
+			Vec3<float> cd = vertices4 - poligons[i].vertices3;
 			Vec3<float> ca = poligons[i].vertices1 - poligons[i].vertices3;
 
 			if( dot(ad, ab) > 0 && dot(bd, bc) > 0 && dot(ca, cd) > 0) {
-				t1=pointIntersection;
-				if(t1 < t) { 
-					t=t1;
+				if(pointIntersection < t) { 
+					t=pointIntersection;
 					normalOutput=normal;
 					colision=true;
 				}
 			}
 		}
 	}
+
 	if(colision) {
 		normal = normalOutput;
 		return true;
 	}
+
 	return false;
 }
 

@@ -17,6 +17,7 @@ Scene {
 	Surface sphere material:"light" pos:[10;150;50] radius:20.0
 	Surface sphere material:"sphereMaterial" pos:[10;50;25] radius:20.0
 	Surface sphere material:"sphereMaterial" pos:[-70;50;10] radius:20.0
+	Surface sphere material:"mirrorMaterial" pos:[-40;-80;25] radius:20.0
 	Surface sphere material:"sphereMaterial" pos:[-95;50;90] radius:20.0
 	Surface sphere material:"greenLight" pos:[-70;50;90] radius:20.0
 	Surface plane material:"mirrorMaterial" abc:[0;0;1] d:0

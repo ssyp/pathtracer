@@ -15,7 +15,7 @@ bool Mesh::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) con
 	t=inf;
 	
 	for(size_t i = 0; i < poligons.size(); i++) {	
-		plane.setAbcd(poligons[i].vertices1,poligons[i].vertices2,poligons[i].vertices3);
+		plane.setPlane(poligons[i].vertices1,poligons[i].vertices2,poligons[i].vertices3);
 
 		if(plane.getIntersection(ray,pointIntersection,normal)) {
 
@@ -28,7 +28,7 @@ bool Mesh::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) con
 			Vec3<float> cd = ray.eval(pointIntersection) - poligons[i].vertices3;
 			Vec3<float> ca = poligons[i].vertices1 - poligons[i].vertices3;
 
-			if( ad.dot(ab) > 0 && bd.dot(bc) > 0 && ca.dot(cd) > 0) {
+			if( dot(ad, ab) > 0 && dot(bd, bc) > 0 && dot(ca, cd) > 0) {
 				t1=pointIntersection;
 				if(t1 < t) { 
 					t=t1;

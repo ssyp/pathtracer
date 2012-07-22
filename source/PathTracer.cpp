@@ -1,15 +1,16 @@
 #include "Application.h"
 #include "Console.h"
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
 	if(argc > 1) {
 		std::string scene, output;
+		
 		int iterations = 0, samples = 0;
 		char* sceneC = "--scene";
 		char* iterationsC = "--iterations";
 		char* samplesC = "--samples";
 		char* outputC = "--output";
+		
 		for(int i = 0; i < argc; i++) {
 			if(argv[i] == sceneC) {
 				scene = argv[i + 1];

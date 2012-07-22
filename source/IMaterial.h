@@ -14,5 +14,4 @@ class IMaterial {
 		virtual void init(const Block & block) = 0;
 };	
 
-
 #endif

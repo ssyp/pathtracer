@@ -16,7 +16,7 @@ class ISurface {
 
 		virtual void init(const Block & block) = 0;
 		
-		IMaterial* getMaterial() const{
+		IMaterial* getMaterial() const {
 			return material;
 		}
 		

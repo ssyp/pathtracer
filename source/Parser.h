@@ -2,7 +2,6 @@
 #define __PARSER_H__
 
 #include <vector>
-
 #include "Block.h"
 #include "Variable.h"
 

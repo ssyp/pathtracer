@@ -14,7 +14,7 @@ Sphere::Sphere(const Vec3<float> & pos, const float & r) {
 }
 
 bool Sphere::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const {
-	Vec3<float> localPosition = ray.position-position;
+	Vec3<float> localPosition = ray.position - position;
 	
 	float dotDirectionDirection = dot(ray.direction, ray.direction) ;
 	float dotDirectionLocalPosition = dot(ray.direction, localPosition);
@@ -38,7 +38,7 @@ bool Sphere::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) c
 	}
 	
 	float t1, t2;
-	float sqrtD = static_cast<float>(sqrt(D)*0.5);
+	float sqrtD = static_cast<float>(sqrt(D) * 0.5);
 		
 	t1 = (-dotDirectionLocalPosition - sqrtD) / (dotDirectionDirection);
 	t2 = (-dotDirectionLocalPosition + sqrtD) / (dotDirectionDirection);

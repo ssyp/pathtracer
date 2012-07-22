@@ -1,13 +1,12 @@
 #ifndef __SPHERE_H__
 #define __SPHERE_H__
 
-#include "ISurface.h"
-#include "MaterialManager.h"
-#include "Block.h"
 #include <cmath>
 #include <algorithm>
 #include <map>
-
+#include "ISurface.h"
+#include "MaterialManager.h"
+#include "Block.h"
 
 class Sphere : public ISurface {
 	public:

@@ -1,10 +1,12 @@
 #ifndef _RENDERER_H_
 #define _RENDERER_H_
+
 #include "Camera.h"
 #include "Scene.h"
-#include "vec3.h"
+#include "Vec3.h"
 #include "MonteCarloImage.h"
 #include "Ray.h"
+
 using namespace Math;
 
 class Renderer {

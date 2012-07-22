@@ -1,9 +1,7 @@
 #include "Factory.h"
-
 #include "SimpleMaterial.h"
 #include "MirrorMaterial.h"
 #include "SkyMaterial.h"
-
 #include "Sphere.h"
 #include "Plane.h"
 #include "Cube.h"

@@ -1,8 +1,8 @@
-#include "MonteCarloImage.h"
 #include <cstdio>
 #include <cstdlib>
 #include <fstream>
 #include <assert.h>
+#include "MonteCarloImage.h"
 
 MonteCarloImage::MonteCarloImage(const int x, const int y) {
 	this->x = x;
@@ -71,17 +71,14 @@ void MonteCarloImage::save(const int samp, const std::string & path) const
 	f.close();
 }
 
-int MonteCarloImage::getHeight() const
-{
+int MonteCarloImage::getHeight() const {
 	return y;
 }
 
-int MonteCarloImage::getWidth() const
-{
+int MonteCarloImage::getWidth() const {
 	return x;
 }
 
-MonteCarloImage::~MonteCarloImage()
-{
+MonteCarloImage::~MonteCarloImage() {
 	delete [] pixels;
 }

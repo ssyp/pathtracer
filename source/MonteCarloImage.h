@@ -2,7 +2,7 @@
 #define _MONTE_CARLO_
 
 #include <string>
-#include "vec3.h"
+#include "Vec3.h"
 
 using namespace Math;
 
@@ -22,6 +22,6 @@ class MonteCarloImage {
 	private:
 		int x, y;
 		Vec3<float>* pixels;
-
 };
+
 #endif

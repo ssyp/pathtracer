@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-
 #include "Parser.h"
 
 void Parser::parse(const std::string & name) {
@@ -13,10 +12,12 @@ void Parser::parse(const std::string & name) {
 		std::string str(buffer);
 
 		int n = 0, begin = 0, end = 0, nParameters = 0;
+		
 		std::string word, surfaceN;
 		std::map<int, float> fValue, vX, vY, vZ;
 		std::map<int, std::string> sValue, parameters, type;
-		bool firstS = false, firstWord = false;
+		
+bool firstS = false, firstWord = false;
 		int len = str.length();
 
 		for(std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
@@ -93,14 +94,11 @@ void Parser::parse(const std::string & name) {
 							nCoord++;
 							begin2 = n2 + 1;
 						}
-
 						n2++;
 					}
 				}
-
 				begin = end + 1;
 			}
-
 			n++;
 		}
 

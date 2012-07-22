@@ -1,10 +1,10 @@
 #ifndef __PLANE_H__
 #define __PLANE_H__
 
+#include <cmath>
 #include "ISurface.h"
 #include "MaterialManager.h"
 #include "MathUtils.h"
-#include <cmath>
 
 class Plane : public ISurface {
 	public:

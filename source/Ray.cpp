@@ -21,7 +21,7 @@ namespace Math {
 		direction = dir;
 	}
 
-	void Ray::operator=(Ray & r) {
+	void Ray::operator = (Ray & r) {
 		position = r.position;
 		direction = r.direction;
 	}

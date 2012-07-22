@@ -31,15 +31,14 @@ namespace Math {
 			randV.x = static_cast<float> (rand() * infRandMax) * 2 - 1; 
 			randV.y = static_cast<float> (rand() * infRandMax) * 2 - 1;
 			randV.z = static_cast<float> (rand() * infRandMax) * 2 - 1;
-		} while (n.cross(randV) == vec);
+		} while (cross(n, randV) == vec);
 		
-		dirX = randV.cross(n);  
-		dirY = dirX.cross(n);
+		dirX = cross(n, randV);  
+		dirY = cross(n, dirX);
 		dirX.normalize();
 		dirY.normalize();
 		return (dirX * randVe.x + dirY * randVe.y + n * randVe.z);
 	} 
-
 
 	bool f_eq(float v1, float v2){
 		if (fabs(v1 - v2) < eps) return true;

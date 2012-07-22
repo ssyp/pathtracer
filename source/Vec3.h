@@ -77,6 +77,14 @@ namespace Math {
 				return result;
 			}
 	
+			Vec3<T> operator - () {
+				Vec3<T> vec;
+				vec.x = -x;
+				vec.y = -y;
+				vec.z = -z;
+				return vec;
+			}
+
 			float getLength() const {
 				return static_cast<float>(sqrt (x * x + y * y + z * z));
 			}

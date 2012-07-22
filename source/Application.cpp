@@ -1,4 +1,4 @@
-#include "Application.h"
+ #include "Application.h"
 #include "MaterialManager.h"
  
 Application::Application() {
@@ -11,7 +11,7 @@ Application::Application() {
 bool Application::onInit() {
     samples = 0;
 	parser = new Parser();
-	parser->parse("scenes/TestSky.scene");
+	parser->parse("scenes/TestMeth.scene");
 
 	Block blockS, blockCamera, blockRender;
  

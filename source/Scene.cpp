@@ -28,19 +28,26 @@ int Scene::getNumSurfaces() const {
 	
 bool Scene::getIntersection(Ray & ray, ISurface* & surface, float & t, Vec3<float> & normal) const {
 	int index = -1;
+
 	float t1;
 	t = inf;
+	Vec3<float> n;
+
 	for(size_t i = 0; i < nodes.size(); i++) {
-		if(ray.prevSurface != nodes[i] && nodes[i]->getIntersection(ray, t1, normal)) {
-			if(t1 < t) {
-				t = t1;
-				index = i;
-			}
+		if(ray.prevSurface == nodes[i]) continue;
+		if(!nodes[i]->getIntersection(ray, t1, n)) continue;
+
+		if(t1 < t) {
+			t = t1;
+			index = i;
+			normal = n;
 		}
 	}
+
 	if(index != -1) {
 		surface = nodes[index];
 		return true;
 	}
+
 	return false;
 }

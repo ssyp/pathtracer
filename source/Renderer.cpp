@@ -67,18 +67,15 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, int depth) {
 
 	if(material == NULL) return Vec3<float>(0, 0, 0);
 
-	//ray.direction.normalize(); normal.normalize();
 	Vec3<float> newVec = material->interact(ray.direction, point, normal);
 	Ray newRay(point, newVec);
 
 	newRay.prevSurface = surf;
 
 	float brdf = material->getBRDF(ray.direction, newRay.direction, normal);
-	float cosOmega = dot(normal, newRay.direction);
 
 	Vec3<float> color = pathTrace(newRay, scene, ++depth);
-
-	Vec3<float> finalColor = material->getColor(color * (brdf * cosOmega),newRay.position);
+	Vec3<float> finalColor = material->getColor(color * brdf, newRay.position);
 	
 	return finalColor;
 }

@@ -6,19 +6,13 @@ float MirrorMaterial::getBRDF(const Vec3<float> & in, const Vec3<float> & out, c
 }
 
 Vec3<float> MirrorMaterial::getColor(const Vec3<float> & color, const Vec3<float> & point) {
-	return color;
+	return color * reflectance;
 }
 
 Vec3<float> MirrorMaterial::interact(const Vec3<float> & in, const Vec3<float> & ip, const Vec3<float> & n) const {
-	/**Vec3<float> normalIn = in*(-1);
-	normalIn.normalize();
-	float cos = dot(normalIn, n);
-	return n*(2.0*cos)+normalIn;**/
-	float k = dot(in, n);
-	Vec3<float> proj = in - n * k;
-	return  proj - n * k;
+	return in - n * 2 * dot(in, n);
 }
 
 void MirrorMaterial::init(const Block & block) {
-	return;
-};
+	reflectance = block.getVariable("reflectance").vectorValue;
+}

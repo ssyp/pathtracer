@@ -11,7 +11,7 @@ Application::Application() {
 bool Application::onInit() {
     samples = 0;
 	parser = new Parser();
-	parser->parse("scenes/TestMeth.scene");
+	parser->parse("scenes/Road.scene");
 
 	Block blockS, blockCamera, blockRender;
  
@@ -30,7 +30,7 @@ bool Application::onInit() {
 	if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         return false;
     }
- 
+	
     if((surfDisplay = SDL_SetVideoMode(renderer->mci->getWidth(), renderer->mci->getHeight(), 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL) {
         return false;
     }
@@ -47,9 +47,8 @@ bool Application::onInit() {
 		scene->addSurface(surf);
 	}
 
-	renderer->setPathDepth(100);
+	renderer->setPathDepth(10);
 	renderer->setBackgroundColor(getColor(blockRender.getVariable("backgroundColor").vectorValue));
-	//renderer->mci->save(renderer->getSamples());
 
     return true;
 }

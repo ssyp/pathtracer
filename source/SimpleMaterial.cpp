@@ -2,7 +2,7 @@
 #include "MathUtils.h"
 
 float SimpleMaterial::getBRDF(const Vec3<float> & in, const Vec3<float> & out, const Vec3<float> & n) const {
-	return 1.0f;
+	return dot(n, out);
 }
 
 Vec3<float> SimpleMaterial::getColor(const Vec3<float> & color, const Vec3<float> & point) {

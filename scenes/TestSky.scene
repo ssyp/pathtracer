@@ -7,7 +7,7 @@ Materials {
 	Material simple name:"redLight" reflectance:[0.0;0.0;0.0] emittance:[10.0;0.0;0.0]
 	Material simple name:"greenLight" reflectance:[0.0;0.0;0.0] emittance:[0.0;10.0;0.0]
 	Material simple name:"blueLight" reflectance:[0.0;0.0;0.0] emittance:[0.0;0.0;10.0]
-	Material simple name:"planeMaterial" reflectance:[0;0;0] emittance:[0.0;0.0;0.0]
+	Material simple name:"planeMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
 	Material simple name:"redMaterial" reflectance:[0.0;0.0;1.0] emittance:[0.0;0.0;0.0]
 	Material simple name:"blueMaterial" reflectance:[1;0.6;0.6] emittance:[0.0;0.0;0.0]
 	Material simple name:"sphereMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]

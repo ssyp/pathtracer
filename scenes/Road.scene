@@ -1,0 +1,70 @@
+Config {
+	Settings camera pos:[5;-100;50] focus:[10;90;20] angle:90 imagesize:[600;600;0] realsize:[60;60;0]
+	Settings render backgroundColor:[200;200;200] samplesPerIteration:1
+}
+
+Materials {
+	Material simple name:"planeMaterial" reflectance:[0.0;0.1;0.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"Black" reflectance:[0.0;0.0;0.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"Gray" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"Red" reflectance:[0.0;0.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"Green" reflectance:[0.0;1.0;0.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"Blue" reflectance:[1.0;0.0;0.0] emittance:[0.0;0.0;0.0]	
+	Material simple name:"Light" reflectance:[0.0;5.0;5.0] emittance:[0.3;20.0;20.0]
+	Material simple name:"Light2" reflectance:[5.0;5.0;5.0] emittance:[100.0;100.0;100.0]
+}
+
+Scene {
+	Surface plane material:"planeMaterial" abc:[0;0;1] d:0
+	Surface cube material:"Black" min:[-25;0;0] max:[35;1500;2]
+	Surface cube material:"Gray" min:[-25;20;0] max:[-27;22;40]
+	Surface sphere material:"Light" pos:[-26;21;42] radius:3
+	Surface cube material:"Gray" min:[35;20;0] max:[37;22;40]
+	Surface sphere material:"Light" pos:[36;21;42] radius:3
+	Surface cube material:"Gray" min:[-25;120;0] max:[-27;122;40]
+	Surface sphere material:"Light" pos:[-26;121;42] radius:3
+	Surface cube material:"Gray" min:[35;120;0] max:[37;122;40]
+	Surface sphere material:"Light" pos:[36;121;42] radius:3
+	Surface sphere material:"Light2" pos:[35;121;2] radius:2
+	Surface sphere material:"Light2" pos:[-25;121;2] radius:2
+	Surface sphere material:"Gray" pos:[5;150;11] radius:10
+	Surface sphere material:"Red" pos:[15;130;11] radius:10
+	Surface sphere material:"Blue" pos:[-5;130;11] radius:10
+	Surface sphere material:"Gray" pos:[5;140;27] radius:10
+	Surface cube material:"Gray" min:[-25;220;0] max:[-27;222;40]
+	Surface sphere material:"Light" pos:[-26;221;42] radius:3
+	Surface cube material:"Gray" min:[35;220;0] max:[37;222;40]
+	Surface sphere material:"Light" pos:[36;221;42] radius:3
+	Surface cube material:"Gray" min:[-25;320;0] max:[-27;322;40]
+	Surface sphere material:"Light" pos:[-26;321;42] radius:3
+	Surface cube material:"Gray" min:[35;320;0] max:[37;322;40]
+	Surface sphere material:"Light" pos:[36;321;42] radius:3
+	Surface cube material:"Gray" min:[-25;420;0] max:[-27;422;40]
+	Surface sphere material:"Light" pos:[-26;421;42] radius:3
+	Surface cube material:"Gray" min:[35;420;0] max:[37;422;40]
+	Surface sphere material:"Light" pos:[36;421;42] radius:3
+	Surface cube material:"Gray" min:[-25;520;0] max:[-27;522;40]
+	Surface sphere material:"Light" pos:[-26;521;42] radius:3
+	Surface cube material:"Gray" min:[35;520;0] max:[37;522;40]
+	Surface sphere material:"Light" pos:[36;521;42] radius:3
+	Surface cube material:"Gray" min:[-25;620;0] max:[-27;622;40]
+	Surface sphere material:"Light" pos:[-26;621;42] radius:3
+	Surface cube material:"Gray" min:[35;620;0] max:[37;622;40]
+	Surface sphere material:"Light" pos:[36;621;42] radius:3
+	Surface cube material:"Gray" min:[-25;720;0] max:[-27;722;40]
+	Surface sphere material:"Light" pos:[-26;721;42] radius:3
+	Surface cube material:"Gray" min:[35;720;0] max:[37;722;40]
+	Surface sphere material:"Light" pos:[36;721;42] radius:3
+	Surface cube material:"Gray" min:[-25;820;0] max:[-27;822;40]
+	Surface sphere material:"Light" pos:[-26;821;42] radius:3
+	Surface cube material:"Gray" min:[35;820;0] max:[37;822;40]
+	Surface sphere material:"Light" pos:[36;821;42] radius:3
+	Surface cube material:"Gray" min:[-25;920;0] max:[-27;922;40]
+	Surface sphere material:"Light" pos:[-26;921;42] radius:3
+	Surface cube material:"Gray" min:[35;920;0] max:[37;922;40]
+	Surface sphere material:"Light" pos:[36;921;42] radius:3
+	Surface cube material:"Gray" min:[-25;1020;0] max:[-27;1022;40]
+	Surface sphere material:"Light" pos:[-26;1021;42] radius:3
+	Surface cube material:"Gray" min:[35;1020;0] max:[37;1022;40]
+	Surface sphere material:"Light" pos:[36;1021;42] radius:3
+}

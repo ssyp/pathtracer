@@ -1,18 +1,24 @@
 Config {
-	Settings camera pos:[-100;-100;50] focus:[10;10;35] angle:90 imagesize:[800;600;0] realsize:[80;60;0]
+	Settings camera pos:[-60;-60;50] focus:[10;10;35] angle:90 imagesize:[800;600;0] realsize:[80;60;0]
 	Settings render backgroundColor:[200;200;200] samplesPerIteration:1
 }
 
 Materials {
-	Material simple name:"YellowLight" reflectance:[0.0;5.0;5.0] emittance:[0.0;50.0;50.0]
-	Material simple name:"Color1" reflectance:[0.0;0.5;1.2] emittance:[0.0;0.0;0.0]
-	Material simple name:"Color2" reflectance:[2.0;0.4;0.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"YellowLight" reflectance:[0.0;5.0;5.0] emittance:[0.0;10.0;10.0]
+	Material simple name:"Color1" reflectance:[0.0;0.1;1.2] emittance:[0.0;0.0;0.0]
+	Material simple name:"Color2" reflectance:[2.0;0.0;0.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"Color3" reflectance:[0.0;0.2;0.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"Color4" reflectance:[0.0;0.0;2.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"Color5" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
 	Material simple name:"Black" reflectance:[0.0;0.0;0.0] emittance:[0.0;0.0;0.0]
 }
 
 Scene {
-	Surface sphere material:"YellowLight" pos:[40;40;35] radius:13.0
+	Surface sphere material:"YellowLight" pos:[50;40;35] radius:13.0
 	Surface sphere material:"Color1" pos:[55;20;35] radius:2.0
-	Surface sphere material:"Color2" pos:[20;10;35] radius:2.2
+	Surface sphere material:"Color2" pos:[20;7;35] radius:2.4
+	Surface sphere material:"Color3" pos:[-5;3;35] radius:2.8
+	Surface sphere material:"Color5" pos:[-9;3;35] radius:1
+	Surface sphere material:"Color4" pos:[-30;-5;35] radius:2.1
 	Surface plane material:"Black" abc:[1;1;0] d:-400
 }

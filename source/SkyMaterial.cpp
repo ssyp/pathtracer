@@ -13,7 +13,7 @@ Vec3<float> SkyMaterial::getColor(const Vec3<float> & color, const Vec3<float> &
 }
 
 Vec3<float> SkyMaterial::interact(const Vec3<float> & in, const Vec3<float> & ip, const Vec3<float> & n) const {
-	return getRandomPointOnHemisphere(n);
+	return Vec3<float>(0,0,1);
 }
 
 void SkyMaterial::init(const Block & block) {

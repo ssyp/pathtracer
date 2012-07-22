@@ -1,0 +1,34 @@
+Config {
+	Settings camera pos:[-100;-100;50] focus:[10;10;35] angle:90 imagesize:[800;600;0] realsize:[80;60;0]
+	Settings render backgroundColor:[200;200;200] samplesPerIteration:1
+}
+
+Materials {
+	Material simple name:"planeMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"cube1" reflectance:[0.0;5.0;5.0] emittance:[0.0;5.0;5.0]
+	Material simple name:"cube2" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"sphereBlue" reflectance:[1.0;0.0;0.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"sphereRed" reflectance:[0.0;0.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"sphere1" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"sphere2" reflectance:[1.0;1.0;1.0] emittance:[1.0;1.0;1.0]
+	Material simple name:"plane1" reflectance:[1.0;0.0;0.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"plane2" reflectance:[0.0;0.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"plane3" reflectance:[1.0;1.0;1.0] emittance:[1.0;1.0;1.0]
+}
+
+Scene {
+	Surface plane material:"planeMaterial" abc:[0;0;1] d:0
+	Surface sphere material:"sphere1" pos:[40;40;25] radius:15.0
+	Surface sphere material:"sphere1" pos:[40;40;49] radius:10.0
+	Surface sphere material:"sphere1" pos:[40;40;63] radius:5.0
+	Surface sphere material:"sphere1" pos:[40;0;0] radius:10.0
+	Surface sphere material:"sphere2" pos:[40;0;10] radius:5.0
+	Surface sphere material:"sphere1" pos:[0;40;0] radius:10.0
+	Surface sphere material:"sphere2" pos:[0;40;10] radius:5.0
+	Surface plane material:"plane3" abc:[1;1;0] d:-200
+	Surface plane material:"plane1" abc:[0;1;0] d:-125
+	Surface plane material:"plane2" abc:[1;0;0] d:-125
+	Surface cube material:"cube2" min:[25;25;0] max:[55;55;2]
+	Surface cube material:"cube2" min:[30;30;2] max:[50;50;6]
+	Surface cube material:"cube2" min:[25;25;8] max:[55;55;10]
+}

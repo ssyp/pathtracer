@@ -15,8 +15,8 @@ bool Application::onInit() {
 
 	Block blockS, blockCamera, blockRender;
  
-	for (int i = 0; i < parser ->getNumSettingBlocks(); i++) {
-		blockS = parser -> getSettingBlock(i);
+	for (int i = 0; i < parser->getNumSettingBlocks(); i++) {
+		blockS = parser->getSettingBlock(i);
 		if(blockS.surface == "camera")
 			blockCamera = blockS;
 		else if(blockS.surface == "render")
@@ -66,7 +66,7 @@ void Application::onCleanup() {
 }
 
 void Application::onEvent(SDL_Event * Event) {
-    if(Event -> type == SDL_QUIT) {
+    if(Event->type == SDL_QUIT) {
         running = false;
     }
 }
@@ -94,7 +94,7 @@ int Application::onExecute() {
 
 void Application::onRender() {
 	renderer->render(*camera, *scene);
-	samples+=renderer->getSamples();
+	samples += renderer->getSamples();
 
 	for(int x = 0; x < renderer->mci->getWidth(); x++)
 		for(int y = 0; y < renderer->mci->getHeight(); y++)
@@ -102,7 +102,7 @@ void Application::onRender() {
 			Vec3<float> color = renderer->mci->get(x,y);
 			color *= 255.0f / static_cast<float>(samples);
 
-			color.clamp(0.0,255.0);
+			color.clamp(0.0, 255.0);
 
 			unsigned char * pixel = static_cast<unsigned char *>(surfDisplay->pixels) + y * surfDisplay->pitch + x * surfDisplay->format->BytesPerPixel;
 			*pixel++ = static_cast<unsigned char>(color.x);

@@ -18,7 +18,7 @@ int Console::consoleInit(std::string sceneN, int iterations, int samplesC, std::
 
 	scene = new Scene();
 	camera = new Camera(blockCamera.getVariable("pos").vectorValue, blockCamera.getVariable("focus").vectorValue, radian(blockCamera.getVariable("angle").floatValue), static_cast<int>(blockCamera.getVariable("imagesize").vectorValue.x), static_cast<int>(blockCamera.getVariable("imagesize").vectorValue.y), static_cast<int>(blockCamera.getVariable("realsize").vectorValue.x), static_cast<int>(blockCamera.getVariable("realsize").vectorValue.y)); 
-	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), static_cast<int>(blockRender.getVariable("samplesPerIteration").floatValue)); 
+	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), iterations); 
 		
 	Block block;
 	ISurface * surf;

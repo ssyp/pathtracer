@@ -1,0 +1,19 @@
+Config {
+	Settings camera pos:[-100;-100;45] focus:[10;10;35] angle:90 imagesize:[800;600;0] realsize:[80;60;0]
+	Settings render backgroundColor:[200;200;200] samplesPerIteration:1
+}
+
+Materials {
+	Material simple name:"planeMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"Red" reflectance:[0.0;0.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"BlueLight" reflectance:[1.0;0.0;0.0] emittance:[5.0;0.0;0.0]
+	Material mirror name:"Mirror" reflectance:[1.0;1.0;1.0]
+	Material simple name:"WhiteLight" reflectance:[1.0;1.0;1.0] emittance:[100.0;100.0;100.0]
+}
+
+Scene {
+	Surface plane material:"planeMaterial" abc:[0;0;1] d:0
+	Surface sphere material:"Red" pos:[60;60;15] radius:15.0
+	Surface sphere material:"BlueLight" pos:[90;30;15] radius:15.0
+	Surface sphere material:"Mirror" pos:[30;90;15] radius:15.0
+}

@@ -11,7 +11,7 @@ Application::Application() {
 bool Application::onInit() {
     samples = 0;
 	parser = new Parser();
-	parser->parse("scenes/Road.scene");
+	parser->parse("scenes/Materials.scene");
 
 	Block blockS, blockCamera, blockRender;
  

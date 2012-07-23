@@ -6,19 +6,28 @@ Config {
 Materials {
 	Material simple name:"planeMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
 	Material simple name:"YellowLight" reflectance:[0.0;5.0;5.0] emittance:[0.0;5.0;5.0]
-	Material simple name:"LampLight" reflectance:[0.0;5.0;5.0] emittance:[0.5;5.0;5.0]
+	Material simple name:"LampLight" reflectance:[0.0;5.0;5.0] emittance:[0.3;10.0;10.0]
 	Material simple name:"White" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
 	Material simple name:"WhiteLight" reflectance:[1.0;1.0;1.0] emittance:[1.0;1.0;1.0]
-	Material simple name:"WhiteLight5" reflectance:[1.0;1.0;1.0] emittance:[5.0;5.0;5.0]
+	Material simple name:"WhiteLight5" reflectance:[1.0;1.0;1.0] emittance:[10.0;10.0;10.0]
 	Material simple name:"Blue" reflectance:[1.0;0.0;0.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"BlueLight" reflectance:[1.0;0.0;0.0] emittance:[3.0;0.0;0.0]
 	Material simple name:"Red" reflectance:[0.0;0.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"RedLight" reflectance:[0.0;0.0;1.0] emittance:[0.0;0.0;3.0]
+	Material mirror name:"Mirror" reflectance:[1.0;1.0;1.0]
 }
 
 Scene {
 	Surface plane material:"planeMaterial" abc:[0;0;1] d:0
-	Surface sphere material:"White" pos:[40;40;25] radius:15.0
-	Surface sphere material:"White" pos:[40;40;49] radius:10.0
-	Surface sphere material:"White" pos:[40;40;63] radius:5.0
+	Surface sphere material:"Red" pos:[40;40;18] radius:8.0
+	Surface sphere material:"Blue" pos:[30;40;30] radius:8.0
+	Surface sphere material:"White" pos:[50;45;30] radius:8.0
+	Surface sphere material:"White" pos:[40;40;42] radius:8.0
+	Surface sphere material:"Red" pos:[40;30;54] radius:8.0
+	Surface sphere material:"White" pos:[45;50;54] radius:8.0
+	Surface sphere material:"Blue" pos:[40;40;66] radius:8.0
+	Surface sphere material:"Mirror" pos:[70;110;8] radius:8.0
+	Surface sphere material:"Mirror" pos:[110;70;8] radius:8.0
 	Surface sphere material:"White" pos:[40;0;0] radius:10.0
 	Surface sphere material:"WhiteLight5" pos:[40;0;10] radius:5.0
 	Surface sphere material:"White" pos:[0;40;0] radius:10.0
@@ -30,7 +39,9 @@ Scene {
 	Surface cube material:"White" min:[30;30;2] max:[50;50;6]
 	Surface cube material:"White" min:[25;25;8] max:[55;55;10]
 	Surface cube material:"White" min:[115;30;0] max:[117;32;35]
+	Surface sphere material:"White" pos:[116;31;0] radius:4.0
 	Surface cube material:"White" min:[30;115;0] max:[32;117;35]
+	Surface sphere material:"White" pos:[31;116;0] radius:4.0
 	Surface sphere material:"LampLight" pos:[31;116;37] radius:3.0
 	Surface sphere material:"LampLight" pos:[116;31;37] radius:3.0
 }

@@ -1,0 +1,17 @@
+Config {
+	Settings camera pos:[-100;-100;45] focus:[10;10;35] angle:90 imagesize:[800;600;0] realsize:[80;60;0]
+	Settings render backgroundColor:[200;200;200] samplesPerIteration:1
+}
+
+Materials {
+	Material simple name:"planeMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"White" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"WhiteLight" reflectance:[1.0;1.0;1.0] emittance:[100.0;100.0;100.0]
+}
+
+Scene {
+	Surface plane material:"planeMaterial" abc:[0;0;1] d:0
+	Surface sphere material:"White" pos:[60;60;35] radius:15.0
+	Surface sphere material:"WhiteLight" pos:[-100;-100;10] radius:10.0
+	Surface cube material:"White" min:[55;55;0] max:[75;75;20]
+}

@@ -1,0 +1,25 @@
+Config {
+	Settings camera pos:[-50;-500;45] focus:[-50;200;45] angle:90 imagesize:[500;500;0] realsize:[50;50;0]
+	Settings render backgroundColor:[200;200;200] samplesPerIteration:1
+}
+
+Materials {
+	Material simple name:"redLight" reflectance:[0.0;0.0;0.0] emittance:[1.0;0.0;0.0]
+	Material simple name:"greenLight" reflectance:[0.0;0.0;0.0] emittance:[0.0;1.0;0.0]
+	Material simple name:"blueLight" reflectance:[0.0;0.0;0.0] emittance:[0.0;0.0;1.0]
+	Material simple name:"planeMaterial" reflectance:[1.0;0.0;0.75] emittance:[0.0;0.0;0.0]
+	Material simple name:"sphereMaterial" reflectance:[0.0;0.75;0.75] emittance:[0.0;0.0;0.0]
+	Material simple name:"blueWall" reflectance:[0.75;0.75;0.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"redWall" reflectance:[0.0;0.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"light" reflectance:[0.0;0.0;0.0] emittance:[4.0;4.0;4.0]
+	Material simple name:"greenWall" reflectance:[0.0;1.0;0.0] emittance:[0.0;0.0;0.0]
+}
+
+Scene {
+	Surface cube material:"redWall" min:[-70;-20;5] max:[-50;0;50]
+	Surface sphere material:"blueLight" pos:[-20;20;25] radius:20.0
+	Surface plane material:"planeMaterial" abc:[0;0;1] d:0
+	Surface sphere material:"light" pos:[-200;-200;200] radius:40.0
+	Surface plane material:"blueWall" abc:[0;1;0] d:-200
+	Surface plane material:"greenWall" abc:[1;0;0] d:10
+}

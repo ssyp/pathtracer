@@ -75,7 +75,7 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, int depth) {
 	float brdf = material->getBRDF(ray.direction, newRay.direction, normal);
 
 	Vec3<float> color = pathTrace(newRay, scene, ++depth);
-	Vec3<float> finalColor = material->getColor(color * brdf, newRay.position);
+	Vec3<float> finalColor = material->getColor(color * brdf);
 	
 	return finalColor;
 }

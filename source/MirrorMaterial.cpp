@@ -5,7 +5,7 @@ float MirrorMaterial::getBRDF(const Vec3<float> & in, const Vec3<float> & out, c
 	return 1.0f;
 }
 
-Vec3<float> MirrorMaterial::getColor(const Vec3<float> & color, const Vec3<float> & point) {
+Vec3<float> MirrorMaterial::getColor(const Vec3<float> & color) {
 	return color * reflectance;
 }
 

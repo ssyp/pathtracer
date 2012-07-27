@@ -1,5 +1,6 @@
 #include "Renderer.h"
 #include "MathUtils.h"
+#include "IBackground.h"
 
 Renderer::Renderer(const int x, const int y, const int samp) {
 	samples = samp;
@@ -12,12 +13,16 @@ void Renderer::setBackgroundColor(const Vec3<float>& vec) {
 	backgroundColor = vec;
 }
 
-void Renderer::setPathDepth(const int n) {
-	pathDepth = n;
-}
-
 Vec3<float> Renderer::getBackgroundColor() const {
 	return backgroundColor;
+}
+
+void Renderer::setBackground(IBackground * bg) {
+	background = bg;
+}
+
+void Renderer::setPathDepth(const int n) {
+	pathDepth = n;
 }
 
 int Renderer::getPathDepth() const {
@@ -54,7 +59,7 @@ Vec3<float> Renderer::pathTrace(Ray & ray, Scene & scene, int depth) {
 	Vec3<float> normal;
 
 	if(!scene.getIntersection(ray, surf, pointRay, normal)) {
-		return backgroundColor;
+		return background->getColor(ray);
 	}
 
 	if(depth > pathDepth) {

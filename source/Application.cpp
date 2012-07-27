@@ -1,5 +1,7 @@
- #include "Application.h"
+#include "Application.h"
 #include "MaterialManager.h"
+#include "SkyBackground.h"
+#include "ConstantBackground.h"
  
 Application::Application() {
     surfDisplay = NULL;
@@ -11,21 +13,25 @@ Application::Application() {
 bool Application::onInit() {
     samples = 0;
 	parser = new Parser();
-	parser->parse("scenes/Materials.scene");
+	parser->parse("scenes/TestSky.scene");
 
-	Block blockS, blockCamera, blockRender;
+	Block blockS, blockCamera, blockRender, blockBackground;
  
 	for (int i = 0; i < parser->getNumSettingBlocks(); i++) {
 		blockS = parser->getSettingBlock(i);
 		if(blockS.surface == "camera")
 			blockCamera = blockS;
-		else if(blockS.surface == "render")
+		if(blockS.surface == "render")
 			blockRender = blockS;
+		if(blockS.surface == "background")
+			blockBackground = blockS;
 	}
 
 	scene = new Scene();
 	camera = new Camera(blockCamera.getVariable("pos").vectorValue, blockCamera.getVariable("focus").vectorValue, radian(blockCamera.getVariable("angle").floatValue), static_cast<int>(blockCamera.getVariable("imagesize").vectorValue.x), static_cast<int>(blockCamera.getVariable("imagesize").vectorValue.y), static_cast<int>(blockCamera.getVariable("realsize").vectorValue.x), static_cast<int>(blockCamera.getVariable("realsize").vectorValue.y)); 
 	renderer = new Renderer(camera->getDpiX(), camera->getDpiY(), static_cast<int>(blockRender.getVariable("samplesPerIteration").floatValue)); 
+
+	
 	
 	if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         return false;
@@ -47,7 +53,16 @@ bool Application::onInit() {
 		scene->addSurface(surf);
 	}
 
+	if(blockBackground.getVariable("name").stringValue == "sky") {
+		background = new SkyBackground();
+	}
+	if(blockBackground.getVariable("name").stringValue == "const") {
+		background = new ConstantBackground();
+	}
+	background->init(blockBackground); 
+
 	renderer->setPathDepth(10);
+	renderer->setBackground(background);
 	renderer->setBackgroundColor(getColor(blockRender.getVariable("backgroundColor").vectorValue));
 
     return true;

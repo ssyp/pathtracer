@@ -7,6 +7,8 @@
 #include "MonteCarloImage.h"
 #include "Ray.h"
 
+class IBackground;
+
 using namespace Math;
 
 class Renderer {
@@ -20,7 +22,9 @@ class Renderer {
 
 		void setBackgroundColor(const Vec3<float> & vec);
 		Vec3<float> getBackgroundColor() const;
-		
+
+		void setBackground(IBackground * bg);
+
 		void render(Camera & camera, Scene & scene);
 
 		int getSamples() const;
@@ -31,6 +35,8 @@ class Renderer {
 		int samples;
 
 		int pathDepth, curDepth, distance;
+
+		IBackground * background;
 		
 		Vec3<float> backgroundColor;
 		

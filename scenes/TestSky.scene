@@ -1,6 +1,7 @@
 Config {
 	Settings camera pos:[-10;-507;90] focus:[10;50;25] angle:90 imagesize:[600;400;0] realsize:[600;400;0]
 	Settings render backgroundColor:[200;200;200] samplesPerIteration:2
+	Settings background name:"sky" file:"Debug/sky.bmp" pos:[0,0,0] radius:1200.0
 }
 
 Materials {
@@ -12,12 +13,10 @@ Materials {
 	Material simple name:"blueMaterial" reflectance:[1;0.6;0.6] emittance:[0.0;0.0;0.0]
 	Material simple name:"sphereMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
 	Material simple name:"light" reflectance:[0.0;0.0;0.0] emittance:[100.0;100.0;100.0]
-	Material sky name:"sky" file:"Debug/sky.bmp"
 }
 
 Scene {
 	Surface sphere material:"redMaterial" pos:[10;50;25] radius:20.0
-	Surface sphere material:"sky" pos:[10;50;25] radius:1500.0
 	Surface plane material:"planeMaterial" abc:[0;0;1] d:0
 	
 }

@@ -9,6 +9,7 @@
 #include "Camera.h"
 #include "Renderer.h"
 #include "Factory.h"
+#include "IBackground.h"
 
 class Application {
     private:
@@ -21,6 +22,8 @@ class Application {
 		Renderer * renderer;
         SDL_Surface * surfDisplay;
         SDL_Surface * surfTest;
+
+		IBackground * background;
 
     public:
         Application();

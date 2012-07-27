@@ -21,6 +21,7 @@
     <ClCompile Include="source\Sphere.cpp" />
     <ClCompile Include="source\Console.cpp" />
     <ClCompile Include="source\ConstantBackground.cpp" />
+    <ClCompile Include="source\SkyBackground.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Application.h" />
@@ -48,5 +49,6 @@
     <ClInclude Include="source\Console.h" />
     <ClInclude Include="source\IBackground.h" />
     <ClInclude Include="source\ConstantBackground.h" />
+    <ClInclude Include="source\SkyBackground.h" />
   </ItemGroup>
 </Project>

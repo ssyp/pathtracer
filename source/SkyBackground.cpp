@@ -1,28 +1,20 @@
-#include "SkyMaterial.h"
-#include "MathUtils.h"
-#include <fstream>
-#include <algorithm>
-#include <cmath>
+#include "SkyBackground.h"
 
-float SkyMaterial::getBRDF(const Vec3<float> & in, const Vec3<float> & out, const Vec3<float> & n) const {
-	return 1.0f;
+Vec3<float> SkyBackground::getColor(const Ray & ray) {
+	Vec3<float> vec, normal;
+	float t;
+	sphere.getIntersection(ray, t, normal);
+	vec = ray.eval(t);
+	return getTextureColor(static_cast<int>(vec.x)+1500, static_cast<int>(vec.y)+1500);
 }
 
-Vec3<float> SkyMaterial::getColor(const Vec3<float> & color, const Vec3<float> & point) {
-	return getTextureColor(static_cast<int>(point.x)+1500,static_cast<int>(point.y)+1500)*0.2f;
-}
-
-Vec3<float> SkyMaterial::interact(const Vec3<float> & in, const Vec3<float> & ip, const Vec3<float> & n) const {
-	return Vec3<float>(0,0,1);
-}
-
-void SkyMaterial::init(const Block & block) {
-	file = "Debug/_sky.bmp"; //block.getVariable("file").stringValue;
+void SkyBackground::init(const Block & block) {
+	file = block.getVariable("file").stringValue;
 	surf = SDL_LoadBMP(file.c_str());
-	//if(surf == NULL) 
-};
+	sphere.init(block);
+}
 
-Vec3<float> SkyMaterial::getTextureColor(const int x, const int y)
+Vec3<float> SkyBackground::getTextureColor(const int & x, const int & y)
 {
 	Vec3<float> color;
 	Uint32 pix=0;
@@ -38,7 +30,7 @@ Vec3<float> SkyMaterial::getTextureColor(const int x, const int y)
 	return color;
 }
 
-Uint32 SkyMaterial::getPixel(SDL_Surface *surface, int x, int y) {
+Uint32 SkyBackground::getPixel(SDL_Surface *surface, int x, int y) {
     Uint8 *p;
      
     if(!surface->pixels) return 0;

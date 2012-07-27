@@ -1,9 +1,10 @@
 #include "ConstantBackground.h"
+#include "MathUtils.h"
 
-Vec3<float> ConstantBackground::getColor(const Vec3<float> & vec) const {
+Vec3<float> ConstantBackground::getColor(const Ray & ray) {
 	return color;
 }
 
 void ConstantBackground::init(const Block & block) {
-	color = block.getVariable("color").vectorValue;
+	color = Math::getColor(block.getVariable("color").vectorValue);
 }

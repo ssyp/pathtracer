@@ -1,11 +1,10 @@
 #include "SkyBackground.h"
+#include "MathUtils.h"
 
 Vec3<float> SkyBackground::getColor(const Ray & ray) {
-	Vec3<float> vec, normal;
-	float t;
-	sphere.getIntersection(ray, t, normal);
-	vec = ray.eval(t);
-	return getTextureColor(static_cast<int>(vec.x)+1500, static_cast<int>(vec.y)+1500);
+	Vec3<float> point;
+	point = Math::toSpherical(ray.direction);
+	return getTextureColor(static_cast<int>(point.x)+1500, static_cast<int>(point.y)+1500);
 }
 
 void SkyBackground::init(const Block & block) {
@@ -18,8 +17,6 @@ Vec3<float> SkyBackground::getTextureColor(const int & x, const int & y)
 {
 	Vec3<float> color;
 	Uint32 pix=0;
-	SDL_LockSurface(surf);
-	SDL_LockSurface(surf);
 	pix = getPixel(surf, x, y);
 	SDL_UnlockSurface(surf);
 	Uint8 r, g, b;

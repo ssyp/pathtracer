@@ -23,6 +23,7 @@ namespace Math {
 	extern float radian(const float & rad);
 
 	extern Vec3<float> toDecard(const float & radius, const float & zenit, const float & azimut);
+	extern Vec3<float> toSpherical(const Vec3<float> & point);
 
 	extern float dot(const Vec3<float> & vec, const Vec3<float> & vec1);
 	extern Vec3<float> cross(const Vec3<float> & vec, const Vec3<float> & vec1);

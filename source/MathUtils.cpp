@@ -57,6 +57,14 @@ namespace Math {
 		return result;
 	}
 
+	Vec3<float> toSpherical(const Vec3<float> & point) {
+		Vec3<float> result;
+		result.z = sqrt(point.x*point.x+point.y+point.y+point.z+point.z);
+		result.x = acos(point.z/result.z);
+		result.y = atan(point.y/point.x);
+		return result;
+	}
+
 	Vec3<float> cross(const Vec3<float> & vec, const Vec3<float> & vec1) {
 		Vec3<float> rezVec;		
 		rezVec.x = vec1.y * vec.z - vec.y * vec1.z;

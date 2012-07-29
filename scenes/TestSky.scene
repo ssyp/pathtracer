@@ -1,5 +1,5 @@
 Config {
-	Settings camera pos:[-10;-507;90] focus:[10;50;25] angle:90 imagesize:[600;400;0] realsize:[600;400;0]
+	Settings camera pos:[-10;-507;90] focus:[10;50;45] angle:90 imagesize:[600;400;0] realsize:[600;400;0]
 	Settings render backgroundColor:[200;200;200] samplesPerIteration:2
 	Settings background name:"sky" file:"Debug/sky.bmp" pos:[0,0,0] radius:1200.0
 }

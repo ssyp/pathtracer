@@ -4,7 +4,7 @@
 Vec3<float> SkyBackground::getColor(const Ray & ray) {
 	Vec3<float> point;
 	point = Math::toSpherical(ray.direction);
-	return getTextureColor(static_cast<int>(point.x)+1500, static_cast<int>(point.y)+1500);
+	return Math::getColor(getTextureColor(point.x*1000.0f, point.y*1000.0f));
 }
 
 void SkyBackground::init(const Block & block) {

@@ -61,7 +61,7 @@ namespace Math {
 		Vec3<float> result;
 		result.z = sqrt(point.x*point.x+point.y+point.y+point.z+point.z);
 		result.x = acos(point.z/result.z);
-		result.y = atan(point.y/point.x);
+		result.y = atan2(point.y, point.x);
 		return result;
 	}
 

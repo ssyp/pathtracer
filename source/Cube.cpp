@@ -26,7 +26,7 @@ void Cube::init(const Block & block) {
 
 bool Cube::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) const {
 	Plane add1(Vec3<float>(min.x, min.y, min.z), Vec3<float>(max.x, min.y, min.z), Vec3<float>(max.x, min.y, max.z));
-	Plane dd1ñ1(Vec3<float>(max.x, min.y, min.z), Vec3<float>(max.x, min.y, max.z), Vec3<float>(max.x, max.y, max.z));
+    Plane dd1c1(Vec3<float>(max.x, min.y, min.z), Vec3<float>(max.x, min.y, max.z), Vec3<float>(max.x, max.y, max.z));
 	Plane adc(Vec3<float>(min.x, min.y, min.z), Vec3<float>(max.x, min.y, min.z), Vec3<float>(max.x, max.y, min.z));
 	Plane abb1(Vec3<float>(min.x, min.y, min.z), Vec3<float>(min.x, max.y, min.z), Vec3<float>(min.x, max.y, max.z));
 	Plane bcc1(Vec3<float>(min.x, max.y, min.z), Vec3<float>(max.x, max.y, min.z), Vec3<float>(max.x, max.y, max.z));
@@ -51,7 +51,8 @@ bool Cube::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) con
 			}
 		}
 	}
-	if(dd1ñ1.getIntersection(ray, tP, normalP)) {
+
+   if(dd1c1.getIntersection(ray, tP, normalP)) {
 		pointIntersection = ray.eval(tP);
 		minValue.x = max.x;
 		minValue.y = min.y;

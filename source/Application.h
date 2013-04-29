@@ -1,7 +1,11 @@
 #ifndef __APP_H__
 #define __APP_H__
- 
+
+#if (defined __linux__)
+#include <SDL/SDL.h>
+#elif (defined _WIN32)
 #include "SDL.h"
+#endif
 
 #include "Parser.h"
 #include "ISurface.h"

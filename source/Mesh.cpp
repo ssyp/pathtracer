@@ -50,7 +50,8 @@ bool Mesh::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) con
 
 void Mesh::load(const std::string & fileName) {
 	Poligon poligon;
-	std::ifstream file("scenes/" + fileName);
+    //Before there was not c_str
+	std::ifstream file(std::string("scenes/" + fileName).c_str(), std::ifstream::in);
 	while(!file.eof() && file) {
 		file >> poligon.vertices1.x >> poligon.vertices1.y >> poligon.vertices1.z;
 		file >> poligon.vertices2.x >> poligon.vertices2.y >> poligon.vertices2.z;

@@ -7,11 +7,11 @@ void MaterialManager::addMaterial(IMaterial* material, const std::string & strin
 }
 
 void MaterialManager::deleteMaterial(const std::string & string) {
-	std::map<std::string, IMaterial *>::const_iterator it = materials.find(string);
+	std::map<std::string, IMaterial *>::iterator it = materials.find(string); //There was a const_iterator
 	if (it == materials.end()) {
 		return; 
-	} 
-	materials.erase(it);
+	}
+    materials.erase(it); //But gcc 4.7 swears by const_iterator
 }
 
 IMaterial* MaterialManager::getMaterial(const std::string & string) {

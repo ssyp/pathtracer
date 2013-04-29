@@ -1,10 +1,15 @@
 #ifndef __SKYMATERIAL_H__
 #define __SKYMATERIAL_H__
 
+#if (defined __linux__)
+#include <SDL/SDL.h>
+#elif (defined _WIN32)
+#include "SDL.h"
+#endif
+
 #include "IMaterial.h"
 #include "Block.h"
 #include <string>
-#include "SDL.h"
 
 class SkyMaterial : public IMaterial {
 	public:

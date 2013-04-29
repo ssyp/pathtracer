@@ -3,7 +3,7 @@
 #include "Parser.h"
 
 void Parser::parse(const std::string & name) {
-	std::ifstream file(name);
+	std::ifstream file(name.c_str());
 	int typeBlock = -1;
 
 	while(!file.eof()) {

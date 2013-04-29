@@ -23,7 +23,7 @@ Vec3<float> & MonteCarloImage::get(const int tx, const int ty) const {
 
 void MonteCarloImage::save(const int samp, const std::string & path) const
 {
-	std::ofstream f(path, std::ios::out | std::ios::binary);
+/*	std::ofstream f(path.c_str, std::ios::out | std::ios::binary);
 
 	unsigned char *img = NULL;
 	int w = x, h = y;
@@ -69,6 +69,7 @@ void MonteCarloImage::save(const int samp, const std::string & path) const
 		f.write(reinterpret_cast<const char*>(bmppad), (4 - (w * 3) % 4) % 4);
 	}
 	f.close();
+*/
 }
 
 int MonteCarloImage::getHeight() const {

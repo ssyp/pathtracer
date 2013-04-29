@@ -24,14 +24,13 @@ class Application {
 		Camera * camera;
 		Renderer * renderer;
         SDL_Surface * surfDisplay;
-        SDL_Surface * surfTest;
 
     public:
         Application();
-        int onExecute();
+        int onExecute(std::string sceneN);
  
     public:
-        bool onInit();
+        bool onInit(std::string sceneN);
         void onEvent(SDL_Event * Event);
         void onLoop();
         void onRender();

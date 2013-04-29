@@ -3,15 +3,14 @@
  
 Application::Application() {
     surfDisplay = NULL;
-	surfTest = NULL;
 
     running = true;
 }
 
-bool Application::onInit() {
+bool Application::onInit(std::string sceneN) {
     samples = 0;
 	parser = new Parser();
-	parser->parse("scenes/Materials.scene");
+	parser->parse(sceneN);
 
 	Block blockS, blockCamera, blockRender;
  
@@ -54,7 +53,6 @@ bool Application::onInit() {
 }
 
 void Application::onCleanup() {
-	SDL_FreeSurface(surfTest);
     SDL_FreeSurface(surfDisplay);
 	delete parser;
 	delete scene;
@@ -70,8 +68,8 @@ void Application::onEvent(SDL_Event * Event) {
     }
 }
 
-int Application::onExecute() {
-    if(onInit() == false) {
+int Application::onExecute(std::string sceneN) {
+    if(onInit(sceneN) == false) {
         return -1;
     }
  

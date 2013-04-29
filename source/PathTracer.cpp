@@ -1,32 +1,43 @@
 #include "Application.h"
 #include "Console.h"
 
+#include <iostream>
+
 int main(int argc, char* argv[]) {
 	if(argc > 1) {
 		std::string scene, output;
-		
-		int iterations = 0, samples = 0;
-		char* sceneC = "--scene";
-		char* iterationsC = "--iterations";
-		char* samplesC = "--samples";
-		char* outputC = "--output";
+
+		int iterations = 3, samples = 0;
+		std::string sceneC = "--scene";
+		std::string iterationsC = "--iterations";
+		std::string samplesC = "--samples";
+		std::string outputC = "--output";
+		std::string helpC = "--help";
 		
 		for(int i = 0; i < argc; i++) {
-			if(argv[i] == sceneC) {
+			if(strcmp(argv[i], sceneC.c_str()) == 0) {
 				scene = argv[i + 1];
 				scene = scene.substr(0, scene.length());
 			}
-			else if(argv[i] == iterationsC) 
+			else if(strcmp(argv[i], iterationsC.c_str()) == 0) 
 				iterations = static_cast<int>(atof(argv[i + 1]));
-			else if(argv[i] == samplesC) 
+			else if(strcmp(argv[i], samplesC.c_str()) == 0) 
 				samples = static_cast<int>(atof(argv[i + 1]));
-			else if(argv[i] == outputC) {
+			else if(strcmp(argv[i], outputC.c_str()) == 0) {
 				output = argv[i + 1];
 				output = output.substr(0, output.length());
 			}
+            else if(strcmp(argv[i], helpC.c_str()) == 0) {
+                std::cout << "--scene \"path\" - The path to the scene file" << std::endl;
+                std::cout << "--iterations \"number\" - Number of iterations" << std::endl;
+                std::cout << "--samples \"number\" - Number of samples" << std::endl;
+                std::cout << "--output \"path\" - Path where to save" << std::endl;
+                std::cout << "--help - Show this help" << std::endl;
+                return 0;
+            }
 		}
 		Console theCons;
-		return theCons.consoleInit(scene, iterations, samples, output);
+		return theCons.execute(scene, iterations, samples, output);
 	}
 	else {
 		Application theApp;

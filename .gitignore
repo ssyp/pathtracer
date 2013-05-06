@@ -2,6 +2,10 @@
 *.sdf
 *.suo
 *.opensdf
+*.swp
+*.o
+*.bmp
+pathtracer
 Debug/
 Release/
 ipch/

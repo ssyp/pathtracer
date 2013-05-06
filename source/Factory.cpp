@@ -26,6 +26,7 @@ IMaterial * Factory::createMaterial(const Block & block) {
 
 	if (block.surface == "simple") { mater = new SimpleMaterial(); }
 	if (block.surface == "mirror") { mater = new MirrorMaterial(); }
+//	if (block.surface == "sky") { mater = new SkyMaterial(); }
 
 	if(mater != NULL) {
 		mater->init(block);

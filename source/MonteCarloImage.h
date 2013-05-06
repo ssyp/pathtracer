@@ -14,8 +14,6 @@ class MonteCarloImage {
 		void add(const int x, const int y, const Vec3<float> color);
 		Vec3<float> & get(const int x, const int y) const;
 		
-		void save(const int samp, const std::string & path) const;
-
 		int getWidth() const;
 		int getHeight() const;
 

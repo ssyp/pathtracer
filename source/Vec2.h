@@ -63,7 +63,7 @@ namespace Math {
 	
 			void normalize() {
 				float l = 1.0f / getLength();
-				x * = l; y * = l;
+				x *= l; y *= l;
 			}
 				
 			T dot(const Vec2<T> & vec2) const {
@@ -72,7 +72,7 @@ namespace Math {
 	
 			bool operator < (const Vec2<T> & vec2) const
 			{
-				if (x + y + z < vec2.x + vec2.y) 
+				if (x + y < vec2.x + vec2.y) 
 				{
 					return true;
 				}
@@ -81,7 +81,7 @@ namespace Math {
 	
 			bool operator > (const Vec2<T> & vec2) const
 			{
-				if (x + y + z < vec2.x + vec2.y) 
+				if (x + y < vec2.x + vec2.y) 
 				{
 					return true;
 				}

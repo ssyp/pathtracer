@@ -1,7 +1,11 @@
 #ifndef __APP_H__
 #define __APP_H__
- 
+
+#if (defined __linux__)
+#include <SDL/SDL.h>
+#elif (defined _WIN32)
 #include "SDL.h"
+#endif
 
 #include "Parser.h"
 #include "ISurface.h"
@@ -21,16 +25,15 @@ class Application {
 		Camera * camera;
 		Renderer * renderer;
         SDL_Surface * surfDisplay;
-        SDL_Surface * surfTest;
 
 		IBackground * background;
 
     public:
         Application();
-        int onExecute();
+        int onExecute(std::string sceneN);
  
     public:
-        bool onInit();
+        bool onInit(std::string sceneN);
         void onEvent(SDL_Event * Event);
         void onLoop();
         void onRender();

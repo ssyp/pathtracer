@@ -42,7 +42,6 @@ bool Application::onInit(std::string sceneN) {
 	for (int i = 0; i < parser->getNumSurfaceBlocks(); i++) {
 		block = parser->getSurfaceBlock(i);
 		surf = Factory::createSurface(block);
-		surf->init(block);
 		scene->addSurface(surf);
 	}
 

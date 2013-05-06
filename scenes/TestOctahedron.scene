@@ -1,18 +1,18 @@
 Config {
-	Settings camera pos:[-100;-100;40] focus:[30;30;15] angle:90 imagesize:[400;400;0] realsize:[30;30;0]
+	Settings camera pos:[-100;-70;40] focus:[30;30;15] angle:90 imagesize:[300;300;0] realsize:[30;30;0]
 	Settings render backgroundColor:[200;200;200] samplesPerIteration:1
 }
 
 Materials {
 	Material simple name:"planeMaterial" reflectance:[1.0;1.0;1.0] emittance:[0.0;0.0;0.0]
-	Material simple name:"meshRed" reflectance:[1.0;0.0;0.0] emittance:[0.0;0.0;0.0]
-	Material simple name:"meshGreen" reflectance:[0.0;0.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"meshRed" reflectance:[0.0;0.0;1.0] emittance:[0.0;0.0;0.0]
+	Material simple name:"meshGreen" reflectance:[1.0;0.0;0.0] emittance:[0.0;0.0;0.0]
 	Material simple name:"meshBlue" reflectance:[0.0;1.0;0.0] emittance:[0.0;0.0;0.0]
 }
 
 Scene {
-	Surface mesh material:"meshRed" pos:[0;30;1] file:"TestOctahedronZero.mesh" 
-	Surface mesh material:"meshGreen" pos:[80;60;1] file:"TestOctahedronZero.mesh" 
-	Surface mesh material:"meshBlue" pos:[30;0;1] file:"TestOctahedronZero.mesh"
+	Surface mesh material:"meshRed" pos:[0;0;0] file:"TestOctahedronZero.mesh"
+	Surface mesh material:"meshGreen" pos:[0;30;0] file:"TestOctahedronZero.mesh"
+	Surface mesh material:"meshBlue" pos:[0;-30;0] file:"TestOctahedronZero.mesh"
 	Surface plane material:"planeMaterial" abc:[0;0;1] d:0
 }

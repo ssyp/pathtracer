@@ -1,11 +1,14 @@
 #include "Mesh.h"
 #include "Plane.h"
-#include "Poligon.h"
 #include "MathUtils.h"
-#include <iostream>
 #include <fstream>
+#include <iostream>
 
-using namespace Math;
+Mesh::Mesh() {
+    position.x = 0;
+    position.y = 0;
+    position.z = 0;
+}
 
 bool Mesh::belongingTriangle(const Vec3<float> & a, const Vec3<float> & b, const Vec3<float> c, const Vec3<float> p) const {
     // if the triangle is parallel to the coordinate axes
@@ -86,7 +89,6 @@ bool Mesh::getIntersection(const Ray & ray, float & t, Vec3<float> & normal) con
 	Vec3<float> normalOutput, vertices4;
 	bool colision=false;
 	float pointIntersection;
-    //float mOxy = -1, mOxz = -1, mOyz = -1, lOxy = -1, lOxz = -1, lOyz = -1;
 	t=inf;
 	
 	for(size_t i = 0; i < poligons.size(); i++) {	
@@ -118,12 +120,27 @@ void Mesh::load(const std::string & fileName) {
 		file >> poligon.vertices1.x >> poligon.vertices1.y >> poligon.vertices1.z;
 		file >> poligon.vertices2.x >> poligon.vertices2.y >> poligon.vertices2.z;
 		file >> poligon.vertices3.x >> poligon.vertices3.y >> poligon.vertices3.z;
+        std::cout << poligon.vertices1.x << ' ' << poligon.vertices1.y << ' ' << poligon.vertices1.z << " + ";
+        std::cout << position.x << ' ' << position.y << ' ' << position.z << " = ";
+        poligon.vertices1 += position;
+        std::cout << poligon.vertices1.x << ' ' << poligon.vertices1.y << ' ' << poligon.vertices1.z << std::endl;
+        std::cout << poligon.vertices2.x << ' ' << poligon.vertices2.y << ' ' << poligon.vertices2.z << " + ";
+        std::cout << position.x << ' ' << position.y << ' ' << position.z << " = ";
+        poligon.vertices2 += position;
+        std::cout << poligon.vertices2.x << ' ' << poligon.vertices2.y << ' ' << poligon.vertices2.z << std::endl;
+        std::cout << poligon.vertices3.x << ' ' << poligon.vertices3.y << ' ' << poligon.vertices3.z << " + ";
+        std::cout << position.x << ' ' << position.y << ' ' << position.z << " = ";
+        poligon.vertices3 += position;
+        std::cout << poligon.vertices3.x << ' ' << poligon.vertices3.y << ' ' << poligon.vertices3.z << std::endl;
+        std::cout << std::endl;
 		poligons.push_back(poligon);
 	}
 }
 
 void Mesh::init(const Block & block) {
-	load(block.getVariable("file").stringValue);
+	position = block.getVariable("pos").vectorValue;
+    std::cout << "Read position: " << position.x << ' ' << position.y << ' ' << position.z << std::endl;
+    load(block.getVariable("file").stringValue);
 	material = MaterialManager::getMaterial(block.getVariable("material").stringValue);
 }
 
